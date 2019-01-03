@@ -1,0 +1,6 @@
+framework module Pods_SwiftArchitectureUITests {
+  umbrella header "Pods-SwiftArchitectureUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
