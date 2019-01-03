@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AreaFilterView" customModule="SwiftArchitecture" customModuleProvider="target">
+            <connections>
+                <outlet property="allCheckButton" destination="SKA-Gi-QsL" id="PqO-Rb-igH"/>
+                <outlet property="tableView" destination="eeJ-Of-IYY" id="8au-74-9XB"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="QlU-g0-zfO">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="396"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eeJ-Of-IYY">
+                    <rect key="frame" x="0.0" y="44" width="150" height="352"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLZ-e3-1hn">
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKA-Gi-QsL">
+                            <rect key="frame" x="0.0" y="0.0" width="150" height="44"/>
+                            <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="すべて" image="btn_check_normal">
+                                <color key="titleColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" image="btn_check_selected"/>
+                            <connections>
+                                <action selector="tappedAllCheckButton:" destination="-1" eventType="touchUpInside" id="HJG-Qu-MQe"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xs5-C9-s6g">
+                            <rect key="frame" x="0.0" y="43" width="150" height="1"/>
+                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="ML4-Nm-kAb"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="SKA-Gi-QsL" secondAttribute="trailing" id="0sq-jc-q5U"/>
+                        <constraint firstItem="xs5-C9-s6g" firstAttribute="leading" secondItem="hLZ-e3-1hn" secondAttribute="leading" id="6m3-9V-7EW"/>
+                        <constraint firstItem="SKA-Gi-QsL" firstAttribute="leading" secondItem="hLZ-e3-1hn" secondAttribute="leading" id="7fR-7k-Aft"/>
+                        <constraint firstAttribute="height" constant="44" id="NTs-X3-KSR"/>
+                        <constraint firstAttribute="trailing" secondItem="xs5-C9-s6g" secondAttribute="trailing" id="PzJ-Qm-IWt"/>
+                        <constraint firstAttribute="bottom" secondItem="SKA-Gi-QsL" secondAttribute="bottom" id="QBG-rR-sy8"/>
+                        <constraint firstAttribute="bottom" secondItem="xs5-C9-s6g" secondAttribute="bottom" id="bdK-Jp-bjx"/>
+                        <constraint firstItem="SKA-Gi-QsL" firstAttribute="top" secondItem="hLZ-e3-1hn" secondAttribute="top" id="uuu-48-dln"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="eeJ-Of-IYY" firstAttribute="leading" secondItem="Rsk-Mo-9tg" secondAttribute="leading" id="Ifo-jX-raO"/>
+                <constraint firstItem="hLZ-e3-1hn" firstAttribute="top" secondItem="Rsk-Mo-9tg" secondAttribute="top" id="QQC-KT-vVi"/>
+                <constraint firstItem="Rsk-Mo-9tg" firstAttribute="trailing" secondItem="hLZ-e3-1hn" secondAttribute="trailing" id="SDR-O3-Zp3"/>
+                <constraint firstItem="Rsk-Mo-9tg" firstAttribute="bottom" secondItem="eeJ-Of-IYY" secondAttribute="bottom" id="Vy0-zp-Vzr"/>
+                <constraint firstItem="Rsk-Mo-9tg" firstAttribute="trailing" secondItem="eeJ-Of-IYY" secondAttribute="trailing" id="YNE-J1-Zql"/>
+                <constraint firstItem="hLZ-e3-1hn" firstAttribute="leading" secondItem="Rsk-Mo-9tg" secondAttribute="leading" id="mc3-1M-YpV"/>
+                <constraint firstItem="eeJ-Of-IYY" firstAttribute="top" secondItem="hLZ-e3-1hn" secondAttribute="bottom" id="tS7-k0-yTh"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Rsk-Mo-9tg"/>
+            <point key="canvasLocation" x="38.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_check_normal" width="30" height="30"/>
+        <image name="btn_check_selected" width="30" height="30"/>
+    </resources>
+</document>

@@ -24,4 +24,21 @@ extension UIViewController {
         
         present(viewController, animated: true, completion: nil)
     }
+    
+    func showPopover(viewController: UIViewController,
+                     sourceView: UIView,
+                     viewSize: CGSize,
+                     direction: UIPopoverArrowDirection,
+                     delegate: UIPopoverPresentationControllerDelegate?) {
+        viewController.modalPresentationStyle = .popover
+        viewController.preferredContentSize = viewSize
+        
+        let presentationController = viewController.popoverPresentationController
+        presentationController?.delegate = delegate
+        presentationController?.permittedArrowDirections = direction
+        presentationController?.sourceView = sourceView
+        presentationController?.sourceRect = sourceView.bounds
+        
+        present(viewController, animated: true, completion: nil)
+    }
 }
