@@ -59,7 +59,7 @@ class AreaFilterViewController: UIViewController {
     }
     
     private let cellIdentifier = "AreaFilterTableViewCell"
-    private var tableDataList: [Area] = [.hokkaido, .tohoku, .kanto, .chubu, .kinki, .chugoku, .shikoku, .kyushu]
+    private let tableDataList: [Area] = [.hokkaido, .tohoku, .kanto, .chubu, .kinki, .chugoku, .shikoku, .kyushu]
     override func viewDidLoad() {
         super.viewDidLoad()
 
