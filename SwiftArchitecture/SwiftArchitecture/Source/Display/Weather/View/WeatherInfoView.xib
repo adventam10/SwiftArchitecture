@@ -13,14 +13,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherInfoView" customModule="SwiftArchitecture" customModuleProvider="target">
             <connections>
-                <outlet property="dateLabel" destination="zmJ-UO-3PZ" id="3pn-7s-wBJ"/>
+                <outlet property="dateLabel" destination="19F-fU-iT4" id="Nm8-s7-Ct2"/>
                 <outlet property="imageView" destination="JDj-nx-wi5" id="geo-Ib-d8J"/>
                 <outlet property="labelHeightConstraint" destination="ANo-po-VKl" id="DDF-5S-cuL"/>
                 <outlet property="maxCelsiusLabel" destination="4b6-H1-T47" id="mQu-Yz-Qa5"/>
                 <outlet property="maxCelsiusTitleLabel" destination="eZ1-Pa-SgT" id="lUZ-Ma-Eih"/>
                 <outlet property="minCelsiusLabel" destination="Vyu-1k-veV" id="Zy9-aT-2Rh"/>
                 <outlet property="minCelsiusTitleLabel" destination="s4T-oc-LOS" id="Vzd-9v-d6e"/>
-                <outlet property="subDateLabel" destination="19F-fU-iT4" id="pqy-gZ-0FV"/>
+                <outlet property="subDateLabel" destination="zmJ-UO-3PZ" id="jdg-e2-lrc"/>
                 <outlet property="telopLabel" destination="jwY-Df-NyW" id="PaP-7J-ZIS"/>
             </connections>
         </placeholder>
