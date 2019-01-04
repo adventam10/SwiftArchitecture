@@ -1,22 +1,19 @@
 //
-//  WeatherModel.swift
+//  WeatherInteractor.swift
 //  SwiftArchitecture
 //
-//  Created by am10 on 2019/01/03.
+//  Created by am10 on 2019/01/05.
 //  Copyright © 2019年 am10. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Alamofire
 
-class WeatherModel {
-    var weather: Weather!
-    var cityData: CityData!
-    let dateFormatter = DateFormatter()
-    
-    class func requestWeather(cityId: String,
-                              success: @escaping (Weather)->Void,
-                              failure: @escaping (String)->Void) {
+class WeatherInteractor {
+    weak var delegate: WeatherInteractorDelegate?
+    static func requestWeather(cityId: String,
+                               success: @escaping (Weather)->Void,
+                               failure: @escaping (String)->Void) {
         Alamofire.request(URL(string: "http://weather.livedoor.com/forecast/webservice/json/v1?city=\(cityId)")!).responseJSON { (dataResponse) in
             DispatchQueue.main.async {
                 if let error = dataResponse.error {
@@ -43,9 +40,20 @@ class WeatherModel {
             }
         }
     }
-    
-    init() {
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.dateFormat = "yyyy/MM/dd(E)"
+}
+
+extension WeatherInteractor: WeatherUsecase {
+    func requestWeather(cityId: String) {
+        WeatherInteractor.requestWeather(cityId: cityId,
+                                         success:
+            {[weak self] (weather) in
+                guard let weakSelf = self else { return }
+                weakSelf.delegate?.interactor(weakSelf, didSuccess: weather)
+            },
+                                         failure:
+            {[weak self] (message) in
+                guard let weakSelf = self else { return }
+                weakSelf.delegate?.interactor(weakSelf, didFailWithMessage: message)
+        })
     }
 }

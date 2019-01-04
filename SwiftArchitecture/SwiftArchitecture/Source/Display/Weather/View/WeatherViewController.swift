@@ -1,27 +1,54 @@
 //
-//  WeatherView.swift
+//  WeatherViewController.swift
 //  SwiftArchitecture
 //
-//  Created by am10 on 2019/01/03.
+//  Created by am10 on 2019/01/02.
 //  Copyright © 2019年 am10. All rights reserved.
 //
 
 import UIKit
+import SVProgressHUD
 
-class WeatherView: BaseView {
+class WeatherViewController: UIViewController {
+    var presenter: WeatherPresenter!
     @IBOutlet private weak var todayView: WeatherInfoView!
     @IBOutlet private weak var tomorrowView: WeatherInfoView!
     @IBOutlet private weak var dayAfterTomorrowView: WeatherInfoView!
     private let noImage = UIImage(named: "icon_no_image")
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
+        // Do any additional setup after loading the view.
         todayView.viewType = .large
         tomorrowView.viewType = .small
         dayAfterTomorrowView.viewType = .small
+        setupNavigation()
+        presenter.viewDidLoad()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    private func setupNavigation() {
+        self.navigationItem.title = presenter.cityData.name
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .refresh,
+                                                                      target: self,
+                                                                      action: #selector(tappedRefreshButton(_:)))
     }
     
-    func displayView(forecasts: [Forecast]?, dateFormatter: DateFormatter) {
+    @objc
+    private func tappedRefreshButton(_ button: UIBarButtonItem) {
+        SVProgressHUD.show()
+        presenter.didTapRefreshButton(button)
+    }
+}
+
+extension WeatherViewController: WeatherView {
+    func reloadView(forecasts: [Forecast]?, dateFormatter: DateFormatter) {
         todayView.displayView(forecast: nil,
                               dateText: dateFormatter.string(from: Date()),
                               noImage: noImage)

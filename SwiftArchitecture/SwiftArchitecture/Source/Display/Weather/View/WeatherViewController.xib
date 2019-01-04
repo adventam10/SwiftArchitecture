@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherViewController" customModule="SwiftArchitecture" customModuleProvider="target">
+            <connections>
+                <outlet property="dayAfterTomorrowView" destination="TsI-x1-30k" id="AJD-UR-YmH"/>
+                <outlet property="todayView" destination="tsh-nI-DHp" id="x1B-iC-KNY"/>
+                <outlet property="tomorrowView" destination="HNV-pP-38C" id="Yr3-Y6-fMz"/>
+                <outlet property="view" destination="MDI-dy-mdK" id="Xfr-ZO-L1v"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="MDI-dy-mdK">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsh-nI-DHp" userLabel="View - 今日" customClass="WeatherInfoView" customModule="SwiftArchitecture" customModuleProvider="target">
+                    <rect key="frame" x="21" y="35" width="333.5" height="333.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="tsh-nI-DHp" secondAttribute="height" multiplier="1:1" id="lrr-YM-dH4"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TkS-6m-fpc">
+                    <rect key="frame" x="5" y="378.5" width="365" height="278.5"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNV-pP-38C" userLabel="View - 明日" customClass="WeatherInfoView" customModule="SwiftArchitecture" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="177.5" height="278.5"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TsI-x1-30k" userLabel="View - 明後日" customClass="WeatherInfoView" customModule="SwiftArchitecture" customModuleProvider="target">
+                            <rect key="frame" x="187.5" y="0.0" width="177.5" height="278.5"/>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="9vx-TY-L3a" firstAttribute="bottom" secondItem="TkS-6m-fpc" secondAttribute="bottom" constant="10" id="Bpe-3Z-Knk"/>
+                <constraint firstItem="tsh-nI-DHp" firstAttribute="top" secondItem="9vx-TY-L3a" secondAttribute="top" constant="15" id="DXO-zC-wGz"/>
+                <constraint firstItem="tsh-nI-DHp" firstAttribute="height" secondItem="MDI-dy-mdK" secondAttribute="height" multiplier="0.5" id="E6d-rj-306"/>
+                <constraint firstAttribute="trailing" secondItem="TkS-6m-fpc" secondAttribute="trailing" constant="5" id="EQ8-Oh-D4q"/>
+                <constraint firstItem="TkS-6m-fpc" firstAttribute="centerX" secondItem="MDI-dy-mdK" secondAttribute="centerX" id="VgE-sH-JZ9"/>
+                <constraint firstItem="tsh-nI-DHp" firstAttribute="centerX" secondItem="MDI-dy-mdK" secondAttribute="centerX" id="bZr-bq-dPT"/>
+                <constraint firstItem="TkS-6m-fpc" firstAttribute="top" secondItem="tsh-nI-DHp" secondAttribute="bottom" constant="10" id="tcZ-Ci-PZL"/>
+                <constraint firstItem="TkS-6m-fpc" firstAttribute="leading" secondItem="MDI-dy-mdK" secondAttribute="leading" constant="5" id="wiY-ev-qa8"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="9vx-TY-L3a"/>
+        </view>
+    </objects>
+</document>
