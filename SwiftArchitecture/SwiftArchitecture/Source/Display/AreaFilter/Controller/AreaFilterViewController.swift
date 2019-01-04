@@ -51,6 +51,7 @@ extension AreaFilterViewController: AreaFilterViewDelegate {
         model.setupSelectedAreaTypes(isAllCheck: !model.isAllCheck())
         areaFilterView.displayAllCheckButton(isSelected: model.isAllCheck())
         areaFilterView.tableView.reloadData()
+        delegate?.areaFilterViewController(self, didSelect: model.selectedAreaTypes)
     }
 }
 
