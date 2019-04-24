@@ -23,7 +23,7 @@ class PrefectureListModel {
     }
     
     func setupFavoriteList(cityId: String) {
-        if let index = favoriteCityIds.index(of: cityId) {
+        if let index = favoriteCityIds.firstIndex(of: cityId) {
             favoriteCityIds.remove(at: index)
         } else {
             favoriteCityIds.append(cityId)

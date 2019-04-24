@@ -1,15 +1,32 @@
 PODS:
   - Alamofire (4.8.0)
+  - ReactiveCocoa (9.0.0):
+    - ReactiveSwift (~> 5.0)
+  - ReactiveSwift (5.0.1):
+    - Result (~> 4.1)
+  - Result (4.1.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Alamofire
+  - ReactiveCocoa (~> 9.0)
   - SVProgressHUD
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - ReactiveCocoa
+    - ReactiveSwift
+    - Result
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  ReactiveCocoa: 29709cf0cc7502ddd04a51220e10ee0336d8bec8
+  ReactiveSwift: cac20a5bbe560c5806bd29c0fccf90d03b996ac1
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: cbc63c4548c60b4459c3b1bb9d67f558bce05098
+PODFILE CHECKSUM: 4a3df6975d3f0ea7e913339bb678d65806735774
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.6.1

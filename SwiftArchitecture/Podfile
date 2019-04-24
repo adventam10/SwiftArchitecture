@@ -8,6 +8,7 @@ target 'SwiftArchitecture' do
   # Pods for SwiftArchitecture
 	pod 'SVProgressHUD'
 	pod 'Alamofire'
+	pod 'ReactiveCocoa', '~> 9.0'
 
   target 'SwiftArchitectureTests' do
     inherit! :search_paths
