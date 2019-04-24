@@ -1,18 +1,18 @@
 //
-//  PrefectureListModel.swift
+//  PrefectureListViewModel.swift
 //  SwiftArchitecture
 //
-//  Created by am10 on 2019/01/03.
-//  Copyright © 2019年 am10. All rights reserved.
+//  Created by makoto on 2019/04/24.
+//  Copyright © 2019 am10. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class PrefectureListModel {
+class PrefectureListViewModel {
     let USER_DEFAULTS_FAVORITES_KEY = "USER_DEFAULTS_FAVORITES_KEY"
     var tableDataList = [CityData]()
     var cityDataList = [CityData]()
-    var selectedAreaTypes = [AreaFilterModel.Area]()
+    var selectedAreaTypes = [Area]()
     var favoriteCityIds = [String]()
     var isFavoriteFilter = false
     

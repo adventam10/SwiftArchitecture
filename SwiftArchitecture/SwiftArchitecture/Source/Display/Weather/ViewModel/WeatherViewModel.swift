@@ -1,19 +1,23 @@
 //
-//  WeatherModel.swift
+//  WeatherViewModel.swift
 //  SwiftArchitecture
 //
-//  Created by am10 on 2019/01/03.
-//  Copyright © 2019年 am10. All rights reserved.
+//  Created by makoto on 2019/04/24.
+//  Copyright © 2019 am10. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Alamofire
 
-class WeatherModel {
+class WeatherViewModel {
     var weather: Weather!
     var cityData: CityData!
-    let dateFormatter = DateFormatter()
-    
+    let dateFormatter :DateFormatter = {
+        let df = DateFormatter()
+        df.locale = Locale(identifier: "ja_JP")
+        df.dateFormat = "yyyy/MM/dd(E)"
+        return df
+    }()
     class func requestWeather(cityId: String,
                               success: @escaping (Weather)->Void,
                               failure: @escaping (String)->Void) {
@@ -42,10 +46,5 @@ class WeatherModel {
                 failure("JSONパース失敗")
             }
         }
-    }
-    
-    init() {
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.dateFormat = "yyyy/MM/dd(E)"
     }
 }

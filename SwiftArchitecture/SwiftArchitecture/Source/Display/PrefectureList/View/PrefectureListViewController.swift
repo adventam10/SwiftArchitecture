@@ -8,20 +8,20 @@
 
 import UIKit
 import SVProgressHUD
+import ReactiveSwift
+import ReactiveCocoa
 
 class PrefectureListViewController: UIViewController {
     private let cellIdentifier = "PrefectureListTableViewCell"
-    private let model = PrefectureListModel()
-    private let prefectureListView = PrefectureListView()
-    
-    override func loadView() {
-        self.view = prefectureListView
-        prefectureListView.delegate = self
-    }
+    private let viewModel = PrefectureListViewModel()
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var areaFilterButton: UIButton!
+    @IBOutlet private weak var favoriteButton: UIButton!
+    @IBOutlet private var noDataView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         setupNavigation()
         setupTableView()
@@ -35,17 +35,17 @@ class PrefectureListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let indexPath = prefectureListView.tableView.indexPathForSelectedRow {
-            prefectureListView.tableView.deselectRow(at: indexPath, animated: false)
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: false)
         }
     }
     
     private func setupTableView() {
-        prefectureListView.tableView.delegate = self
-        prefectureListView.tableView.dataSource = self
-        prefectureListView.tableView.register(UINib(nibName: cellIdentifier, bundle: nil),
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: cellIdentifier, bundle: nil),
                                               forCellReuseIdentifier: cellIdentifier)
-        prefectureListView.tableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView()
     }
     
     private func setupNavigation() {
@@ -57,14 +57,30 @@ class PrefectureListViewController: UIViewController {
     }
     
     private func reloadView() {
-        model.setupTableDataList()
-        prefectureListView.displayView(isFavoriteFilter: model.isFavoriteFilter,
-                                       isTableDataNone: model.tableDataList.isEmpty)
+        viewModel.setupTableDataList()
+        displayView(isFavoriteFilter: viewModel.isFavoriteFilter,
+                                       isTableDataNone: viewModel.tableDataList.isEmpty)
+    }
+    
+    func displayView(isFavoriteFilter: Bool, isTableDataNone: Bool) {
+        favoriteButton.isSelected = isFavoriteFilter
+        noDataView.isHidden = !isTableDataNone
+        tableView.reloadData()
+    }
+    
+    // MARK:- Button Action
+    @IBAction private func tappedFavoriteButton(_ button: UIButton) {
+        viewModel.isFavoriteFilter = !viewModel.isFavoriteFilter
+        reloadView()
+    }
+    
+    @IBAction private func tappedAreaFilterButton(_ button: UIButton) {
+        showAreaFilterViewController(button: button)
     }
     
     private func showAreaFilterViewController(button: UIButton) {
         let viewController = AreaFilterViewController()
-        viewController.model.selectedAreaTypes = model.selectedAreaTypes
+        viewController.viewModel.selectedAreaTypes = viewModel.selectedAreaTypes
         viewController.delegate = self
         showPopover(viewController: viewController,
                     sourceView: button,
@@ -75,41 +91,28 @@ class PrefectureListViewController: UIViewController {
     
     private func showWeatherViewController(weather: Weather, cityData: CityData) {
         let viewController = WeatherViewController()
-        viewController.model.weather = weather
-        viewController.model.cityData = cityData
+        viewController.viewModel.weather = weather
+        viewController.viewModel.cityData = cityData
         self.navigationController?.pushViewController(viewController, animated: true)
-    }
-}
-
-extension PrefectureListViewController: PrefectureListViewDelegate {
-    func prefectureListView(_ prefectureListView: PrefectureListView,
-                            didTapFavorite button: UIButton) {
-        model.isFavoriteFilter = !model.isFavoriteFilter
-        reloadView()
-    }
-    
-    func prefectureListView(_ prefectureListView: PrefectureListView,
-                            didTapAreaFilter button: UIButton) {
-        showAreaFilterViewController(button: button)
     }
 }
 
 extension PrefectureListViewController: PrefectureListTableViewCellDelegate {
     func prefectureListTableViewCell(_ cell: PrefectureListTableViewCell,
                                      didTapFavorite button: UIButton) {
-        guard let indexPath = prefectureListView.tableView.indexPath(for: cell) else {
+        guard let indexPath = tableView.indexPath(for: cell) else {
             return
         }
-        let cityData = model.tableDataList[indexPath.row]
-        model.setupFavoriteList(cityId: cityData.cityId)
+        let cityData = viewModel.tableDataList[indexPath.row]
+        viewModel.setupFavoriteList(cityId: cityData.cityId)
         reloadView()
     }
 }
 
 extension PrefectureListViewController: AreaFilterViewControllerDelegate {
     func areaFilterViewController(_ areaFilterViewController: AreaFilterViewController,
-                                  didSelect areaTypes: [AreaFilterModel.Area]) {
-        model.selectedAreaTypes = areaTypes
+                                  didSelect areaTypes: [Area]) {
+        viewModel.selectedAreaTypes = areaTypes
         reloadView()
     }
 }
@@ -123,13 +126,13 @@ extension PrefectureListViewController: UIPopoverPresentationControllerDelegate 
 extension PrefectureListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         SVProgressHUD.show()
-        WeatherModel.requestWeather(cityId: model.tableDataList[indexPath.row].cityId,
+        WeatherViewModel.requestWeather(cityId: viewModel.tableDataList[indexPath.row].cityId,
                                              success:
             {[weak self] (weather) in
                 SVProgressHUD.dismiss()
                 guard let weakSelf = self else { return }
                 weakSelf.showWeatherViewController(weather: weather,
-                                                   cityData: weakSelf.model.tableDataList[indexPath.row])
+                                                   cityData: weakSelf.viewModel.tableDataList[indexPath.row])
         },
                                              failure:
             {[weak self] (message) in
@@ -146,14 +149,14 @@ extension PrefectureListViewController: UITableViewDelegate {
 
 extension PrefectureListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.tableDataList.count
+        return viewModel.tableDataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PrefectureListTableViewCell
         cell.delegate = self
-        let cityData = model.tableDataList[indexPath.row]
-        cell.displayCityData(cityData, isFavorite: model.favoriteCityIds.contains(cityData.cityId))
+        let cityData = viewModel.tableDataList[indexPath.row]
+        cell.displayCityData(cityData, isFavorite: viewModel.favoriteCityIds.contains(cityData.cityId))
         return cell
     }
 }
