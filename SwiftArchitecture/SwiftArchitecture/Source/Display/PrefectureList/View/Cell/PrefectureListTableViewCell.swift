@@ -14,17 +14,17 @@ protocol PrefectureListTableViewCellDelegate: class {
 }
 
 class PrefectureListTableViewCell: UITableViewCell {
-
     weak var delegate: PrefectureListTableViewCellDelegate?
     @IBOutlet private weak var favoriteButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
     
+    // MARK:- Button Action
     @IBAction private func tappedFavoriteButton(_ button: UIButton) {
         delegate?.prefectureListTableViewCell(self, didTapFavorite: button)
     }
     
-    func displayCityData(_ cityData: CityData, isFavorite: Bool) {
-        titleLabel.text = cityData.name
-        favoriteButton.isSelected = isFavorite
+    func displayCityData(_ viewModel: PrefectureListCellViewModel) {
+        titleLabel.text = viewModel.cityName
+        favoriteButton.isSelected = viewModel.isFavorite
     }
 }

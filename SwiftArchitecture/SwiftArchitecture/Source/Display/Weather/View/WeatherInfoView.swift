@@ -54,62 +54,21 @@ class WeatherInfoView: BaseView {
     @IBOutlet private weak var minCelsiusLabel: UILabel!
     @IBOutlet private weak var maxCelsiusTitleLabel: UILabel!
     @IBOutlet private weak var minCelsiusTitleLabel: UILabel!
-   
-    func displayView(forecast: Forecast?, dateText: String, noImage: UIImage?) {
-        dateLabel.text = dateText
-        subDateLabel.text = forecast?.dateLabel ?? ""
-        telopLabel.text = forecast?.telop ?? ""
-        imageView.image = getImageFrom(forecast: forecast) ?? noImage
-        maxCelsiusLabel.text = getMaxCelsiusFrom(forecast: forecast)
-        minCelsiusLabel.text = getMinCelsiusFrom(forecast: forecast)
+    private let noImage = UIImage(named: "icon_no_image")
+    
+    func displayView(viewModel: WeatherInfoViewModel) {
+        dateLabel.text = viewModel.dateText
+        subDateLabel.text = viewModel.subDateLabel
+        telopLabel.text = viewModel.telop
+        imageView.image = getImage(url: viewModel.imagUrl)
+        maxCelsiusLabel.text = viewModel.maxCelsius
+        minCelsiusLabel.text = viewModel.minCelsius
     }
     
-    private func getImageFrom(forecast: Forecast?) -> UIImage? {
-        guard let forecast = forecast else {
-            return nil
+    func getImage(url: URL?) -> UIImage? {
+        guard let url = url else {
+            return noImage
         }
-        guard let image = forecast.image else {
-            return nil
-        }
-        if image.url.isEmpty {
-            return nil
-        }
-        guard let imageData = try? Data(contentsOf: URL(string: image.url)!) else {
-            return nil
-        }
-        return UIImage(data: imageData)
+        return UIImage(data: try! Data(contentsOf: url))
     }
-    
-    private func getMaxCelsiusFrom(forecast: Forecast?) -> String {
-        guard let forecast = forecast else {
-            return "-"
-        }
-        guard let temperature = forecast.temperature else {
-            return "-"
-        }
-        guard let max = temperature.max else {
-            return "-"
-        }
-        if max.celsius.isEmpty {
-            return "-"
-        }
-        return "\(max.celsius)℃"
-    }
-    
-    private func getMinCelsiusFrom(forecast: Forecast?) -> String {
-        guard let forecast = forecast else {
-            return "-"
-        }
-        guard let temperature = forecast.temperature else {
-            return "-"
-        }
-        guard let min = temperature.min else {
-            return "-"
-        }
-        if min.celsius.isEmpty {
-            return "-"
-        }
-        return "\(min.celsius)℃"
-    }
-
 }

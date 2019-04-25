@@ -7,76 +7,76 @@
 //
 
 import Foundation
+import ReactiveSwift
 
 class PrefectureListViewModel {
-    let USER_DEFAULTS_FAVORITES_KEY = "USER_DEFAULTS_FAVORITES_KEY"
-    var tableDataList = [CityData]()
-    var cityDataList = [CityData]()
-    var selectedAreaTypes = [Area]()
-    var favoriteCityIds = [String]()
-    var isFavoriteFilter = false
-    
-    init() {
-        loadCityDataList()
-        favoriteCityIds = loadFavoriteList()
-        setupTableDataList()
-    }
+    private static let USER_DEFAULTS_FAVORITES_KEY = "USER_DEFAULTS_FAVORITES_KEY"
+    let cityDataList = loadCityDataList()
+    var tableDataList = MutableProperty([CityData]())
+    var selectedAreaTypes = MutableProperty([Area]())
+    var favoriteCityIds = MutableProperty(loadFavoriteList())
+    var isFavoriteFilter = MutableProperty(false)
     
     func setupFavoriteList(cityId: String) {
-        if let index = favoriteCityIds.firstIndex(of: cityId) {
-            favoriteCityIds.remove(at: index)
+        if let index = favoriteCityIds.value.firstIndex(of: cityId) {
+            favoriteCityIds.value.remove(at: index)
         } else {
-            favoriteCityIds.append(cityId)
+            favoriteCityIds.value.append(cityId)
         }
-        saveFavoriteList(cityIds: favoriteCityIds)
+        PrefectureListViewModel.saveFavoriteList(cityIds: favoriteCityIds.value)
     }
     
     func setupTableDataList() {
-        tableDataList = cityDataList
-        if !selectedAreaTypes.isEmpty {
-            let areaTypes = selectedAreaTypes.map { $0.rawValue }
-            tableDataList = tableDataList.filter
-                {
-                    areaTypes.contains($0.area)
+        var dataList = cityDataList
+        defer {
+            tableDataList.value = dataList
+        }
+        if !selectedAreaTypes.value.isEmpty {
+            let areaTypes = selectedAreaTypes.value.map { $0.rawValue }
+            dataList = dataList.filter {
+                areaTypes.contains($0.area)
             }
         }
-        if !isFavoriteFilter {
+        if !isFavoriteFilter.value {
             return
         }
-        if favoriteCityIds.isEmpty {
-            tableDataList.removeAll()
+        if favoriteCityIds.value.isEmpty {
+            dataList.removeAll()
             return
         }
-        tableDataList = tableDataList.filter
-            {
-                favoriteCityIds.contains($0.cityId)
+        dataList = dataList.filter {
+            favoriteCityIds.value.contains($0.cityId)
         }
     }
     
-    private func loadCityDataList() {
-        guard let filePath = Bundle.main.path(forResource: "CityData", ofType: "json") else {
-            return
-        }
-        guard let data = FileManager.default.contents(atPath: filePath) else {
-            return
+    func createCellViewModel(index: Int) -> PrefectureListCellViewModel {
+        let cityData = tableDataList.value[index]
+        return PrefectureListCellViewModel(cityName: cityData.name,
+                                           isFavorite: favoriteCityIds.value.contains(cityData.cityId))
+    }
+    
+    func createAreaFilterViewModel(_ selectedAreaTypes: [Area]) -> AreaFilterViewModel {
+        return AreaFilterViewModel(selectedAreaTypes: selectedAreaTypes)
+    }
+    
+    private static func loadCityDataList() -> [CityData] {
+        guard let filePath = Bundle.main.path(forResource: "CityData", ofType: "json"),
+            let data = FileManager.default.contents(atPath: filePath),
+            let result = try? JSONDecoder().decode(CityDataList.self, from: data) else {
+            return [CityData]()
         }
         
-        guard let result = try? JSONDecoder().decode(CityDataList.self, from: data) else {
-            return
-        }
-        if let cityDataList = result.cityDataList {
-            self.cityDataList = cityDataList
-        }
+        return result.cityDataList!
     }
     
-    private func loadFavoriteList() -> [String] {
+    private static func loadFavoriteList() -> [String] {
         if let cityIds = UserDefaults.standard.object(forKey: USER_DEFAULTS_FAVORITES_KEY) as? [String] {
             return cityIds
         }
         return [String]()
     }
     
-    private func saveFavoriteList(cityIds: [String]) {
+    private static func saveFavoriteList(cityIds: [String]) {
         UserDefaults.standard.set(cityIds, forKey: USER_DEFAULTS_FAVORITES_KEY)
         UserDefaults.standard.synchronize()
     }

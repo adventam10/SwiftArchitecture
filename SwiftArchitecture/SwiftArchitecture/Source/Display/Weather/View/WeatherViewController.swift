@@ -8,14 +8,14 @@
 
 import UIKit
 import SVProgressHUD
+import ReactiveSwift
 
 class WeatherViewController: UIViewController {
-    let viewModel = WeatherViewModel()
+    var viewModel: WeatherViewModel!
     @IBOutlet private weak var todayView: WeatherInfoView!
     @IBOutlet private weak var tomorrowView: WeatherInfoView!
     @IBOutlet private weak var dayAfterTomorrowView: WeatherInfoView!
-    private let noImage = UIImage(named: "icon_no_image")
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +24,7 @@ class WeatherViewController: UIViewController {
         tomorrowView.viewType = .small
         dayAfterTomorrowView.viewType = .small
         setupNavigation()
-        displayWeather()
+        bind()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,11 +35,18 @@ class WeatherViewController: UIViewController {
     private func setupNavigation() {
         self.navigationItem.title = viewModel.cityData.name
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .refresh,
-                                                                      target: self,
-                                                                      action: #selector(tappedRefreshButton(_:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh,
+                                                                 target: self,
+                                                                 action: #selector(tappedRefreshButton(_:)))
     }
     
+    private func bind() {
+        viewModel.weather.producer.startWithValues  { [unowned self] weather in
+            self.displayView(forecasts: weather.forecasts)
+        }
+    }
+    
+    // MARK:- Button Action
     @objc
     private func tappedRefreshButton(_ button: UIBarButtonItem) {
         SVProgressHUD.show()
@@ -48,8 +55,7 @@ class WeatherViewController: UIViewController {
             {[weak self] (weather) in
                 SVProgressHUD.dismiss()
                 guard let weakSelf = self else { return }
-                weakSelf.viewModel.weather = weather
-                weakSelf.displayWeather()
+                weakSelf.viewModel.weather.value = weather
             },
                                              failure:
             {[weak self] (message) in
@@ -63,37 +69,34 @@ class WeatherViewController: UIViewController {
         })
     }
     
-    private func displayWeather() {
-        displayView(forecasts: viewModel.weather.forecasts, dateFormatter: viewModel.dateFormatter)
+    // MARK:- Display
+    private func displayView(date: WeatherDate, forecast: Forecast?) {
+        let infoView: WeatherInfoView
+        switch date {
+        case .today:
+            infoView = todayView
+        case .tomorrow:
+            infoView = tomorrowView
+        case .dayAfterTomorrow:
+            infoView = dayAfterTomorrowView
+        }
+        let model = viewModel.createWeatherInfoViewModel(date: date,
+                                                         forecast: forecast)
+        infoView.displayView(viewModel: model)
     }
     
-    func displayView(forecasts: [Forecast]?, dateFormatter: DateFormatter) {
-        todayView.displayView(forecast: nil,
-                              dateText: dateFormatter.string(from: Date()),
-                              noImage: noImage)
-        tomorrowView.displayView(forecast: nil,
-                                 dateText: dateFormatter.string(from: Date(timeIntervalSinceNow: 60*60*24)),
-                                 noImage: noImage)
-        dayAfterTomorrowView.displayView(forecast: nil,
-                                         dateText: dateFormatter.string(from: Date(timeIntervalSinceNow: 60*60*24*2)),
-                                         noImage: noImage)
+    private func displayView(forecasts: [Forecast]?) {
+        displayView(date: .today, forecast: nil)
+        displayView(date: .tomorrow, forecast: nil)
+        displayView(date: .dayAfterTomorrow, forecast: nil)
         guard let forecasts = forecasts else {
             return
         }
         for (index, forecast) in forecasts.enumerated() {
-            if index == 0 {
-                todayView.displayView(forecast: forecast,
-                                      dateText: dateFormatter.string(from: Date()),
-                                      noImage: noImage)
-            } else if index == 1 {
-                tomorrowView.displayView(forecast: forecast,
-                                         dateText: dateFormatter.string(from: Date(timeIntervalSinceNow: 60*60*24)),
-                                         noImage: noImage)
-            } else if index == 2 {
-                dayAfterTomorrowView.displayView(forecast: forecast,
-                                                 dateText: dateFormatter.string(from: Date(timeIntervalSinceNow: 60*60*24*2)),
-                                                 noImage: noImage)
+            guard let date = WeatherDate(rawValue: index) else {
+                return
             }
+            displayView(date: date, forecast: forecast)
         }
     }
 }

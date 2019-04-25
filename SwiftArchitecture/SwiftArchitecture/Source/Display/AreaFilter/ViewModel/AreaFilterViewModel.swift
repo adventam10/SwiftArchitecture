@@ -7,18 +7,20 @@
 //
 
 import Foundation
+import ReactiveSwift
 
 class AreaFilterViewModel {
     let tableDataList: [Area] = [.hokkaido, .tohoku, .kanto, .chubu, .kinki, .chugoku, .shikoku, .kyushu]
-    var selectedAreaTypes: [Area]!
-    
-    
+    var selectedAreaTypes: MutableProperty<[Area]>!
+    init(selectedAreaTypes: [Area]) {
+        self.selectedAreaTypes =  MutableProperty(selectedAreaTypes)
+    }
     func isAllCheck() -> Bool {
-        if selectedAreaTypes.isEmpty {
+        if selectedAreaTypes.value.isEmpty {
             return false
         }
         for areaType in tableDataList {
-            if !selectedAreaTypes.contains(areaType) {
+            if !selectedAreaTypes.value.contains(areaType) {
                 return false
             }
         }
@@ -26,17 +28,24 @@ class AreaFilterViewModel {
     }
     
     func setupSelectedAreaTypes(areaType: Area) {
-        if let index = selectedAreaTypes.firstIndex(of: areaType) {
-            selectedAreaTypes.remove(at: index)
+        if let index = selectedAreaTypes.value.firstIndex(of: areaType) {
+            selectedAreaTypes.value.remove(at: index)
         } else {
-            selectedAreaTypes.append(areaType)
+            selectedAreaTypes.value.append(areaType)
         }
     }
     
     func setupSelectedAreaTypes(isAllCheck: Bool) {
-        selectedAreaTypes.removeAll()
+        var selectedTypes = [Area]()
         if isAllCheck {
-            selectedAreaTypes.append(contentsOf: tableDataList)
+            selectedTypes.append(contentsOf: tableDataList)
         }
+        selectedAreaTypes.value = selectedTypes
+    }
+    
+    func createCellModel(index: Int) -> AreaFilterCellViewModel {
+        let title = tableDataList[index].getName()
+        let isCheck = selectedAreaTypes.value.contains(tableDataList[index])
+        return AreaFilterCellViewModel(title: title, isCheck: isCheck)
     }
 }

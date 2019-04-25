@@ -9,19 +9,11 @@
 import UIKit
 
 class AreaFilterTableViewCell: UITableViewCell {
-    
     @IBOutlet private weak var areaLabel: UILabel!
     @IBOutlet private weak var checkImageView: UIImageView!
     
-    var title = "" {
-        didSet {
-            areaLabel.text = title
-        }
-    }
-    
-    var isCheck = false {
-        didSet {
-            checkImageView.isHighlighted = isCheck
-        }
+    func displayData(_ viewModel: AreaFilterCellViewModel) {
+        areaLabel.text = viewModel.title
+        checkImageView.isHighlighted = viewModel.isCheck
     }
 }

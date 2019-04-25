@@ -8,16 +8,18 @@
 
 import Foundation
 import Alamofire
+import ReactiveSwift
 
 class WeatherViewModel {
-    var weather: Weather!
-    var cityData: CityData!
+    var weather: MutableProperty<Weather>
+    let cityData: CityData
     let dateFormatter :DateFormatter = {
         let df = DateFormatter()
         df.locale = Locale(identifier: "ja_JP")
         df.dateFormat = "yyyy/MM/dd(E)"
         return df
     }()
+    
     class func requestWeather(cityId: String,
                               success: @escaping (Weather)->Void,
                               failure: @escaping (String)->Void) {
@@ -46,5 +48,25 @@ class WeatherViewModel {
                 failure("JSONパース失敗")
             }
         }
+    }
+    
+    init(weather: Weather, cityData: CityData) {
+        self.weather = MutableProperty(weather)
+        self.cityData = cityData
+    }
+    
+    func createWeatherInfoViewModel(date: WeatherDate,
+                                    forecast: Forecast?) -> WeatherInfoViewModel {
+        let targetDate: Date
+        switch date {
+        case .today:
+            targetDate = Date()
+        case .tomorrow:
+            targetDate = Date(timeIntervalSinceNow: 60*60*24)
+        case .dayAfterTomorrow:
+            targetDate = Date(timeIntervalSinceNow: 60*60*24*2)
+        }
+        return WeatherInfoViewModel(forecast: forecast,
+                                    dateText: dateFormatter.string(from: targetDate))
     }
 }

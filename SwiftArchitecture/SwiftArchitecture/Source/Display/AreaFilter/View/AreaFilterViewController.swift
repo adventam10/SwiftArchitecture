@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ReactiveSwift
+import ReactiveCocoa
 
 protocol AreaFilterViewControllerDelegate: class {
     func areaFilterViewController(_ areaFilterViewController: AreaFilterViewController,
@@ -15,17 +17,23 @@ protocol AreaFilterViewControllerDelegate: class {
 
 class AreaFilterViewController: UIViewController {
     weak var delegate: AreaFilterViewControllerDelegate?
-    @IBOutlet weak var tableView: UITableView!
+    var viewModel: AreaFilterViewModel!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.register(UINib(nibName: cellIdentifier, bundle: nil),
+                               forCellReuseIdentifier: cellIdentifier)
+        }
+    }
     @IBOutlet private weak var allCheckButton: UIButton!
     private let cellIdentifier = "AreaFilterTableViewCell"
-    let viewModel = AreaFilterViewModel()
-    static let viewSize = CGSize.init(width: 150, height: 396)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setupTableView()
-        displayAllCheckButton(isSelected: viewModel.isAllCheck())
+        bind()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,32 +41,23 @@ class AreaFilterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func displayAllCheckButton(isSelected: Bool) {
-        allCheckButton.isSelected = isSelected
+    private func bind() {
+        viewModel.selectedAreaTypes.producer.startWithValues { [unowned self] _ in
+            self.allCheckButton.isSelected = self.viewModel.isAllCheck()
+            self.tableView.reloadData()
+            self.delegate?.areaFilterViewController(self, didSelect: self.viewModel.selectedAreaTypes.value)
+        }
     }
     
+    // MARK:- Button Action
     @IBAction private func tappedAllCheckButton(_ button: UIButton) {
         viewModel.setupSelectedAreaTypes(isAllCheck: !viewModel.isAllCheck())
-        displayAllCheckButton(isSelected: viewModel.isAllCheck())
-        tableView.reloadData()
-        delegate?.areaFilterViewController(self, didSelect: viewModel.selectedAreaTypes)
-    }
-    
-    private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: cellIdentifier, bundle: nil),
-                                              forCellReuseIdentifier: cellIdentifier)
     }
 }
 
 extension AreaFilterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let areaType = viewModel.tableDataList[indexPath.row]
-        viewModel.setupSelectedAreaTypes(areaType: areaType)
-        displayAllCheckButton(isSelected: viewModel.isAllCheck())
-        tableView.reloadRows(at: [indexPath], with: .none)
-        delegate?.areaFilterViewController(self, didSelect: viewModel.selectedAreaTypes)
+        viewModel.setupSelectedAreaTypes(areaType: viewModel.tableDataList[indexPath.row])
     }
 }
 
@@ -69,8 +68,7 @@ extension AreaFilterViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! AreaFilterTableViewCell
-        cell.title = viewModel.tableDataList[indexPath.row].getName()
-        cell.isCheck = viewModel.selectedAreaTypes.contains(viewModel.tableDataList[indexPath.row])
+        cell.displayData(viewModel.createCellModel(index: indexPath.row))
         return cell
     }
 }
