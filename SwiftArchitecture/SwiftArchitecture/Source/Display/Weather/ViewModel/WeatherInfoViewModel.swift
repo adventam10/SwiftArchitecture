@@ -2,7 +2,7 @@
 //  WeatherInfoViewModel.swift
 //  SwiftArchitecture
 //
-//  Created by makoto on 2019/04/25.
+//  Created by am10 on 2019/04/25.
 //  Copyright © 2019 am10. All rights reserved.
 //
 

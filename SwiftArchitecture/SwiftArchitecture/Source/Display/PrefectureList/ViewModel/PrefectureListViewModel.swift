@@ -2,7 +2,7 @@
 //  PrefectureListViewModel.swift
 //  SwiftArchitecture
 //
-//  Created by makoto on 2019/04/24.
+//  Created by am10 on 2019/04/24.
 //  Copyright © 2019 am10. All rights reserved.
 //
 
