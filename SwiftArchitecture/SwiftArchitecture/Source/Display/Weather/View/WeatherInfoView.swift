@@ -45,7 +45,7 @@ class WeatherInfoView: BaseView {
         }
     }
     
-    @IBOutlet weak var labelHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var labelHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var subDateLabel: UILabel!
     @IBOutlet private weak var imageView: UIImageView!
@@ -65,7 +65,7 @@ class WeatherInfoView: BaseView {
         minCelsiusLabel.text = viewModel.minCelsius
     }
     
-    func getImage(url: URL?) -> UIImage? {
+    private func getImage(url: URL?) -> UIImage? {
         guard let url = url else {
             return noImage
         }
