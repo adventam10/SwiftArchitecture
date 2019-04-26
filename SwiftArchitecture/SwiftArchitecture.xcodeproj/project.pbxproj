@@ -37,6 +37,7 @@
 		0E5A82D52271BD0A0035C004 /* WeatherInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82D42271BD0A0035C004 /* WeatherInfoViewModel.swift */; };
 		0E5A82D72271C91B0035C004 /* PrefectureListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82D62271C91B0035C004 /* PrefectureListCellViewModel.swift */; };
 		0E5A82D92271C9310035C004 /* AreaFilterCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82D82271C9310035C004 /* AreaFilterCellViewModel.swift */; };
+		0E5A82DC22726B6E0035C004 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82DB22726B6E0035C004 /* R.generated.swift */; };
 		0EDA9FA421D8FB9900373792 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA9FA321D8FB9900373792 /* AppDelegate.swift */; };
 		0EDA9FA921D8FB9900373792 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FA721D8FB9900373792 /* Main.storyboard */; };
 		0EDA9FAB21D8FB9B00373792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */; };
@@ -101,6 +102,7 @@
 		0E5A82D42271BD0A0035C004 /* WeatherInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoViewModel.swift; sourceTree = "<group>"; };
 		0E5A82D62271C91B0035C004 /* PrefectureListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefectureListCellViewModel.swift; sourceTree = "<group>"; };
 		0E5A82D82271C9310035C004 /* AreaFilterCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaFilterCellViewModel.swift; sourceTree = "<group>"; };
+		0E5A82DB22726B6E0035C004 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		0EDA9FA021D8FB9900373792 /* SwiftArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDA9FA321D8FB9900373792 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EDA9FA821D8FB9900373792 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 		0EDA9FD121DC7CC100373792 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0E5A82DB22726B6E0035C004 /* R.generated.swift */,
 				0EDA9FD221DC7CC100373792 /* CityData.json */,
 			);
 			path = Resource;
@@ -440,6 +443,7 @@
 			buildConfigurationList = 0EDA9FC821D8FB9B00373792 /* Build configuration list for PBXNativeTarget "SwiftArchitecture" */;
 			buildPhases = (
 				B83D43EA4365A0BB1BBBA29B /* [CP] Check Pods Manifest.lock */,
+				0E5A82DA22726AEA0035C004 /* Rswift Run Script */,
 				0EDA9F9C21D8FB9900373792 /* Sources */,
 				0EDA9F9D21D8FB9900373792 /* Frameworks */,
 				0EDA9F9E21D8FB9900373792 /* Resources */,
@@ -573,6 +577,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E5A82DA22726AEA0035C004 /* Rswift Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = "Rswift Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/$PROJECT_NAME/Resource/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/$PROJECT_NAME/Resource/R.generated.swift\"\n";
+		};
 		1CF97291974919928E27525C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -599,6 +623,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SwiftArchitecture/Pods-SwiftArchitecture-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -607,6 +632,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -671,6 +697,7 @@
 				0E5A82CE2270CF550035C004 /* Temperature.swift in Sources */,
 				0E5A82C72270CF550035C004 /* Forecast.swift in Sources */,
 				0E5A82CD2270CF550035C004 /* Image.swift in Sources */,
+				0E5A82DC22726B6E0035C004 /* R.generated.swift in Sources */,
 				0E5A82CA2270CF550035C004 /* Description.swift in Sources */,
 				0E5A82CC2270CF550035C004 /* Provider.swift in Sources */,
 				0E5A82BD2270CF550035C004 /* AreaFilterTableViewCell.swift in Sources */,

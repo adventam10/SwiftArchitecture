@@ -15,6 +15,7 @@ class AreaFilterViewModel {
     init(selectedAreaTypes: [Area]) {
         self.selectedAreaTypes =  MutableProperty(selectedAreaTypes)
     }
+    
     func isAllCheck() -> Bool {
         if selectedAreaTypes.value.isEmpty {
             return false

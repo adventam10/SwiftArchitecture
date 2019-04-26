@@ -12,14 +12,12 @@ import ReactiveSwift
 import ReactiveCocoa
 
 class PrefectureListViewController: UIViewController {
-    private let cellIdentifier = "PrefectureListTableViewCell"
     private let viewModel = PrefectureListViewModel()
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
-            tableView.register(UINib(nibName: cellIdentifier, bundle: nil),
-                               forCellReuseIdentifier: cellIdentifier)
+            tableView.register(R.nib.prefectureListTableViewCell)
             tableView.tableFooterView = UIView()
         }
     }
@@ -155,7 +153,8 @@ extension PrefectureListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PrefectureListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.prefectureListTableViewCell,
+                                                 for: indexPath)!
         cell.delegate = self
         cell.displayCityData(viewModel.createCellViewModel(index: indexPath.row))
         return cell

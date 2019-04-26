@@ -30,7 +30,6 @@ struct WeatherInfoViewModel {
         minCelsius = WeatherInfoViewModel.getMinCelsiusFrom(forecast: forecast)
     }
     
-    private static let NO_IMAGE_URL = Bundle.main.url(forResource: "icon_no_image", withExtension: "png")!
     private static func getImageUrlFrom(forecast: Forecast?) -> URL? {
         guard let forecast = forecast,
             let image = forecast.image else {

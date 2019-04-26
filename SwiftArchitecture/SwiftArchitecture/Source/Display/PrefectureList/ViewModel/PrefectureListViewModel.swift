@@ -60,7 +60,7 @@ class PrefectureListViewModel {
     }
     
     private static func loadCityDataList() -> [CityData] {
-        guard let filePath = Bundle.main.path(forResource: "CityData", ofType: "json"),
+        guard let filePath = R.file.cityDataJson.path(),
             let data = FileManager.default.contents(atPath: filePath),
             let result = try? JSONDecoder().decode(CityDataList.self, from: data) else {
             return [CityData]()

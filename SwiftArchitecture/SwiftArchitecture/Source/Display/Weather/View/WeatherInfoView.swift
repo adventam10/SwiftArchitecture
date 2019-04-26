@@ -54,7 +54,7 @@ class WeatherInfoView: BaseView {
     @IBOutlet private weak var minCelsiusLabel: UILabel!
     @IBOutlet private weak var maxCelsiusTitleLabel: UILabel!
     @IBOutlet private weak var minCelsiusTitleLabel: UILabel!
-    private let noImage = UIImage(named: "icon_no_image")
+    private let noImage = R.image.icon_no_image()
     
     func displayView(viewModel: WeatherInfoViewModel) {
         dateLabel.text = viewModel.dateText

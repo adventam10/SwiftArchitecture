@@ -22,12 +22,10 @@ class AreaFilterViewController: UIViewController {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
-            tableView.register(UINib(nibName: cellIdentifier, bundle: nil),
-                               forCellReuseIdentifier: cellIdentifier)
+            tableView.register(R.nib.areaFilterTableViewCell)
         }
     }
     @IBOutlet private weak var allCheckButton: UIButton!
-    private let cellIdentifier = "AreaFilterTableViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +65,8 @@ extension AreaFilterViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! AreaFilterTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.areaFilterTableViewCell,
+                                                 for: indexPath)!
         cell.displayData(viewModel.createCellModel(index: indexPath.row))
         return cell
     }
