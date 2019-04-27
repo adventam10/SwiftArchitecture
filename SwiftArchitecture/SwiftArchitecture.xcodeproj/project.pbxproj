@@ -38,6 +38,12 @@
 		0E5A82D72271C91B0035C004 /* PrefectureListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82D62271C91B0035C004 /* PrefectureListCellViewModel.swift */; };
 		0E5A82D92271C9310035C004 /* AreaFilterCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82D82271C9310035C004 /* AreaFilterCellViewModel.swift */; };
 		0E5A82DC22726B6E0035C004 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82DB22726B6E0035C004 /* R.generated.swift */; };
+		0E5A82E32274A4610035C004 /* ReactiveMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82DD2274A4610035C004 /* ReactiveMapKit.framework */; };
+		0E5A82E42274A4610035C004 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82DE2274A4610035C004 /* Result.framework */; };
+		0E5A82E52274A4610035C004 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82DF2274A4610035C004 /* SVProgressHUD.framework */; };
+		0E5A82E62274A4610035C004 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82E02274A4610035C004 /* Alamofire.framework */; };
+		0E5A82E72274A4610035C004 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82E12274A4610035C004 /* ReactiveCocoa.framework */; };
+		0E5A82E82274A4610035C004 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82E22274A4610035C004 /* ReactiveSwift.framework */; };
 		0EDA9FA421D8FB9900373792 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA9FA321D8FB9900373792 /* AppDelegate.swift */; };
 		0EDA9FA921D8FB9900373792 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FA721D8FB9900373792 /* Main.storyboard */; };
 		0EDA9FAB21D8FB9B00373792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */; };
@@ -103,6 +109,12 @@
 		0E5A82D62271C91B0035C004 /* PrefectureListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefectureListCellViewModel.swift; sourceTree = "<group>"; };
 		0E5A82D82271C9310035C004 /* AreaFilterCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaFilterCellViewModel.swift; sourceTree = "<group>"; };
 		0E5A82DB22726B6E0035C004 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		0E5A82DD2274A4610035C004 /* ReactiveMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveMapKit.framework; path = Carthage/Build/iOS/ReactiveMapKit.framework; sourceTree = "<group>"; };
+		0E5A82DE2274A4610035C004 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		0E5A82DF2274A4610035C004 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
+		0E5A82E02274A4610035C004 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		0E5A82E12274A4610035C004 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		0E5A82E22274A4610035C004 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		0EDA9FA021D8FB9900373792 /* SwiftArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDA9FA321D8FB9900373792 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EDA9FA821D8FB9900373792 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -134,6 +146,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E5A82E32274A4610035C004 /* ReactiveMapKit.framework in Frameworks */,
+				0E5A82E42274A4610035C004 /* Result.framework in Frameworks */,
+				0E5A82E52274A4610035C004 /* SVProgressHUD.framework in Frameworks */,
+				0E5A82E62274A4610035C004 /* Alamofire.framework in Frameworks */,
+				0E5A82E72274A4610035C004 /* ReactiveCocoa.framework in Frameworks */,
+				0E5A82E82274A4610035C004 /* ReactiveSwift.framework in Frameworks */,
 				2DD02B7E4A77879162FA880B /* Pods_SwiftArchitecture.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +446,12 @@
 		F98C96B3E2C7100AFAD77A99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0E5A82E02274A4610035C004 /* Alamofire.framework */,
+				0E5A82E12274A4610035C004 /* ReactiveCocoa.framework */,
+				0E5A82DD2274A4610035C004 /* ReactiveMapKit.framework */,
+				0E5A82E22274A4610035C004 /* ReactiveSwift.framework */,
+				0E5A82DE2274A4610035C004 /* Result.framework */,
+				0E5A82DF2274A4610035C004 /* SVProgressHUD.framework */,
 				0C28516824482485EC8B0802 /* Pods_SwiftArchitecture.framework */,
 				2DF5B7003D04B98CDD6FD83E /* Pods_SwiftArchitectureTests.framework */,
 				296DC4DDD6A61C6590612364 /* Pods_SwiftArchitectureUITests.framework */,
@@ -448,6 +472,7 @@
 				0EDA9F9D21D8FB9900373792 /* Frameworks */,
 				0EDA9F9E21D8FB9900373792 /* Resources */,
 				82B4339350DDB4B80D97409C /* [CP] Embed Pods Frameworks */,
+				0E5A82E92274A46D0035C004 /* Carthage Run Script */,
 			);
 			buildRules = (
 			);
@@ -597,6 +622,30 @@
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/$PROJECT_NAME/Resource/R.generated.swift\"\n";
 		};
+		0E5A82E92274A46D0035C004 /* Carthage Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveMapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
+			);
+			name = "Carthage Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 		1CF97291974919928E27525C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -622,21 +671,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SwiftArchitecture/Pods-SwiftArchitecture-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -890,6 +929,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftArchitecture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -909,6 +952,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftArchitecture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

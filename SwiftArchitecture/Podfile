@@ -6,9 +6,6 @@ target 'SwiftArchitecture' do
   use_frameworks!
 
   # Pods for SwiftArchitecture
-	pod 'SVProgressHUD'
-	pod 'Alamofire'
-	pod 'ReactiveCocoa', '~> 9.0'
 	pod 'R.swift', '5.0.3'
 
   target 'SwiftArchitectureTests' do

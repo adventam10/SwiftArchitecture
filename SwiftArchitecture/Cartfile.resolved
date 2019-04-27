@@ -1,0 +1,5 @@
+github "Alamofire/Alamofire" "4.8.2"
+github "ReactiveCocoa/ReactiveCocoa" "9.0.0"
+github "ReactiveCocoa/ReactiveSwift" "5.0.1"
+github "SVProgressHUD/SVProgressHUD" "2.2.5"
+github "antitypical/Result" "4.1.0"
