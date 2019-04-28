@@ -1,0 +1,106 @@
+{
+    "pinpointLocations": [
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2710000",
+            "name": "大阪市"
+        },
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2714000",
+            "name": "堺市"
+        }
+    ],
+    "link": "http://weather.livedoor.com/area/forecast/270000",
+    "forecasts": [
+        {
+            "dateLabel": "今日",
+            "telop": "曇のち雨",
+            "date": "2019-04-29",
+            "temperature": {
+                "min": {
+                    "celsius": "12",
+                    "fahrenheit": "53.6"
+                },
+                "max": {
+                    "celsius": "20",
+                    "fahrenheit": "68.0"
+                }
+            },
+            "image": {
+                "width": 50,
+                "url": "http://weather.livedoor.com/img/icon/13.gif",
+                "title": "曇のち雨",
+                "height": 31
+            }
+        },
+        {
+            "dateLabel": "明日",
+            "telop": "曇時々雨",
+            "date": "2019-04-30",
+            "temperature": {
+                "min": {
+                    "celsius": "12",
+                    "fahrenheit": "53.6"
+                },
+                "max": {
+                    "celsius": "20",
+                    "fahrenheit": "68.0"
+                }
+            },
+            "image": {
+                "width": 50,
+                "url": "http://weather.livedoor.com/img/icon/10.gif",
+                "title": "曇時々雨",
+                "height": 31
+            }
+        },
+        {
+            "dateLabel": "明後日",
+            "telop": "曇時々雨",
+            "date": "2019-05-01",
+            "temperature": {
+                "min": {
+                    "celsius": "12",
+                    "fahrenheit": "53.6"
+                },
+                "max": {
+                    "celsius": "20",
+                    "fahrenheit": "68.0"
+                }
+            },
+            "image": {
+                "width": 50,
+                "url": "http://weather.livedoor.com/img/icon/10.gif",
+                "title": "曇時々雨",
+                "height": 31
+            }
+        }
+    ],
+    "location": {
+        "city": "大阪",
+        "area": "近畿",
+        "prefecture": "大阪府"
+    },
+    "publicTime": "2019-04-28T17:00:00+0900",
+    "copyright": {
+        "provider": [
+            {
+                "link": "http://tenki.jp/",
+                "name": "日本気象協会"
+            }
+        ],
+        "link": "http://weather.livedoor.com/",
+        "title": "(C) LINE Corporation",
+        "image": {
+            "width": 118,
+            "link": "http://weather.livedoor.com/",
+            "url": "http://weather.livedoor.com/img/cmn/livedoor.gif",
+            "title": "livedoor 天気情報",
+            "height": 26
+        }
+    },
+    "title": "大阪府 大阪 の天気",
+    "description": {
+        "text": " 近畿地方は、気圧の谷の影響で、曇っています。\n\n 今夜の近畿地方は、気圧の谷の影響でおおむね曇るでしょう。\n\n 明日の近畿地方は、気圧の谷や湿った空気の影響でおおむね曇りで、夕方\nから雨が降る見込みです。",
+        "publicTime": "2019-04-28T16:31:00+0900"
+    }
+}
