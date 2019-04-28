@@ -9,7 +9,7 @@
 import Foundation
 import ReactiveSwift
 
-class PrefectureListViewModel {
+struct PrefectureListViewModel {
     private static let USER_DEFAULTS_FAVORITES_KEY = "USER_DEFAULTS_FAVORITES_KEY"
     let apiClient = APIClient()
     let cityDataList = loadCityDataList()

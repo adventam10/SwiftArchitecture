@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import ReactiveSwift
 
-class WeatherViewModel {
+struct WeatherViewModel {
     var weather: MutableProperty<Weather>
     let apiClient: APIClient
     let cityData: CityData

@@ -9,7 +9,7 @@
 import Foundation
 import ReactiveSwift
 
-class AreaFilterViewModel {
+struct AreaFilterViewModel {
     let tableDataList: [Area] = [.hokkaido, .tohoku, .kanto, .chubu, .kinki, .chugoku, .shikoku, .kyushu]
     var selectedAreaTypes: MutableProperty<[Area]>!
     init(selectedAreaTypes: [Area]) {
