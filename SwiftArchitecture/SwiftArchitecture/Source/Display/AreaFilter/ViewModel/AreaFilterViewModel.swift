@@ -8,13 +8,19 @@
 
 import Foundation
 import ReactiveSwift
+import DIKit
 
-struct AreaFilterViewModel {
+struct AreaFilterViewModel: Injectable {
+    struct Dependency {
+        let selectedAreaTypes: [Area]
+    }
+    
+    init(dependency: Dependency) {
+        self.selectedAreaTypes = MutableProperty(dependency.selectedAreaTypes)
+    }
+    
     let tableDataList: [Area] = [.hokkaido, .tohoku, .kanto, .chubu, .kinki, .chugoku, .shikoku, .kyushu]
     var selectedAreaTypes: MutableProperty<[Area]>!
-    init(selectedAreaTypes: [Area]) {
-        self.selectedAreaTypes =  MutableProperty(selectedAreaTypes)
-    }
     
     func isAllCheck() -> Bool {
         if selectedAreaTypes.value.isEmpty {

@@ -8,10 +8,23 @@
 
 import Foundation
 import ReactiveSwift
+import DIKit
 
-struct PrefectureListViewModel {
+struct PrefectureListViewModel: Injectable {
+    struct Dependency {
+        let resolver: AppResolver
+    }
+
+    init(dependency: Dependency) {
+        self.dependency = dependency
+        self.apiClient = dependency.resolver.provideAPIClient()
+        self.resolver = dependency.resolver
+    }
+    
     private static let USER_DEFAULTS_FAVORITES_KEY = "USER_DEFAULTS_FAVORITES_KEY"
-    let apiClient = APIClient()
+    private let dependency: Dependency
+    let resolver: AppResolver
+    let apiClient: APIClient
     let cityDataList = loadCityDataList()
     var tableDataList = MutableProperty([CityData]())
     var selectedAreaTypes = MutableProperty([Area]())
@@ -56,9 +69,9 @@ struct PrefectureListViewModel {
                                            isFavorite: favoriteCityIds.value.contains(cityData.cityId))
     }
     
-    func createAreaFilterViewModel(_ selectedAreaTypes: [Area]) -> AreaFilterViewModel {
-        return AreaFilterViewModel(selectedAreaTypes: selectedAreaTypes)
-    }
+//    func createAreaFilterViewModel(_ selectedAreaTypes: [Area]) -> AreaFilterViewModel {
+//        return AreaFilterViewModel(selectedAreaTypes: selectedAreaTypes)
+//    }
     
     private static func loadCityDataList() -> [CityData] {
         guard let filePath = R.file.cityDataJson.path(),

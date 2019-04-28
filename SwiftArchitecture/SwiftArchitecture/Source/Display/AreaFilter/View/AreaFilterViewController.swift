@@ -9,13 +9,24 @@
 import UIKit
 import ReactiveSwift
 import ReactiveCocoa
+import DIKit
 
 protocol AreaFilterViewControllerDelegate: class {
     func areaFilterViewController(_ areaFilterViewController: AreaFilterViewController,
                                   didSelect areaTypes: [Area])
 }
 
-final class AreaFilterViewController: UIViewController {
+final class AreaFilterViewController: UIViewController, FactoryMethodInjectable {
+    struct Dependency {
+        let viewModel: AreaFilterViewModel
+    }
+    
+    static func makeInstance(dependency: Dependency) -> AreaFilterViewController {
+        let viewConroller = AreaFilterViewController()
+        viewConroller.viewModel = dependency.viewModel
+        return viewConroller
+    }
+    
     weak var delegate: AreaFilterViewControllerDelegate?
     var viewModel: AreaFilterViewModel!
     @IBOutlet weak var tableView: UITableView! {

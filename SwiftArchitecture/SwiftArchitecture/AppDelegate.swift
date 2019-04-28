@@ -13,11 +13,19 @@ import SVProgressHUD
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    let resolver = AppResolverImpl()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         SVProgressHUD.setDefaultMaskType(.black)
+        UIView.appearance().isExclusiveTouch = true
+        let naviCon = UINavigationController(rootViewController: resolver.resolvePrefectureListViewController(resolver: resolver))
+        naviCon.navigationBar.barTintColor = UIColor.init(hexStr: "2851CC", alpha: 1.0)
+        naviCon.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        naviCon.navigationBar.tintColor = .white
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = naviCon
+        window?.makeKeyAndVisible()
         return true
     }
 

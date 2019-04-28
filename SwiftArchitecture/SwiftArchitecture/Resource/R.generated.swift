@@ -16,6 +16,21 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
+  /// This `R.color` struct is generated, and contains static references to 1 colors.
+  struct color {
+    /// Color `header`.
+    static let header = Rswift.ColorResource(bundle: R.hostingBundle, name: "header")
+    
+    /// `UIColor(named: "header", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func header(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.header, compatibleWith: traitCollection)
+    }
+    
+    fileprivate init() {}
+  }
+  
   /// This `R.file` struct is generated, and contains static references to 1 files.
   struct file {
     /// Resource file `CityData.json`.
@@ -187,50 +202,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
-  struct segue {
-    /// This struct is generated for `PrefectureListViewController`, and contains static references to 2 segues.
-    struct prefectureListViewController {
-      /// Segue identifier `showAreaFilterSegue`.
-      static let showAreaFilterSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PrefectureListViewController, AreaFilterViewController> = Rswift.StoryboardSegueIdentifier(identifier: "showAreaFilterSegue")
-      /// Segue identifier `showWeatherSegue`.
-      static let showWeatherSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PrefectureListViewController, WeatherViewController> = Rswift.StoryboardSegueIdentifier(identifier: "showWeatherSegue")
-      
-      /// Optionally returns a typed version of segue `showAreaFilterSegue`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func showAreaFilterSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, PrefectureListViewController, AreaFilterViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.prefectureListViewController.showAreaFilterSegue, segue: segue)
-      }
-      
-      /// Optionally returns a typed version of segue `showWeatherSegue`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func showWeatherSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, PrefectureListViewController, WeatherViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.prefectureListViewController.showWeatherSegue, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
-    
-    fileprivate init() {}
-  }
-  
-  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 1 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
-    /// Storyboard `Main`.
-    static let main = _R.storyboard.main()
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
-    }
-    
-    /// `UIStoryboard(name: "Main", bundle: ...)`
-    static func main(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.main)
     }
     
     fileprivate init() {}
@@ -372,7 +351,6 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try launchScreen.validate()
-      try main.validate()
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -385,38 +363,6 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "icon_splash", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_splash' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
-      }
-      
-      fileprivate init() {}
-    }
-    
-    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UINavigationController
-      
-      let areaFilterViewController = StoryboardViewControllerResource<AreaFilterViewController>(identifier: "areaFilterViewController")
-      let bundle = R.hostingBundle
-      let name = "Main"
-      let prefectureListViewController = StoryboardViewControllerResource<PrefectureListViewController>(identifier: "prefectureListViewController")
-      let weatherViewController = StoryboardViewControllerResource<WeatherViewController>(identifier: "weatherViewController")
-      
-      func areaFilterViewController(_: Void = ()) -> AreaFilterViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: areaFilterViewController)
-      }
-      
-      func prefectureListViewController(_: Void = ()) -> PrefectureListViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: prefectureListViewController)
-      }
-      
-      func weatherViewController(_: Void = ()) -> WeatherViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: weatherViewController)
-      }
-      
-      static func validate() throws {
-        if #available(iOS 11.0, *) {
-        }
-        if _R.storyboard.main().areaFilterViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'areaFilterViewController' could not be loaded from storyboard 'Main' as 'AreaFilterViewController'.") }
-        if _R.storyboard.main().prefectureListViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'prefectureListViewController' could not be loaded from storyboard 'Main' as 'PrefectureListViewController'.") }
-        if _R.storyboard.main().weatherViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'weatherViewController' could not be loaded from storyboard 'Main' as 'WeatherViewController'.") }
       }
       
       fileprivate init() {}

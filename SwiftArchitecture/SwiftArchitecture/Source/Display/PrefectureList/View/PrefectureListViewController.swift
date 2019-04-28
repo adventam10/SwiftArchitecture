@@ -10,9 +10,20 @@ import UIKit
 import SVProgressHUD
 import ReactiveSwift
 import ReactiveCocoa
+import DIKit
 
-final class PrefectureListViewController: UIViewController {
-    private let viewModel = PrefectureListViewModel()
+final class PrefectureListViewController: UIViewController, FactoryMethodInjectable {
+    struct Dependency {
+        let viewModel: PrefectureListViewModel
+    }
+    
+    static func makeInstance(dependency: Dependency) -> PrefectureListViewController {
+        let viewConroller = PrefectureListViewController()
+        viewConroller.viewModel = dependency.viewModel
+        return viewConroller
+    }
+    
+    var viewModel: PrefectureListViewModel!
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
@@ -48,10 +59,10 @@ final class PrefectureListViewController: UIViewController {
     
     private func setupNavigation() {
         self.navigationItem.title = "お天気"
-        self.navigationItem.backBarButtonItem = UIBarButtonItem.init(title: "戻る",
-                                                                     style: .plain,
-                                                                     target: nil,
-                                                                     action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る",
+                                                                style: .plain,
+                                                                target: nil,
+                                                                action: nil)
     }
     
     private func bind() {
@@ -82,8 +93,7 @@ final class PrefectureListViewController: UIViewController {
     
     // MARK:- Show
     private func showAreaFilterViewController(button: UIButton) {
-        let viewController = AreaFilterViewController()
-        viewController.viewModel = viewModel.createAreaFilterViewModel(viewModel.selectedAreaTypes.value)
+        let viewController = viewModel.resolver.resolveAreaFilterViewController(selectedAreaTypes: viewModel.selectedAreaTypes.value)
         viewController.delegate = self
         showPopover(viewController: viewController,
                     sourceView: button,
@@ -93,8 +103,9 @@ final class PrefectureListViewController: UIViewController {
     }
     
     private func showWeatherViewController(weather: Weather, cityData: CityData) {
-        let viewController = WeatherViewController()
-        viewController.viewModel = WeatherViewModel(weather: weather, cityData: cityData, apiClient: viewModel.apiClient)
+        let viewController = viewModel.resolver.resolveWeatherViewController(resolver: viewModel.resolver,
+                                                                             weather: weather,
+                                                                             cityData: cityData)
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

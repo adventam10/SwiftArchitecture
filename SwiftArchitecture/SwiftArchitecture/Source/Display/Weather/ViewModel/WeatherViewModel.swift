@@ -9,8 +9,23 @@
 import Foundation
 import Alamofire
 import ReactiveSwift
+import DIKit
 
-struct WeatherViewModel {
+struct WeatherViewModel: Injectable {
+    struct Dependency {
+        let resolver: AppResolver
+        let weather: Weather
+        let cityData: CityData
+    }
+    
+    init(dependency: Dependency) {
+        self.dependency = dependency
+        self.apiClient = dependency.resolver.provideAPIClient()
+        self.weather = MutableProperty(dependency.weather)
+        self.cityData = dependency.cityData
+    }
+    
+    private let dependency: Dependency
     var weather: MutableProperty<Weather>
     let apiClient: APIClient
     let cityData: CityData
@@ -20,12 +35,6 @@ struct WeatherViewModel {
         df.dateFormat = "yyyy/MM/dd(E)"
         return df
     }()
-    
-    init(weather: Weather, cityData: CityData, apiClient: APIClient) {
-        self.weather = MutableProperty(weather)
-        self.cityData = cityData
-        self.apiClient = apiClient
-    }
     
     func createWeatherInfoViewModel(date: WeatherDate,
                                     forecast: Forecast?) -> WeatherInfoViewModel {

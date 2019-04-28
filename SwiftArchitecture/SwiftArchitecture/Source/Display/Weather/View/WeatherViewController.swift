@@ -9,13 +9,24 @@
 import UIKit
 import SVProgressHUD
 import ReactiveSwift
+import DIKit
 
-final class WeatherViewController: UIViewController {
+final class WeatherViewController: UIViewController, FactoryMethodInjectable {
+    struct Dependency {
+        let viewModel: WeatherViewModel
+    }
+    
+    static func makeInstance(dependency: Dependency) -> WeatherViewController {
+        let viewConroller = WeatherViewController()
+        viewConroller.viewModel = dependency.viewModel
+        return viewConroller
+    }
+    
     var viewModel: WeatherViewModel!
     @IBOutlet private weak var todayView: WeatherInfoView!
     @IBOutlet private weak var tomorrowView: WeatherInfoView!
     @IBOutlet private weak var dayAfterTomorrowView: WeatherInfoView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,7 +45,6 @@ final class WeatherViewController: UIViewController {
 
     private func setupNavigation() {
         self.navigationItem.title = viewModel.cityData.name
-        self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh,
                                                                  target: self,
                                                                  action: #selector(tappedRefreshButton(_:)))

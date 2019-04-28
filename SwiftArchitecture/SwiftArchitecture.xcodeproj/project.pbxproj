@@ -45,8 +45,11 @@
 		0E5A82E72274A4610035C004 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82E12274A4610035C004 /* ReactiveCocoa.framework */; };
 		0E5A82E82274A4610035C004 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82E22274A4610035C004 /* ReactiveSwift.framework */; };
 		0E5A82EB2274BD570035C004 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82EA2274BD570035C004 /* APIClient.swift */; };
+		0E5A82EE227567890035C004 /* DIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82ED227567890035C004 /* DIKit.framework */; };
+		0E5A82F022756A920035C004 /* AppResolver.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82EF22756A920035C004 /* AppResolver.generated.swift */; };
+		0E5A82F222756AB30035C004 /* AppResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82F122756AB30035C004 /* AppResolver.swift */; };
+		0E5A82F622757CDF0035C004 /* UIColor+hexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82F522757CDF0035C004 /* UIColor+hexColor.swift */; };
 		0EDA9FA421D8FB9900373792 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA9FA321D8FB9900373792 /* AppDelegate.swift */; };
-		0EDA9FA921D8FB9900373792 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FA721D8FB9900373792 /* Main.storyboard */; };
 		0EDA9FAB21D8FB9B00373792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */; };
 		0EDA9FAE21D8FB9B00373792 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FAC21D8FB9B00373792 /* LaunchScreen.storyboard */; };
 		0EDA9FB921D8FB9B00373792 /* SwiftArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA9FB821D8FB9B00373792 /* SwiftArchitectureTests.swift */; };
@@ -117,9 +120,12 @@
 		0E5A82E12274A4610035C004 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		0E5A82E22274A4610035C004 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		0E5A82EA2274BD570035C004 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		0E5A82ED227567890035C004 /* DIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DIKit.framework; path = Carthage/Build/iOS/DIKit.framework; sourceTree = "<group>"; };
+		0E5A82EF22756A920035C004 /* AppResolver.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResolver.generated.swift; sourceTree = "<group>"; };
+		0E5A82F122756AB30035C004 /* AppResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppResolver.swift; path = /Users/makoto/github/SwiftArchitecture/SwiftArchitecture/SwiftArchitecture/Source/Common/AppResolver.swift; sourceTree = "<absolute>"; };
+		0E5A82F522757CDF0035C004 /* UIColor+hexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hexColor.swift"; sourceTree = "<group>"; };
 		0EDA9FA021D8FB9900373792 /* SwiftArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDA9FA321D8FB9900373792 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0EDA9FA821D8FB9900373792 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EDA9FAD21D8FB9B00373792 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EDA9FAF21D8FB9B00373792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E5A82EE227567890035C004 /* DIKit.framework in Frameworks */,
 				0E5A82E32274A4610035C004 /* ReactiveMapKit.framework in Frameworks */,
 				0E5A82E42274A4610035C004 /* Result.framework in Frameworks */,
 				0E5A82E52274A4610035C004 /* SVProgressHUD.framework in Frameworks */,
@@ -380,8 +387,8 @@
 		0EDA9FA221D8FB9900373792 /* SwiftArchitecture */ = {
 			isa = PBXGroup;
 			children = (
+				0E5A82EF22756A920035C004 /* AppResolver.generated.swift */,
 				0EDA9FA321D8FB9900373792 /* AppDelegate.swift */,
-				0EDA9FA721D8FB9900373792 /* Main.storyboard */,
 				0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */,
 				0EDA9FAC21D8FB9B00373792 /* LaunchScreen.storyboard */,
 				0EDA9FD321DC7CC100373792 /* Source */,
@@ -433,6 +440,7 @@
 			children = (
 				0EDA9FF021DD1A3A00373792 /* UIViewController+showPopover.swift */,
 				0EDAA00A21DE12EB00373792 /* UIAlertController+showAlert.swift */,
+				0E5A82F522757CDF0035C004 /* UIColor+hexColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -440,6 +448,7 @@
 		0EDAA04F21DE495100373792 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0E5A82F122756AB30035C004 /* AppResolver.swift */,
 				0EDAA05021DE496100373792 /* BaseView.swift */,
 				0E5A82EA2274BD570035C004 /* APIClient.swift */,
 			);
@@ -449,6 +458,7 @@
 		F98C96B3E2C7100AFAD77A99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0E5A82ED227567890035C004 /* DIKit.framework */,
 				0E5A82E02274A4610035C004 /* Alamofire.framework */,
 				0E5A82E12274A4610035C004 /* ReactiveCocoa.framework */,
 				0E5A82DD2274A4610035C004 /* ReactiveMapKit.framework */,
@@ -476,6 +486,7 @@
 				0EDA9F9E21D8FB9900373792 /* Resources */,
 				82B4339350DDB4B80D97409C /* [CP] Embed Pods Frameworks */,
 				0E5A82E92274A46D0035C004 /* Carthage Run Script */,
+				0E5A82EC227567360035C004 /* DIKit Run Script */,
 			);
 			buildRules = (
 			);
@@ -584,7 +595,6 @@
 				0EDA9FAB21D8FB9B00373792 /* Assets.xcassets in Resources */,
 				0E5A82D02270CF550035C004 /* WeatherInfoView.xib in Resources */,
 				0E5A82C22270CF550035C004 /* PrefectureListViewController.xib in Resources */,
-				0EDA9FA921D8FB9900373792 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,6 +649,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveMapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/DIKit.framework",
 			);
 			name = "Carthage Run Script";
 			outputFileListPaths = (
@@ -648,6 +659,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		0E5A82EC227567360035C004 /* DIKit Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "DIKit Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which dikitgen >/dev/null; then\ndikitgen ${SRCROOT}/$PROJECT_NAME > ${SRCROOT}/$PROJECT_NAME/AppResolver.generated.swift\nelse\necho \"warning: dikitgen not installed, download from https://github.com/ishkawa/DIKit\"\nfi\n";
 		};
 		1CF97291974919928E27525C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -737,6 +766,7 @@
 				0E5A82BB2270CF550035C004 /* AreaFilterViewController.swift in Sources */,
 				0E5A82C62270CF550035C004 /* WeatherViewModel.swift in Sources */,
 				0E5A82CE2270CF550035C004 /* Temperature.swift in Sources */,
+				0E5A82F622757CDF0035C004 /* UIColor+hexColor.swift in Sources */,
 				0E5A82C72270CF550035C004 /* Forecast.swift in Sources */,
 				0E5A82CD2270CF550035C004 /* Image.swift in Sources */,
 				0E5A82DC22726B6E0035C004 /* R.generated.swift in Sources */,
@@ -758,6 +788,8 @@
 				0E5A82D52271BD0A0035C004 /* WeatherInfoViewModel.swift in Sources */,
 				0E5A82C12270CF550035C004 /* CityData.swift in Sources */,
 				0E5A82C92270CF550035C004 /* Max.swift in Sources */,
+				0E5A82F022756A920035C004 /* AppResolver.generated.swift in Sources */,
+				0E5A82F222756AB30035C004 /* AppResolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -793,14 +825,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0EDA9FA721D8FB9900373792 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0EDA9FA821D8FB9900373792 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0EDA9FAC21D8FB9B00373792 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

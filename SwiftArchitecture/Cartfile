@@ -1,3 +1,4 @@
 github "SVProgressHUD/SVProgressHUD" == 2.2.5
 github "Alamofire/Alamofire" == 4.8.2
 github "ReactiveCocoa/ReactiveCocoa" == 9.0.0
+github "ishkawa/DIKIt" == 0.5.0
