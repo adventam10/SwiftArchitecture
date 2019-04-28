@@ -94,7 +94,7 @@ class PrefectureListViewController: UIViewController {
     
     private func showWeatherViewController(weather: Weather, cityData: CityData) {
         let viewController = WeatherViewController()
-        viewController.viewModel = WeatherViewModel(weather: weather, cityData: cityData)
+        viewController.viewModel = WeatherViewModel(weather: weather, cityData: cityData, apiClient: viewModel.apiClient)
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
@@ -126,19 +126,17 @@ extension PrefectureListViewController: UIPopoverPresentationControllerDelegate 
 extension PrefectureListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         SVProgressHUD.show()
-        WeatherViewModel.requestWeather(cityId: viewModel.tableDataList.value[indexPath.row].cityId,
-                                             success:
-            {[weak self] (weather) in
+        viewModel.apiClient.requestWeather(cityId: viewModel.tableDataList.value[indexPath.row].cityId,
+                                 success:
+            { [unowned self] weather in
                 SVProgressHUD.dismiss()
-                guard let weakSelf = self else { return }
-                weakSelf.showWeatherViewController(weather: weather,
-                                                   cityData: weakSelf.viewModel.tableDataList.value[indexPath.row])
-        },
-                                             failure:
-            {[weak self] (message) in
+                self.showWeatherViewController(weather: weather,
+                                               cityData: self.viewModel.tableDataList.value[indexPath.row])
+            }
+            , failure:
+            { [unowned self] message in
                 SVProgressHUD.dismiss()
-                guard let weakSelf = self else { return }
-                UIAlertController.showAlert(viewController: weakSelf,
+                UIAlertController.showAlert(viewController: self,
                                             title: "",
                                             message: message,
                                             buttonTitle: "閉じる",

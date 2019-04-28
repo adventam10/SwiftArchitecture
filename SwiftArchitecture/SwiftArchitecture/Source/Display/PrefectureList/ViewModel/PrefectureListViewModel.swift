@@ -11,6 +11,7 @@ import ReactiveSwift
 
 class PrefectureListViewModel {
     private static let USER_DEFAULTS_FAVORITES_KEY = "USER_DEFAULTS_FAVORITES_KEY"
+    let apiClient = APIClient()
     let cityDataList = loadCityDataList()
     var tableDataList = MutableProperty([CityData]())
     var selectedAreaTypes = MutableProperty([Area]())
