@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeatherInfoView: BaseView {
+final class WeatherInfoView: BaseView {
     enum ViewType {
         case large
         case small

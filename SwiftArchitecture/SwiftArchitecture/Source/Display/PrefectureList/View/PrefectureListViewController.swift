@@ -11,7 +11,7 @@ import SVProgressHUD
 import ReactiveSwift
 import ReactiveCocoa
 
-class PrefectureListViewController: UIViewController {
+final class PrefectureListViewController: UIViewController {
     private let viewModel = PrefectureListViewModel()
     @IBOutlet weak var tableView: UITableView! {
         didSet {

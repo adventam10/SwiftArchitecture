@@ -15,7 +15,7 @@ protocol AreaFilterViewControllerDelegate: class {
                                   didSelect areaTypes: [Area])
 }
 
-class AreaFilterViewController: UIViewController {
+final class AreaFilterViewController: UIViewController {
     weak var delegate: AreaFilterViewControllerDelegate?
     var viewModel: AreaFilterViewModel!
     @IBOutlet weak var tableView: UITableView! {

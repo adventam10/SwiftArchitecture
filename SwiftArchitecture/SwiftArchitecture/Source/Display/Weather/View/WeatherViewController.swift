@@ -10,7 +10,7 @@ import UIKit
 import SVProgressHUD
 import ReactiveSwift
 
-class WeatherViewController: UIViewController {
+final class WeatherViewController: UIViewController {
     var viewModel: WeatherViewModel!
     @IBOutlet private weak var todayView: WeatherInfoView!
     @IBOutlet private weak var tomorrowView: WeatherInfoView!
