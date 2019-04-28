@@ -1,0 +1,29 @@
+name: LicensePlist, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 2.5.0
+
+name: R.swift, nameSpecified: 
+body: The MIT License (MIT…
+version: 5.0.3
+
+name: R.swift.Library, nameSpecified: 
+body: The MIT License (MIT…
+version: 5.0.1
+
+name: Alamofire, nameSpecified: , owner: Alamofire, version: 4.8.2
+
+name: DIKIt, nameSpecified: , owner: ishkawa, version: 0.5.0
+
+name: ReactiveCocoa, nameSpecified: , owner: ReactiveCocoa, version: 9.0.0
+
+name: ReactiveSwift, nameSpecified: , owner: ReactiveCocoa, version: 5.0.1
+
+name: Result, nameSpecified: , owner: antitypical, version: 4.1.0
+
+name: SVProgressHUD, nameSpecified: , owner: SVProgressHUD, version: 2.2.5
+
+add-version-numbers: false
+
+LicensePlist Version: 1.8.3

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E47B2DB22758D6100C5A364 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0E47B2DA22758D6100C5A364 /* Settings.bundle */; };
 		0E5A82B92270CF550035C004 /* AreaFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82902270CF550035C004 /* AreaFilterViewModel.swift */; };
 		0E5A82BA2270CF550035C004 /* AreaFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82922270CF550035C004 /* AreaFilterModel.swift */; };
 		0E5A82BB2270CF550035C004 /* AreaFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82942270CF550035C004 /* AreaFilterViewController.swift */; };
@@ -82,6 +83,7 @@
 
 /* Begin PBXFileReference section */
 		0C28516824482485EC8B0802 /* Pods_SwiftArchitecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftArchitecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E47B2DA22758D6100C5A364 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		0E5A82902270CF550035C004 /* AreaFilterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaFilterViewModel.swift; sourceTree = "<group>"; };
 		0E5A82922270CF550035C004 /* AreaFilterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaFilterModel.swift; sourceTree = "<group>"; };
 		0E5A82942270CF550035C004 /* AreaFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaFilterViewController.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 				0EDA9FD321DC7CC100373792 /* Source */,
 				0EDA9FD121DC7CC100373792 /* Resource */,
 				0EDA9FAF21D8FB9B00373792 /* Info.plist */,
+				0E47B2DA22758D6100C5A364 /* Settings.bundle */,
 			);
 			path = SwiftArchitecture;
 			sourceTree = "<group>";
@@ -487,6 +490,8 @@
 				82B4339350DDB4B80D97409C /* [CP] Embed Pods Frameworks */,
 				0E5A82E92274A46D0035C004 /* Carthage Run Script */,
 				0E5A82EC227567360035C004 /* DIKit Run Script */,
+				0E5A82F7227583B20035C004 /* LicensePlist Run Script */,
+				0E47B2DC2275B4E200C5A364 /* Version Run Script */,
 			);
 			buildRules = (
 			);
@@ -588,6 +593,7 @@
 			files = (
 				0E5A82BC2270CF550035C004 /* AreaFilterTableViewCell.xib in Resources */,
 				0EDA9FD821DC7CC100373792 /* CityData.json in Resources */,
+				0E47B2DB22758D6100C5A364 /* Settings.bundle in Resources */,
 				0EDA9FAE21D8FB9B00373792 /* LaunchScreen.storyboard in Resources */,
 				0E5A82BE2270CF550035C004 /* AreaFilterViewController.xib in Resources */,
 				0E5A82C52270CF550035C004 /* PrefectureListTableViewCell.xib in Resources */,
@@ -615,6 +621,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E47B2DC2275B4E200C5A364 /* Version Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Version Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_VERSION=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:0:DefaultValue ${APP_VERSION}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nBUILD_NUMBER=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:1:DefaultValue ${BUILD_NUMBER}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n";
+		};
 		0E5A82DA22726AEA0035C004 /* Rswift Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -677,6 +701,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which dikitgen >/dev/null; then\ndikitgen ${SRCROOT}/$PROJECT_NAME > ${SRCROOT}/$PROJECT_NAME/AppResolver.generated.swift\nelse\necho \"warning: dikitgen not installed, download from https://github.com/ishkawa/DIKit\"\nfi\n";
+		};
+		0E5A82F7227583B20035C004 /* LicensePlist Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "LicensePlist Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\ncd $SRCROOT\n/usr/local/bin/license-plist --output-path $PRODUCT_NAME/Settings.bundle\nfi\n";
 		};
 		1CF97291974919928E27525C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
