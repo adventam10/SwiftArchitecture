@@ -68,11 +68,7 @@ struct PrefectureListViewModel: Injectable {
         return PrefectureListCellViewModel(cityName: cityData.name,
                                            isFavorite: favoriteCityIds.value.contains(cityData.cityId))
     }
-    
-//    func createAreaFilterViewModel(_ selectedAreaTypes: [Area]) -> AreaFilterViewModel {
-//        return AreaFilterViewModel(selectedAreaTypes: selectedAreaTypes)
-//    }
-    
+        
     private static func loadCityDataList() -> [CityData] {
         guard let filePath = R.file.cityDataJson.path(),
             let data = FileManager.default.contents(atPath: filePath),
