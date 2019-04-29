@@ -19,6 +19,13 @@
 		0E47B2E82275F8C000C5A364 /* PrefectureListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47B2E72275F8C000C5A364 /* PrefectureListTests.swift */; };
 		0E47B2EA2276015C00C5A364 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47B2E92276015C00C5A364 /* WeatherTests.swift */; };
 		0E47B2EC227617CE00C5A364 /* TestWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E47B2EB227617CE00C5A364 /* TestWeather.json */; };
+		0E47B2ED2276228200C5A364 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82E02274A4610035C004 /* Alamofire.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0E47B2EE2276228200C5A364 /* DIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82ED227567890035C004 /* DIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0E47B2EF2276228200C5A364 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82E12274A4610035C004 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0E47B2F02276228200C5A364 /* ReactiveMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82DD2274A4610035C004 /* ReactiveMapKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0E47B2F12276228200C5A364 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82E22274A4610035C004 /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0E47B2F22276228200C5A364 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82DE2274A4610035C004 /* Result.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0E47B2F32276228200C5A364 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82DF2274A4610035C004 /* SVProgressHUD.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		0E5A82B92270CF550035C004 /* AreaFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82902270CF550035C004 /* AreaFilterViewModel.swift */; };
 		0E5A82BA2270CF550035C004 /* AreaFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82922270CF550035C004 /* AreaFilterModel.swift */; };
 		0E5A82BB2270CF550035C004 /* AreaFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82942270CF550035C004 /* AreaFilterViewController.swift */; };
@@ -72,7 +79,7 @@
 		0EDAA05121DE496100373792 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDAA05021DE496100373792 /* BaseView.swift */; };
 		2DD02B7E4A77879162FA880B /* Pods_SwiftArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C28516824482485EC8B0802 /* Pods_SwiftArchitecture.framework */; };
 		2EBAFF72EE5C1EBF3824D9EC /* Pods_SwiftArchitectureTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF5B7003D04B98CDD6FD83E /* Pods_SwiftArchitectureTests.framework */; };
-		42C576D5EC9BA5F9DBC55C80 /* Pods_SwiftArchitectureUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 296DC4DDD6A61C6590612364 /* Pods_SwiftArchitectureUITests.framework */; };
+		42C576D5EC9BA5F9DBC55C80 /* Pods_SwiftArchitectureUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 296DC4DDD6A61C6590612364 /* Pods_SwiftArchitectureUITests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +208,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E47B2ED2276228200C5A364 /* Alamofire.framework in Frameworks */,
+				0E47B2EE2276228200C5A364 /* DIKit.framework in Frameworks */,
+				0E47B2EF2276228200C5A364 /* ReactiveCocoa.framework in Frameworks */,
+				0E47B2F02276228200C5A364 /* ReactiveMapKit.framework in Frameworks */,
+				0E47B2F12276228200C5A364 /* ReactiveSwift.framework in Frameworks */,
+				0E47B2F22276228200C5A364 /* Result.framework in Frameworks */,
+				0E47B2F32276228200C5A364 /* SVProgressHUD.framework in Frameworks */,
 				42C576D5EC9BA5F9DBC55C80 /* Pods_SwiftArchitectureUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,6 +569,7 @@
 				0EDA9FBB21D8FB9B00373792 /* Sources */,
 				0EDA9FBC21D8FB9B00373792 /* Frameworks */,
 				0EDA9FBD21D8FB9B00373792 /* Resources */,
+				BFA2735F8D24F7293062B744 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -817,6 +832,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BFA2735F8D24F7293062B744 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftArchitectureUITests/Pods-SwiftArchitectureUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftArchitectureUITests/Pods-SwiftArchitectureUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1127,6 +1164,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H5QW7TLM9U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftArchitectureUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1148,6 +1189,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H5QW7TLM9U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftArchitectureUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

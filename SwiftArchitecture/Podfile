@@ -17,6 +17,7 @@ target 'SwiftArchitecture' do
   target 'SwiftArchitectureUITests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'R.swift', '5.0.3'
   end
 
 end
