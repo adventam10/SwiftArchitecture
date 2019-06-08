@@ -103,8 +103,7 @@ final class PrefectureListViewController: UIViewController, FactoryMethodInjecta
     }
     
     private func showWeatherViewController(weather: Weather, cityData: CityData) {
-        let viewController = viewModel.resolver.resolveWeatherViewController(resolver: viewModel.resolver,
-                                                                             weather: weather,
+        let viewController = viewModel.resolver.resolveWeatherViewController(weather: weather,
                                                                              cityData: cityData)
         self.navigationController?.pushViewController(viewController, animated: true)
     }

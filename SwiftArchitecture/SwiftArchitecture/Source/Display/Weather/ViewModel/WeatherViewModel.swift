@@ -14,13 +14,14 @@ import DIKit
 struct WeatherViewModel: Injectable {
     struct Dependency {
         let resolver: AppResolver
+        let apiClient: APIClient
         let weather: Weather
         let cityData: CityData
     }
     
     init(dependency: Dependency) {
         self.dependency = dependency
-        self.apiClient = dependency.resolver.provideAPIClient()
+        self.apiClient = dependency.apiClient
         self.weather = MutableProperty(dependency.weather)
         self.cityData = dependency.cityData
     }

@@ -65,9 +65,9 @@
 		0E5A82E82274A4610035C004 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82E22274A4610035C004 /* ReactiveSwift.framework */; };
 		0E5A82EB2274BD570035C004 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82EA2274BD570035C004 /* APIClient.swift */; };
 		0E5A82EE227567890035C004 /* DIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82ED227567890035C004 /* DIKit.framework */; };
-		0E5A82F022756A920035C004 /* AppResolver.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82EF22756A920035C004 /* AppResolver.generated.swift */; };
 		0E5A82F222756AB30035C004 /* AppResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82F122756AB30035C004 /* AppResolver.swift */; };
 		0E5A82F622757CDF0035C004 /* UIColor+hexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82F522757CDF0035C004 /* UIColor+hexColor.swift */; };
+		0EAFDEF422AC0DE000E23041 /* AppResolver.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFDEF322AC0DE000E23041 /* AppResolver.generated.swift */; };
 		0EDA9FA421D8FB9900373792 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA9FA321D8FB9900373792 /* AppDelegate.swift */; };
 		0EDA9FAB21D8FB9B00373792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */; };
 		0EDA9FAE21D8FB9B00373792 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FAC21D8FB9B00373792 /* LaunchScreen.storyboard */; };
@@ -145,9 +145,9 @@
 		0E5A82E22274A4610035C004 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		0E5A82EA2274BD570035C004 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		0E5A82ED227567890035C004 /* DIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DIKit.framework; path = Carthage/Build/iOS/DIKit.framework; sourceTree = "<group>"; };
-		0E5A82EF22756A920035C004 /* AppResolver.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResolver.generated.swift; sourceTree = "<group>"; };
 		0E5A82F122756AB30035C004 /* AppResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppResolver.swift; path = /Users/makoto/github/SwiftArchitecture/SwiftArchitecture/SwiftArchitecture/Source/Common/AppResolver.swift; sourceTree = "<absolute>"; };
 		0E5A82F522757CDF0035C004 /* UIColor+hexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hexColor.swift"; sourceTree = "<group>"; };
+		0EAFDEF322AC0DE000E23041 /* AppResolver.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResolver.generated.swift; sourceTree = "<group>"; };
 		0EDA9FA021D8FB9900373792 /* SwiftArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDA9FA321D8FB9900373792 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -425,7 +425,7 @@
 		0EDA9FA221D8FB9900373792 /* SwiftArchitecture */ = {
 			isa = PBXGroup;
 			children = (
-				0E5A82EF22756A920035C004 /* AppResolver.generated.swift */,
+				0EAFDEF322AC0DE000E23041 /* AppResolver.generated.swift */,
 				0EDA9FA321D8FB9900373792 /* AppDelegate.swift */,
 				0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */,
 				0EDA9FAC21D8FB9B00373792 /* LaunchScreen.storyboard */,
@@ -872,6 +872,7 @@
 				0E5A82BB2270CF550035C004 /* AreaFilterViewController.swift in Sources */,
 				0E5A82C62270CF550035C004 /* WeatherViewModel.swift in Sources */,
 				0E5A82CE2270CF550035C004 /* Temperature.swift in Sources */,
+				0EAFDEF422AC0DE000E23041 /* AppResolver.generated.swift in Sources */,
 				0E5A82F622757CDF0035C004 /* UIColor+hexColor.swift in Sources */,
 				0E5A82C72270CF550035C004 /* Forecast.swift in Sources */,
 				0E5A82CD2270CF550035C004 /* Image.swift in Sources */,
@@ -894,7 +895,6 @@
 				0E5A82D52271BD0A0035C004 /* WeatherInfoViewModel.swift in Sources */,
 				0E5A82C12270CF550035C004 /* CityData.swift in Sources */,
 				0E5A82C92270CF550035C004 /* Max.swift in Sources */,
-				0E5A82F022756A920035C004 /* AppResolver.generated.swift in Sources */,
 				0E5A82F222756AB30035C004 /* AppResolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

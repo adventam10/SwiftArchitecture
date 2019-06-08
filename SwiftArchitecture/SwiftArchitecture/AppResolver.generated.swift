@@ -17,6 +17,10 @@ extension AppResolver {
         return provideAPIClient()
     }
 
+    func resolveAppResolver() -> AppResolver {
+        return provideResolver()
+    }
+
     func resolveAreaFilterViewController(selectedAreaTypes: [Area]) -> AreaFilterViewController {
         let areaFilterViewModel = resolveAreaFilterViewModel(selectedAreaTypes: selectedAreaTypes)
         return AreaFilterViewController.makeInstance(dependency: .init(viewModel: areaFilterViewModel))
@@ -26,22 +30,26 @@ extension AppResolver {
         return AreaFilterViewModel(dependency: .init(selectedAreaTypes: selectedAreaTypes))
     }
 
-    func resolvePrefectureListViewController(resolver: AppResolver) -> PrefectureListViewController {
-        let prefectureListViewModel = resolvePrefectureListViewModel(resolver: resolver)
+    func resolvePrefectureListViewController() -> PrefectureListViewController {
+        let prefectureListViewModel = resolvePrefectureListViewModel()
         return PrefectureListViewController.makeInstance(dependency: .init(viewModel: prefectureListViewModel))
     }
 
-    func resolvePrefectureListViewModel(resolver: AppResolver) -> PrefectureListViewModel {
-        return PrefectureListViewModel(dependency: .init(resolver: resolver))
+    func resolvePrefectureListViewModel() -> PrefectureListViewModel {
+        let appResolver = resolveAppResolver()
+        let apiClient = resolveAPIClient()
+        return PrefectureListViewModel(dependency: .init(resolver: appResolver, apiClient: apiClient))
     }
 
-    func resolveWeatherViewController(resolver: AppResolver, weather: Weather, cityData: CityData) -> WeatherViewController {
-        let weatherViewModel = resolveWeatherViewModel(resolver: resolver, weather: weather, cityData: cityData)
+    func resolveWeatherViewController(weather: Weather, cityData: CityData) -> WeatherViewController {
+        let weatherViewModel = resolveWeatherViewModel(weather: weather, cityData: cityData)
         return WeatherViewController.makeInstance(dependency: .init(viewModel: weatherViewModel))
     }
 
-    func resolveWeatherViewModel(resolver: AppResolver, weather: Weather, cityData: CityData) -> WeatherViewModel {
-        return WeatherViewModel(dependency: .init(resolver: resolver, weather: weather, cityData: cityData))
+    func resolveWeatherViewModel(weather: Weather, cityData: CityData) -> WeatherViewModel {
+        let appResolver = resolveAppResolver()
+        let apiClient = resolveAPIClient()
+        return WeatherViewModel(dependency: .init(resolver: appResolver, apiClient: apiClient, weather: weather, cityData: cityData))
     }
 
 }

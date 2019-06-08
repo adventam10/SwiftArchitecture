@@ -13,11 +13,12 @@ import DIKit
 struct PrefectureListViewModel: Injectable {
     struct Dependency {
         let resolver: AppResolver
+        let apiClient: APIClient
     }
 
     init(dependency: Dependency) {
         self.dependency = dependency
-        self.apiClient = dependency.resolver.provideAPIClient()
+        self.apiClient = dependency.apiClient
         self.resolver = dependency.resolver
     }
     

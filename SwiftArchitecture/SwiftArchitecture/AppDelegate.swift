@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         SVProgressHUD.setDefaultMaskType(.black)
         UIView.appearance().isExclusiveTouch = true
-        let naviCon = UINavigationController(rootViewController: resolver.resolvePrefectureListViewController(resolver: resolver))
+        let naviCon = UINavigationController(rootViewController: resolver.resolvePrefectureListViewController())
         naviCon.navigationBar.barTintColor = UIColor.init(hexStr: "2851CC", alpha: 1.0)
         naviCon.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         naviCon.navigationBar.tintColor = .white
