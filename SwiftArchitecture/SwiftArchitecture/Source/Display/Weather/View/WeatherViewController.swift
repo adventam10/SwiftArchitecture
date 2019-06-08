@@ -51,33 +51,31 @@ final class WeatherViewController: UIViewController, FactoryMethodInjectable {
     }
     
     private func bind() {
-        viewModel.weather.producer.startWithValues  { [unowned self] weather in
+        viewModel.weather.producer.startWithValues { [unowned self] weather in
             self.displayView(forecasts: weather.forecasts)
         }
     }
     
-    // MARK:- Button Action
+    // MARK: - Button Action
     @objc
     private func tappedRefreshButton(_ button: UIBarButtonItem) {
         SVProgressHUD.show()
-        viewModel.apiClient.requestWeather(cityId:  viewModel.cityData.cityId,
-                                           success:
-            { [unowned self] weather in
-                SVProgressHUD.dismiss()
-                self.viewModel.weather.value = weather
-            }
-            , failure:
-            { [unowned self] message in
-                SVProgressHUD.dismiss()
-                UIAlertController.showAlert(viewController: self,
-                                            title: "",
-                                            message: message,
-                                            buttonTitle: "閉じる",
-                                            buttonAction: nil)
+        viewModel.apiClient.requestWeather(cityId: viewModel.cityData.cityId,
+                                           success: { [unowned self] weather in
+                                            SVProgressHUD.dismiss()
+                                            self.viewModel.weather.value = weather
+            } ,
+                                           failure: { [unowned self] message in
+                                            SVProgressHUD.dismiss()
+                                            UIAlertController.showAlert(viewController: self,
+                                                                        title: "",
+                                                                        message: message,
+                                                                        buttonTitle: "閉じる",
+                                                                        buttonAction: nil)
         })
     }
     
-    // MARK:- Display
+    // MARK: - Display
     private func displayView(date: WeatherDate, forecast: Forecast?) {
         let infoView: WeatherInfoView
         switch date {

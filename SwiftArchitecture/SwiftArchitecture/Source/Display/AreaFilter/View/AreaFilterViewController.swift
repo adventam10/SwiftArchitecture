@@ -11,7 +11,7 @@ import ReactiveSwift
 import ReactiveCocoa
 import DIKit
 
-protocol AreaFilterViewControllerDelegate: class {
+protocol AreaFilterViewControllerDelegate: AnyObject {
     func areaFilterViewController(_ areaFilterViewController: AreaFilterViewController,
                                   didSelect areaTypes: [Area])
 }
@@ -58,7 +58,7 @@ final class AreaFilterViewController: UIViewController, FactoryMethodInjectable 
         }
     }
     
-    // MARK:- Button Action
+    // MARK: - Button Action
     @IBAction private func tappedAllCheckButton(_ button: UIButton) {
         viewModel.setupSelectedAreaTypes(isAllCheck: !viewModel.isAllCheck())
     }

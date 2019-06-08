@@ -8,6 +8,7 @@ target 'SwiftArchitecture' do
   # Pods for SwiftArchitecture
 	pod 'R.swift', '5.0.3'
 	pod 'LicensePlist', '2.5.0'
+	pod 'SwiftLint'
 
   target 'SwiftArchitectureTests' do
     inherit! :search_paths

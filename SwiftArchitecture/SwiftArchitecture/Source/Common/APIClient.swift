@@ -59,7 +59,7 @@ struct WeatherRequest: BaseRequestProtocol {
     
     let method: HTTPMethod = .get
     let path = "v1"
-    var parameters: Parameters? = nil
+    var parameters: Parameters?
 }
 
 enum APIResult {
@@ -76,12 +76,12 @@ struct ErrorResponse: Error, CustomStringConvertible {
 final class APIClient {
     private static let successRange = 200..<400
     private static let contentType = ["application/json"]
-    public func call<T, V>(_ request: T,
-                           success: @escaping (V) -> Void,
-                           failure: @escaping (Error) -> Void)
+    func call<T, V>(_ request: T,
+                    success: @escaping (V) -> Void,
+                    failure: @escaping (Error) -> Void)
         where T: BaseRequestProtocol, V: Codable, T.ResponseType == V {
             observe(request).startWithResult { result in
-                switch (result) {
+                switch result {
                 case let .success(value):
                     success(value)
                 case let .failure(error):
@@ -92,7 +92,7 @@ final class APIClient {
     
     private func observe<T, V>(_ request: T) -> SignalProducer<V, Error>
         where T: BaseRequestProtocol, V: Codable, T.ResponseType == V {
-            return SignalProducer<V, Error> { [unowned self] (innerObserver, disposable) in
+            return SignalProducer<V, Error> { [unowned self] (innerObserver, _) in
                 self.callForData(request) { response in
                     switch response {
                     case .success(let result):
@@ -139,9 +139,9 @@ final class APIClient {
 }
 
 extension APIClient {
-    public func requestWeather(cityId: String,
-                               success: @escaping (Weather)->Void,
-                               failure: @escaping (String)->Void) {
+    func requestWeather(cityId: String,
+                        success: @escaping (Weather) -> Void,
+                        failure: @escaping (String) -> Void) {
         call(WeatherRequest(parameters: ["city": cityId]),
              success: success,
              failure: { error in

@@ -10,17 +10,15 @@ import UIKit
 
 class BaseView: UIView {
     private var className: String {
-        get {
-            return String(describing: type(of: self)) // ClassName
-        }
+        return String(describing: type(of: self)) // ClassName
     }
     
-    override public init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         loadNib()
     }
     
-    required public init(coder aDecoder: NSCoder) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         loadNib()
     }

@@ -30,11 +30,11 @@ struct WeatherViewModel: Injectable {
     var weather: MutableProperty<Weather>
     let apiClient: APIClient
     let cityData: CityData
-    let dateFormatter :DateFormatter = {
-        let df = DateFormatter()
-        df.locale = Locale(identifier: "ja_JP")
-        df.dateFormat = "yyyy/MM/dd(E)"
-        return df
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.dateFormat = "yyyy/MM/dd(E)"
+        return formatter
     }()
     
     func createWeatherInfoViewModel(date: WeatherDate,
@@ -44,9 +44,9 @@ struct WeatherViewModel: Injectable {
         case .today:
             targetDate = Date()
         case .tomorrow:
-            targetDate = Date(timeIntervalSinceNow: 60*60*24)
+            targetDate = Date(timeIntervalSinceNow: 60 * 60 * 24)
         case .dayAfterTomorrow:
-            targetDate = Date(timeIntervalSinceNow: 60*60*24*2)
+            targetDate = Date(timeIntervalSinceNow: 60 * 60 * 24 * 2)
         }
         return WeatherInfoViewModel(forecast: forecast,
                                     dateText: dateFormatter.string(from: targetDate))

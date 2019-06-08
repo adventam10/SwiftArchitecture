@@ -22,7 +22,7 @@ struct PrefectureListViewModel: Injectable {
         self.resolver = dependency.resolver
     }
     
-    private static let USER_DEFAULTS_FAVORITES_KEY = "USER_DEFAULTS_FAVORITES_KEY"
+    private static let USER_DEFAULTS_FAVORITES_KEY = "USER_DEFAULTS_FAVORITES_KEY" // swiftlint:disable:this identifier_name
     private let dependency: Dependency
     let resolver: AppResolver
     let apiClient: APIClient

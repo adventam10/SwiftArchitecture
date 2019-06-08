@@ -82,7 +82,7 @@ final class PrefectureListViewController: UIViewController, FactoryMethodInjecta
         }
     }
     
-    // MARK:- Button Action
+    // MARK: - Button Action
     @IBAction private func tappedFavoriteButton(_ button: UIButton) {
         viewModel.isFavoriteFilter.value.toggle()
     }
@@ -91,7 +91,7 @@ final class PrefectureListViewController: UIViewController, FactoryMethodInjecta
         showAreaFilterViewController(button: button)
     }
     
-    // MARK:- Show
+    // MARK: - Show
     private func showAreaFilterViewController(button: UIButton) {
         let viewController = viewModel.resolver.resolveAreaFilterViewController(selectedAreaTypes: viewModel.selectedAreaTypes.value)
         viewController.delegate = self
@@ -137,20 +137,18 @@ extension PrefectureListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         SVProgressHUD.show()
         viewModel.apiClient.requestWeather(cityId: viewModel.tableDataList.value[indexPath.row].cityId,
-                                 success:
-            { [unowned self] weather in
-                SVProgressHUD.dismiss()
-                self.showWeatherViewController(weather: weather,
-                                               cityData: self.viewModel.tableDataList.value[indexPath.row])
-            }
-            , failure:
-            { [unowned self] message in
-                SVProgressHUD.dismiss()
-                UIAlertController.showAlert(viewController: self,
-                                            title: "",
-                                            message: message,
-                                            buttonTitle: "閉じる",
-                                            buttonAction: nil)
+                                           success: { [unowned self] weather in
+                                            SVProgressHUD.dismiss()
+                                            self.showWeatherViewController(weather: weather,
+                                                                           cityData: self.viewModel.tableDataList.value[indexPath.row])
+            },
+                                           failure: { [unowned self] message in
+                                            SVProgressHUD.dismiss()
+                                            UIAlertController.showAlert(viewController: self,
+                                                                        title: "",
+                                                                        message: message,
+                                                                        buttonTitle: "閉じる",
+                                                                        buttonAction: nil)
         })
     }
 }

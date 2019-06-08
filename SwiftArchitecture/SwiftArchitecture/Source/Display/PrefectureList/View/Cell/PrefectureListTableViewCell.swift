@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PrefectureListTableViewCellDelegate: class {
+protocol PrefectureListTableViewCellDelegate: AnyObject {
     func prefectureListTableViewCell(_ cell: PrefectureListTableViewCell,
                                      didTapFavorite button: UIButton)
 }
@@ -18,7 +18,7 @@ final class PrefectureListTableViewCell: UITableViewCell {
     @IBOutlet private weak var favoriteButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
     
-    // MARK:- Button Action
+    // MARK: - Button Action
     @IBAction private func tappedFavoriteButton(_ button: UIButton) {
         delegate?.prefectureListTableViewCell(self, didTapFavorite: button)
     }

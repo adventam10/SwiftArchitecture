@@ -1,0 +1,54 @@
+excluded:
+  - Pods
+  - Carthage
+  - SwiftArchitectureTests
+  - SwiftArchitectureUITests
+  - vendor
+  - SwiftArchitecture/Resource
+  - SwiftArchitecture/Source/JSONExport
+
+opt_in_rules:
+  - anyobject_protocol  
+  - array_init
+  - closure_spacing
+  - collection_alignment
+  - conditional_returns_on_newline
+  - contains_over_first_not_nil
+  - discouraged_object_literal
+  - joined_default_parameter
+  - legacy_random
+  - lower_acl_than_parent
+  - operator_usage_whitespace
+  - operator_whitespace
+  - overridden_super_call
+  - private_action
+  - prohibited_super_call
+  - unavailable_function
+  - unused_import
+  - unused_private_declaration
+  - vertical_parameter_alignment_on_call
+
+identifier-name:
+  min_length:
+    warning: 1
+    error: 1
+function_parameter_count:
+  warning: 6
+line_length: 
+  warning: 300
+  error: 300
+type_name:
+  min_length:
+    warning: 2
+    error: 2
+  max_length:
+    warning: 50
+    error: 60
+large_tuple:
+  warning: 3
+  error: 4
+
+disabled_rules:
+  - force_cast
+  - trailing_whitespace
+  - force_try

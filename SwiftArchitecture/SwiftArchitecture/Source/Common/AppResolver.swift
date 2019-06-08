@@ -20,7 +20,7 @@ final class AppResolverImpl: AppResolver {
         return self
     }
     
-    func provideAPIClient() -> APIClient{
+    func provideAPIClient() -> APIClient {
         return apiClient
     }
 }
