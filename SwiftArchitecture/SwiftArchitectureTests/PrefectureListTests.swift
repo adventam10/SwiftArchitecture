@@ -11,6 +11,8 @@ import XCTest
 
 class PrefectureListTests: XCTestCase {
 
+    let resolver = AppResolverImpl()
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -20,7 +22,7 @@ class PrefectureListTests: XCTestCase {
     }
     
     func testCityDataList() {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         XCTAssertEqual(viewModel.cityDataList.count, 47)
     }
     
@@ -95,7 +97,7 @@ class PrefectureListTests: XCTestCase {
     }
 
     private func patternAllNoCheck() -> PrefectureListViewModel {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         viewModel.selectedAreaTypes.value.removeAll()
         viewModel.favoriteCityIds.value.removeAll()
         viewModel.isFavoriteFilter.value = false
@@ -103,7 +105,7 @@ class PrefectureListTests: XCTestCase {
     }
     
     private func patternFavoriteHokkaidoOsakaFukushima_AreaShikoku_Check() -> PrefectureListViewModel {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         viewModel.selectedAreaTypes.value = [.shikoku]
         viewModel.favoriteCityIds.value = ["016010", "270000", "070010"]
         viewModel.isFavoriteFilter.value = true
@@ -111,7 +113,7 @@ class PrefectureListTests: XCTestCase {
     }
     
     private func patternFavoriteHokkaidoOsakaFukushima_AreaKinki_Check() -> PrefectureListViewModel {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         viewModel.selectedAreaTypes.value = [.kinki]
         viewModel.favoriteCityIds.value = ["016010", "270000", "070010"]
         viewModel.isFavoriteFilter.value = true
@@ -119,7 +121,7 @@ class PrefectureListTests: XCTestCase {
     }
     
     private func patternFavoriteNoCheck() -> PrefectureListViewModel {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         viewModel.selectedAreaTypes.value.removeAll()
         viewModel.favoriteCityIds.value.removeAll()
         viewModel.isFavoriteFilter.value = true
@@ -127,7 +129,7 @@ class PrefectureListTests: XCTestCase {
     }
     
     private func patternFavoriteHokkaidoOsakaFukushimaCheck() -> PrefectureListViewModel {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         viewModel.selectedAreaTypes.value.removeAll()
         viewModel.favoriteCityIds.value = ["016010", "270000", "070010"]
         viewModel.isFavoriteFilter.value = true
@@ -135,7 +137,7 @@ class PrefectureListTests: XCTestCase {
     }
     
     private func patternFavoriteHokkaidoOsakaFukushimaNoCheck() -> PrefectureListViewModel {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         viewModel.selectedAreaTypes.value.removeAll()
         viewModel.favoriteCityIds.value = ["016010", "270000", "070010"]
         viewModel.isFavoriteFilter.value = false
@@ -143,7 +145,7 @@ class PrefectureListTests: XCTestCase {
     }
     
     private func patternAreaAllCheck() -> PrefectureListViewModel {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         viewModel.selectedAreaTypes.value = [.hokkaido, .tohoku, .kanto, .chubu, .kinki, .chugoku, .shikoku, .kyushu]
         viewModel.favoriteCityIds.value.removeAll()
         viewModel.isFavoriteFilter.value = false
@@ -151,7 +153,7 @@ class PrefectureListTests: XCTestCase {
     }
     
     private func patternAreaKantoKinkiShikokuCheck() -> PrefectureListViewModel {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         viewModel.selectedAreaTypes.value = [.kanto, .kinki, .shikoku]
         viewModel.favoriteCityIds.value.removeAll()
         viewModel.isFavoriteFilter.value = false
@@ -159,7 +161,7 @@ class PrefectureListTests: XCTestCase {
     }
     
     private func patternAreaHokkaidoCheck() -> PrefectureListViewModel {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         viewModel.selectedAreaTypes.value = [.hokkaido]
         viewModel.favoriteCityIds.value.removeAll()
         viewModel.isFavoriteFilter.value = false
@@ -167,7 +169,7 @@ class PrefectureListTests: XCTestCase {
     }
     
     private func patternAreaTohokuCheck() -> PrefectureListViewModel {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         viewModel.selectedAreaTypes.value = [.tohoku]
         viewModel.favoriteCityIds.value.removeAll()
         viewModel.isFavoriteFilter.value = false
@@ -175,7 +177,7 @@ class PrefectureListTests: XCTestCase {
     }
     
     private func patternAreaKantoCheck() -> PrefectureListViewModel {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         viewModel.selectedAreaTypes.value = [.kanto]
         viewModel.favoriteCityIds.value.removeAll()
         viewModel.isFavoriteFilter.value = false
@@ -183,7 +185,7 @@ class PrefectureListTests: XCTestCase {
     }
     
     private func patternAreaChubuCheck() -> PrefectureListViewModel {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         viewModel.selectedAreaTypes.value = [.chubu]
         viewModel.favoriteCityIds.value.removeAll()
         viewModel.isFavoriteFilter.value = false
@@ -191,7 +193,7 @@ class PrefectureListTests: XCTestCase {
     }
     
     private func patternAreaKinkiCheck() -> PrefectureListViewModel {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         viewModel.selectedAreaTypes.value = [.kinki]
         viewModel.favoriteCityIds.value.removeAll()
         viewModel.isFavoriteFilter.value = false
@@ -199,7 +201,7 @@ class PrefectureListTests: XCTestCase {
     }
     
     private func patternAreaChugokuCheck() -> PrefectureListViewModel {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         viewModel.selectedAreaTypes.value = [.chugoku]
         viewModel.favoriteCityIds.value.removeAll()
         viewModel.isFavoriteFilter.value = false
@@ -207,7 +209,7 @@ class PrefectureListTests: XCTestCase {
     }
     
     private func patternAreaShikokuCheck() -> PrefectureListViewModel {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         viewModel.selectedAreaTypes.value = [.shikoku]
         viewModel.favoriteCityIds.value.removeAll()
         viewModel.isFavoriteFilter.value = false
@@ -215,10 +217,14 @@ class PrefectureListTests: XCTestCase {
     }
     
     private func patternAreaKyushuCheck() -> PrefectureListViewModel {
-        let viewModel = PrefectureListViewModel(dependency: PrefectureListViewModel.Dependency(resolver: AppResolverImpl()))
+        let viewModel = makePrefectureListViewModel()
         viewModel.selectedAreaTypes.value = [.kyushu]
         viewModel.favoriteCityIds.value.removeAll()
         viewModel.isFavoriteFilter.value = false
         return viewModel
+    }
+    
+    private func makePrefectureListViewModel() -> PrefectureListViewModel {
+        return resolver.resolvePrefectureListViewModel()
     }
 }

@@ -11,6 +11,8 @@ import XCTest
 
 class WeatherTests: XCTestCase {
 
+    let resolver = AppResolverImpl()
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -99,9 +101,7 @@ class WeatherTests: XCTestCase {
                      }
 """
         let cityData = try! JSONDecoder().decode(CityData.self, from: text.data(using: .utf8)!)
-        let viewModel = WeatherViewModel(dependency: WeatherViewModel.Dependency(resolver: AppResolverImpl(),
-                                                                                 weather: weather,
-                                                                                 cityData: cityData))
+        let viewModel = resolver.resolveWeatherViewModel(weather: weather, cityData: cityData)
         return viewModel
     }
     func createWeather() -> Weather? {
