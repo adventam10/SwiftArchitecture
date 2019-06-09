@@ -136,7 +136,6 @@
 		0E5A82ED227567890035C004 /* DIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DIKit.framework; path = Carthage/Build/iOS/DIKit.framework; sourceTree = "<group>"; };
 		0E5A82F122756AB30035C004 /* AppResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppResolver.swift; path = /Users/makoto/github/SwiftArchitecture/SwiftArchitecture/SwiftArchitecture/Source/Common/AppResolver.swift; sourceTree = "<absolute>"; };
 		0E5A82F522757CDF0035C004 /* UIColor+hexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hexColor.swift"; sourceTree = "<group>"; };
-		0EAFDEF322AC0DE000E23041 /* AppResolver.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResolver.generated.swift; sourceTree = "<group>"; };
 		0EAFDEF622AC203100E23041 /* AppResolver.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResolver.generated.swift; sourceTree = "<group>"; };
 		0EAFDEFA22AC27D000E23041 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		0EAFDEFB22AC27D000E23041 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -418,7 +417,6 @@
 		0EDA9FA221D8FB9900373792 /* SwiftArchitecture */ = {
 			isa = PBXGroup;
 			children = (
-				0EAFDEF322AC0DE000E23041 /* AppResolver.generated.swift */,
 				0EDA9FA321D8FB9900373792 /* AppDelegate.swift */,
 				0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */,
 				0EDA9FAC21D8FB9B00373792 /* LaunchScreen.storyboard */,
