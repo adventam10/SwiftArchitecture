@@ -17,8 +17,12 @@
 * R.swift
 * ReactiveCocoa
 * SVProgressHUD
+* Swiftlint
 
 DIKitとReactiveCocoaは利用法を模索中...(使い方が合っているのか不明)
+Swiftlintも模索中...
+* force_castは許可すべきか（現状は許可）
+* empty_count, empty_stringも入れていい気がする（でもあんまガチガチにするのも...）
 
 ライブラリ管理は可能な限りCarthageを使用
 
