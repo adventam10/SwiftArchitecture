@@ -29,18 +29,13 @@
 		0E5A82B92270CF550035C004 /* AreaFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82902270CF550035C004 /* AreaFilterViewModel.swift */; };
 		0E5A82BA2270CF550035C004 /* AreaFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82922270CF550035C004 /* AreaFilterModel.swift */; };
 		0E5A82BB2270CF550035C004 /* AreaFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82942270CF550035C004 /* AreaFilterViewController.swift */; };
-		0E5A82BC2270CF550035C004 /* AreaFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E5A82962270CF550035C004 /* AreaFilterTableViewCell.xib */; };
 		0E5A82BD2270CF550035C004 /* AreaFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82972270CF550035C004 /* AreaFilterTableViewCell.swift */; };
-		0E5A82BE2270CF550035C004 /* AreaFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E5A82982270CF550035C004 /* AreaFilterViewController.xib */; };
 		0E5A82BF2270CF550035C004 /* PrefectureListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A829B2270CF550035C004 /* PrefectureListViewModel.swift */; };
-		0E5A82C22270CF550035C004 /* PrefectureListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E5A82A12270CF550035C004 /* PrefectureListViewController.xib */; };
 		0E5A82C32270CF550035C004 /* PrefectureListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82A22270CF550035C004 /* PrefectureListViewController.swift */; };
 		0E5A82C42270CF550035C004 /* PrefectureListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82A42270CF550035C004 /* PrefectureListTableViewCell.swift */; };
-		0E5A82C52270CF550035C004 /* PrefectureListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E5A82A52270CF550035C004 /* PrefectureListTableViewCell.xib */; };
 		0E5A82C62270CF550035C004 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82A82270CF550035C004 /* WeatherViewModel.swift */; };
 		0E5A82D02270CF550035C004 /* WeatherInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E5A82B52270CF550035C004 /* WeatherInfoView.xib */; };
 		0E5A82D12270CF550035C004 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82B62270CF550035C004 /* WeatherViewController.swift */; };
-		0E5A82D22270CF550035C004 /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E5A82B72270CF550035C004 /* WeatherViewController.xib */; };
 		0E5A82D32270CF550035C004 /* WeatherInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82B82270CF550035C004 /* WeatherInfoView.swift */; };
 		0E5A82D52271BD0A0035C004 /* WeatherInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82D42271BD0A0035C004 /* WeatherInfoViewModel.swift */; };
 		0E5A82D72271C91B0035C004 /* PrefectureListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82D62271C91B0035C004 /* PrefectureListCellViewModel.swift */; };
@@ -56,6 +51,9 @@
 		0E5A82EE227567890035C004 /* DIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82ED227567890035C004 /* DIKit.framework */; };
 		0E5A82F222756AB30035C004 /* AppResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82F122756AB30035C004 /* AppResolver.swift */; };
 		0E5A82F622757CDF0035C004 /* UIColor+hexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A82F522757CDF0035C004 /* UIColor+hexColor.swift */; };
+		0E723AB822AFF0BC00854726 /* PrefectureList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E723AB722AFF0BC00854726 /* PrefectureList.storyboard */; };
+		0E723ABA22AFF3A100854726 /* AreaFilter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E723AB922AFF3A100854726 /* AreaFilter.storyboard */; };
+		0E723ABC22AFF57000854726 /* Weather.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E723ABB22AFF57000854726 /* Weather.storyboard */; };
 		0EAFDEF722AC203100E23041 /* AppResolver.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFDEF622AC203100E23041 /* AppResolver.generated.swift */; };
 		0EAFDF0622AC27D000E23041 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFDEFA22AC27D000E23041 /* Forecast.swift */; };
 		0EAFDF0722AC27D000E23041 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFDEFB22AC27D000E23041 /* Location.swift */; };
@@ -109,18 +107,13 @@
 		0E5A82902270CF550035C004 /* AreaFilterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaFilterViewModel.swift; sourceTree = "<group>"; };
 		0E5A82922270CF550035C004 /* AreaFilterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaFilterModel.swift; sourceTree = "<group>"; };
 		0E5A82942270CF550035C004 /* AreaFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaFilterViewController.swift; sourceTree = "<group>"; };
-		0E5A82962270CF550035C004 /* AreaFilterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaFilterTableViewCell.xib; sourceTree = "<group>"; };
 		0E5A82972270CF550035C004 /* AreaFilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaFilterTableViewCell.swift; sourceTree = "<group>"; };
-		0E5A82982270CF550035C004 /* AreaFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaFilterViewController.xib; sourceTree = "<group>"; };
 		0E5A829B2270CF550035C004 /* PrefectureListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefectureListViewModel.swift; sourceTree = "<group>"; };
-		0E5A82A12270CF550035C004 /* PrefectureListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrefectureListViewController.xib; sourceTree = "<group>"; };
 		0E5A82A22270CF550035C004 /* PrefectureListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefectureListViewController.swift; sourceTree = "<group>"; };
 		0E5A82A42270CF550035C004 /* PrefectureListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefectureListTableViewCell.swift; sourceTree = "<group>"; };
-		0E5A82A52270CF550035C004 /* PrefectureListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrefectureListTableViewCell.xib; sourceTree = "<group>"; };
 		0E5A82A82270CF550035C004 /* WeatherViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		0E5A82B52270CF550035C004 /* WeatherInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherInfoView.xib; sourceTree = "<group>"; };
 		0E5A82B62270CF550035C004 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
-		0E5A82B72270CF550035C004 /* WeatherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherViewController.xib; sourceTree = "<group>"; };
 		0E5A82B82270CF550035C004 /* WeatherInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherInfoView.swift; sourceTree = "<group>"; };
 		0E5A82D42271BD0A0035C004 /* WeatherInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoViewModel.swift; sourceTree = "<group>"; };
 		0E5A82D62271C91B0035C004 /* PrefectureListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefectureListCellViewModel.swift; sourceTree = "<group>"; };
@@ -136,6 +129,9 @@
 		0E5A82ED227567890035C004 /* DIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DIKit.framework; path = Carthage/Build/iOS/DIKit.framework; sourceTree = "<group>"; };
 		0E5A82F122756AB30035C004 /* AppResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppResolver.swift; path = /Users/makoto/github/SwiftArchitecture/SwiftArchitecture/SwiftArchitecture/Source/Common/AppResolver.swift; sourceTree = "<absolute>"; };
 		0E5A82F522757CDF0035C004 /* UIColor+hexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hexColor.swift"; sourceTree = "<group>"; };
+		0E723AB722AFF0BC00854726 /* PrefectureList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PrefectureList.storyboard; sourceTree = "<group>"; };
+		0E723AB922AFF3A100854726 /* AreaFilter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AreaFilter.storyboard; sourceTree = "<group>"; };
+		0E723ABB22AFF57000854726 /* Weather.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Weather.storyboard; sourceTree = "<group>"; };
 		0EAFDEF622AC203100E23041 /* AppResolver.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResolver.generated.swift; sourceTree = "<group>"; };
 		0EAFDEFA22AC27D000E23041 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		0EAFDEFB22AC27D000E23041 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -263,7 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				0E5A82942270CF550035C004 /* AreaFilterViewController.swift */,
-				0E5A82982270CF550035C004 /* AreaFilterViewController.xib */,
+				0E723AB922AFF3A100854726 /* AreaFilter.storyboard */,
 				0E5A82952270CF550035C004 /* Cell */,
 			);
 			path = View;
@@ -273,7 +269,6 @@
 			isa = PBXGroup;
 			children = (
 				0E5A82972270CF550035C004 /* AreaFilterTableViewCell.swift */,
-				0E5A82962270CF550035C004 /* AreaFilterTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -300,7 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				0E5A82A22270CF550035C004 /* PrefectureListViewController.swift */,
-				0E5A82A12270CF550035C004 /* PrefectureListViewController.xib */,
+				0E723AB722AFF0BC00854726 /* PrefectureList.storyboard */,
 				0E5A82A32270CF550035C004 /* Cell */,
 			);
 			path = View;
@@ -310,7 +305,6 @@
 			isa = PBXGroup;
 			children = (
 				0E5A82A42270CF550035C004 /* PrefectureListTableViewCell.swift */,
-				0E5A82A52270CF550035C004 /* PrefectureListTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -337,7 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				0E5A82B62270CF550035C004 /* WeatherViewController.swift */,
-				0E5A82B72270CF550035C004 /* WeatherViewController.xib */,
+				0E723ABB22AFF57000854726 /* Weather.storyboard */,
 				0E5A82B82270CF550035C004 /* WeatherInfoView.swift */,
 				0E5A82B52270CF550035C004 /* WeatherInfoView.xib */,
 			);
@@ -627,16 +621,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E47B2EC227617CE00C5A364 /* TestWeather.json in Resources */,
-				0E5A82BC2270CF550035C004 /* AreaFilterTableViewCell.xib in Resources */,
+				0E723ABC22AFF57000854726 /* Weather.storyboard in Resources */,
 				0EDA9FD821DC7CC100373792 /* CityData.json in Resources */,
 				0E47B2DB22758D6100C5A364 /* Settings.bundle in Resources */,
 				0EDA9FAE21D8FB9B00373792 /* LaunchScreen.storyboard in Resources */,
-				0E5A82BE2270CF550035C004 /* AreaFilterViewController.xib in Resources */,
-				0E5A82C52270CF550035C004 /* PrefectureListTableViewCell.xib in Resources */,
-				0E5A82D22270CF550035C004 /* WeatherViewController.xib in Resources */,
 				0EDA9FAB21D8FB9B00373792 /* Assets.xcassets in Resources */,
+				0E723AB822AFF0BC00854726 /* PrefectureList.storyboard in Resources */,
 				0E5A82D02270CF550035C004 /* WeatherInfoView.xib in Resources */,
-				0E5A82C22270CF550035C004 /* PrefectureListViewController.xib in Resources */,
+				0E723ABA22AFF3A100854726 /* AreaFilter.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

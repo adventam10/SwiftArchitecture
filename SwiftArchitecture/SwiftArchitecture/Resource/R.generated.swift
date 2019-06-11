@@ -130,44 +130,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
   struct nib {
-    /// Nib `AreaFilterTableViewCell`.
-    static let areaFilterTableViewCell = _R.nib._AreaFilterTableViewCell()
-    /// Nib `AreaFilterViewController`.
-    static let areaFilterViewController = _R.nib._AreaFilterViewController()
-    /// Nib `PrefectureListTableViewCell`.
-    static let prefectureListTableViewCell = _R.nib._PrefectureListTableViewCell()
-    /// Nib `PrefectureListViewController`.
-    static let prefectureListViewController = _R.nib._PrefectureListViewController()
     /// Nib `WeatherInfoView`.
     static let weatherInfoView = _R.nib._WeatherInfoView()
-    /// Nib `WeatherViewController`.
-    static let weatherViewController = _R.nib._WeatherViewController()
-    
-    /// `UINib(name: "AreaFilterTableViewCell", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.areaFilterTableViewCell) instead")
-    static func areaFilterTableViewCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.areaFilterTableViewCell)
-    }
-    
-    /// `UINib(name: "AreaFilterViewController", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.areaFilterViewController) instead")
-    static func areaFilterViewController(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.areaFilterViewController)
-    }
-    
-    /// `UINib(name: "PrefectureListTableViewCell", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.prefectureListTableViewCell) instead")
-    static func prefectureListTableViewCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.prefectureListTableViewCell)
-    }
-    
-    /// `UINib(name: "PrefectureListViewController", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.prefectureListViewController) instead")
-    static func prefectureListViewController(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.prefectureListViewController)
-    }
     
     /// `UINib(name: "WeatherInfoView", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.weatherInfoView) instead")
@@ -175,34 +141,8 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.weatherInfoView)
     }
     
-    /// `UINib(name: "WeatherViewController", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.weatherViewController) instead")
-    static func weatherViewController(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.weatherViewController)
-    }
-    
-    static func areaFilterTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> AreaFilterTableViewCell? {
-      return R.nib.areaFilterTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AreaFilterTableViewCell
-    }
-    
-    static func areaFilterViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-      return R.nib.areaFilterViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
-    }
-    
-    static func prefectureListTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PrefectureListTableViewCell? {
-      return R.nib.prefectureListTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PrefectureListTableViewCell
-    }
-    
-    static func prefectureListViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-      return R.nib.prefectureListViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
-    }
-    
     static func weatherInfoView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.weatherInfoView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
-    }
-    
-    static func weatherViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-      return R.nib.weatherViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
     
     fileprivate init() {}
@@ -218,14 +158,64 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 1 storyboards.
+  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
+  struct segue {
+    /// This struct is generated for `PrefectureListViewController`, and contains static references to 2 segues.
+    struct prefectureListViewController {
+      /// Segue identifier `toAreaFilter`.
+      static let toAreaFilter: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PrefectureListViewController, AreaFilterViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toAreaFilter")
+      /// Segue identifier `toWeather`.
+      static let toWeather: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PrefectureListViewController, WeatherViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toWeather")
+      
+      /// Optionally returns a typed version of segue `toAreaFilter`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toAreaFilter(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, PrefectureListViewController, AreaFilterViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.prefectureListViewController.toAreaFilter, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `toWeather`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toWeather(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, PrefectureListViewController, WeatherViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.prefectureListViewController.toWeather, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
   struct storyboard {
+    /// Storyboard `AreaFilter`.
+    static let areaFilter = _R.storyboard.areaFilter()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
+    /// Storyboard `PrefectureList`.
+    static let prefectureList = _R.storyboard.prefectureList()
+    /// Storyboard `Weather`.
+    static let weather = _R.storyboard.weather()
+    
+    /// `UIStoryboard(name: "AreaFilter", bundle: ...)`
+    static func areaFilter(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.areaFilter)
+    }
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
+    }
+    
+    /// `UIStoryboard(name: "PrefectureList", bundle: ...)`
+    static func prefectureList(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.prefectureList)
+    }
+    
+    /// `UIStoryboard(name: "Weather", bundle: ...)`
+    static func weather(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.weather)
     }
     
     fileprivate init() {}
@@ -247,112 +237,12 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     try storyboard.validate()
-    try nib.validate()
   }
   
-  struct nib: Rswift.Validatable {
-    static func validate() throws {
-      try _AreaFilterTableViewCell.validate()
-      try _AreaFilterViewController.validate()
-      try _PrefectureListTableViewCell.validate()
-      try _PrefectureListViewController.validate()
-    }
-    
-    struct _AreaFilterTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
-      typealias ReusableType = AreaFilterTableViewCell
-      
-      let bundle = R.hostingBundle
-      let identifier = "AreaFilterTableViewCell"
-      let name = "AreaFilterTableViewCell"
-      
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> AreaFilterTableViewCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AreaFilterTableViewCell
-      }
-      
-      static func validate() throws {
-        if UIKit.UIImage(named: "btn_check_normal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_check_normal' is used in nib 'AreaFilterTableViewCell', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "btn_check_selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_check_selected' is used in nib 'AreaFilterTableViewCell', but couldn't be loaded.") }
-        if #available(iOS 11.0, *) {
-        }
-      }
-      
-      fileprivate init() {}
-    }
-    
-    struct _AreaFilterViewController: Rswift.NibResourceType, Rswift.Validatable {
-      let bundle = R.hostingBundle
-      let name = "AreaFilterViewController"
-      
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
-      }
-      
-      static func validate() throws {
-        if UIKit.UIImage(named: "btn_check_normal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_check_normal' is used in nib 'AreaFilterViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "btn_check_selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_check_selected' is used in nib 'AreaFilterViewController', but couldn't be loaded.") }
-        if #available(iOS 11.0, *) {
-        }
-      }
-      
-      fileprivate init() {}
-    }
-    
-    struct _PrefectureListTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
-      typealias ReusableType = PrefectureListTableViewCell
-      
-      let bundle = R.hostingBundle
-      let identifier = "PrefectureListTableViewCell"
-      let name = "PrefectureListTableViewCell"
-      
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PrefectureListTableViewCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PrefectureListTableViewCell
-      }
-      
-      static func validate() throws {
-        if UIKit.UIImage(named: "btn_favorite_normal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_favorite_normal' is used in nib 'PrefectureListTableViewCell', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "btn_favorite_selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_favorite_selected' is used in nib 'PrefectureListTableViewCell', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "icon_next", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_next' is used in nib 'PrefectureListTableViewCell', but couldn't be loaded.") }
-        if #available(iOS 11.0, *) {
-        }
-      }
-      
-      fileprivate init() {}
-    }
-    
-    struct _PrefectureListViewController: Rswift.NibResourceType, Rswift.Validatable {
-      let bundle = R.hostingBundle
-      let name = "PrefectureListViewController"
-      
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
-      }
-      
-      static func validate() throws {
-        if UIKit.UIImage(named: "btn_check_normal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_check_normal' is used in nib 'PrefectureListViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "btn_check_selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_check_selected' is used in nib 'PrefectureListViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "btn_filter", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_filter' is used in nib 'PrefectureListViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "btn_normal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_normal' is used in nib 'PrefectureListViewController', but couldn't be loaded.") }
-        if #available(iOS 11.0, *) {
-        }
-      }
-      
-      fileprivate init() {}
-    }
-    
+  struct nib {
     struct _WeatherInfoView: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "WeatherInfoView"
-      
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
-      }
-      
-      fileprivate init() {}
-    }
-    
-    struct _WeatherViewController: Rswift.NibResourceType {
-      let bundle = R.hostingBundle
-      let name = "WeatherViewController"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
@@ -366,7 +256,32 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
+      try areaFilter.validate()
       try launchScreen.validate()
+      try prefectureList.validate()
+      try weather.validate()
+    }
+    
+    struct areaFilter: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = AreaFilterViewController
+      
+      let areaFilterViewController = StoryboardViewControllerResource<AreaFilterViewController>(identifier: "AreaFilterViewController")
+      let bundle = R.hostingBundle
+      let name = "AreaFilter"
+      
+      func areaFilterViewController(_: Void = ()) -> AreaFilterViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: areaFilterViewController)
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "btn_check_normal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_check_normal' is used in storyboard 'AreaFilter', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "btn_check_selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_check_selected' is used in storyboard 'AreaFilter', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+        }
+        if _R.storyboard.areaFilter().areaFilterViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'areaFilterViewController' could not be loaded from storyboard 'AreaFilter' as 'AreaFilterViewController'.") }
+      }
+      
+      fileprivate init() {}
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -379,6 +294,46 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "icon_splash", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_splash' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct prefectureList: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+      
+      let bundle = R.hostingBundle
+      let name = "PrefectureList"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "btn_check_normal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_check_normal' is used in storyboard 'PrefectureList', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "btn_check_selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_check_selected' is used in storyboard 'PrefectureList', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "btn_favorite_normal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_favorite_normal' is used in storyboard 'PrefectureList', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "btn_favorite_selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_favorite_selected' is used in storyboard 'PrefectureList', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "btn_filter", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_filter' is used in storyboard 'PrefectureList', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "btn_normal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_normal' is used in storyboard 'PrefectureList', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+        }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct weather: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = WeatherViewController
+      
+      let bundle = R.hostingBundle
+      let name = "Weather"
+      let weatherViewController = StoryboardViewControllerResource<WeatherViewController>(identifier: "WeatherViewController")
+      
+      func weatherViewController(_: Void = ()) -> WeatherViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: weatherViewController)
+      }
+      
+      static func validate() throws {
+        if #available(iOS 11.0, *) {
+        }
+        if _R.storyboard.weather().weatherViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'weatherViewController' could not be loaded from storyboard 'Weather' as 'WeatherViewController'.") }
       }
       
       fileprivate init() {}

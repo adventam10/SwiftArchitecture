@@ -9,19 +9,8 @@
 import UIKit
 import SVProgressHUD
 import ReactiveSwift
-import DIKit
 
-final class WeatherViewController: UIViewController, FactoryMethodInjectable {
-    struct Dependency {
-        let viewModel: WeatherViewModel
-    }
-    
-    static func makeInstance(dependency: Dependency) -> WeatherViewController {
-        let viewConroller = WeatherViewController()
-        viewConroller.viewModel = dependency.viewModel
-        return viewConroller
-    }
-    
+final class WeatherViewController: UIViewController {
     var viewModel: WeatherViewModel!
     @IBOutlet private weak var todayView: WeatherInfoView!
     @IBOutlet private weak var tomorrowView: WeatherInfoView!

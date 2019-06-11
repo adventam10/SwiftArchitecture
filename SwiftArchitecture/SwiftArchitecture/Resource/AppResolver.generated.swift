@@ -6,10 +6,7 @@
 import Alamofire
 import DIKit
 import Foundation
-import ReactiveCocoa
 import ReactiveSwift
-import SVProgressHUD
-import UIKit
 
 extension AppResolver {
 
@@ -21,29 +18,14 @@ extension AppResolver {
         return provideResolver()
     }
 
-    func resolveAreaFilterViewController(selectedAreaTypes: [Area]) -> AreaFilterViewController {
-        let areaFilterViewModel = resolveAreaFilterViewModel(selectedAreaTypes: selectedAreaTypes)
-        return AreaFilterViewController.makeInstance(dependency: .init(viewModel: areaFilterViewModel))
-    }
-
     func resolveAreaFilterViewModel(selectedAreaTypes: [Area]) -> AreaFilterViewModel {
         return AreaFilterViewModel(dependency: .init(selectedAreaTypes: selectedAreaTypes))
-    }
-
-    func resolvePrefectureListViewController() -> PrefectureListViewController {
-        let prefectureListViewModel = resolvePrefectureListViewModel()
-        return PrefectureListViewController.makeInstance(dependency: .init(viewModel: prefectureListViewModel))
     }
 
     func resolvePrefectureListViewModel() -> PrefectureListViewModel {
         let appResolver = resolveAppResolver()
         let apiClient = resolveAPIClient()
         return PrefectureListViewModel(dependency: .init(resolver: appResolver, apiClient: apiClient))
-    }
-
-    func resolveWeatherViewController(weather: Weather, cityData: CityData) -> WeatherViewController {
-        let weatherViewModel = resolveWeatherViewModel(weather: weather, cityData: cityData)
-        return WeatherViewController.makeInstance(dependency: .init(viewModel: weatherViewModel))
     }
 
     func resolveWeatherViewModel(weather: Weather, cityData: CityData) -> WeatherViewModel {

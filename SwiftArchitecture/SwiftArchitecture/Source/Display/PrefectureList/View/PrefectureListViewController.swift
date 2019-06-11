@@ -10,25 +10,13 @@ import UIKit
 import SVProgressHUD
 import ReactiveSwift
 import ReactiveCocoa
-import DIKit
 
-final class PrefectureListViewController: UIViewController, FactoryMethodInjectable {
-    struct Dependency {
-        let viewModel: PrefectureListViewModel
-    }
-    
-    static func makeInstance(dependency: Dependency) -> PrefectureListViewController {
-        let viewConroller = PrefectureListViewController()
-        viewConroller.viewModel = dependency.viewModel
-        return viewConroller
-    }
-    
+final class PrefectureListViewController: UIViewController {
     var viewModel: PrefectureListViewModel!
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
-            tableView.register(R.nib.prefectureListTableViewCell)
             tableView.tableFooterView = UIView()
         }
     }
@@ -40,7 +28,6 @@ final class PrefectureListViewController: UIViewController, FactoryMethodInjecta
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        setupNavigation()
         bind()
         viewModel.isFavoriteFilter.value = viewModel.isFavoriteFilter.value
     }
@@ -57,12 +44,22 @@ final class PrefectureListViewController: UIViewController, FactoryMethodInjecta
         }
     }
     
-    private func setupNavigation() {
-        self.navigationItem.title = "お天気"
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る",
-                                                                style: .plain,
-                                                                target: nil,
-                                                                action: nil)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let segueInfo = R.segue.prefectureListViewController.toWeather(segue: segue),
+            let (weather, cityData) = sender as? (Weather, CityData) {
+            segueInfo.destination.viewModel = viewModel.resolver.resolveWeatherViewModel(weather: weather,
+                                                                                         cityData: cityData)
+        } else if let segueInfo = R.segue.prefectureListViewController.toAreaFilter(segue: segue),
+            let button = sender as? UIButton {
+            let viewController = segueInfo.destination
+            viewController.viewModel = viewModel.resolver.resolveAreaFilterViewModel(selectedAreaTypes: viewModel.selectedAreaTypes.value)
+            viewController.delegate = self
+            viewController.preferredContentSize = AreaFilterViewController.popoverSize
+            let presentationController = viewController.popoverPresentationController
+            presentationController?.delegate = self
+            presentationController?.sourceView = button
+            presentationController?.sourceRect = button.bounds
+        }
     }
     
     private func bind() {
@@ -85,27 +82,6 @@ final class PrefectureListViewController: UIViewController, FactoryMethodInjecta
     // MARK: - Button Action
     @IBAction private func tappedFavoriteButton(_ button: UIButton) {
         viewModel.isFavoriteFilter.value.toggle()
-    }
-    
-    @IBAction private func tappedAreaFilterButton(_ button: UIButton) {
-        showAreaFilterViewController(button: button)
-    }
-    
-    // MARK: - Show
-    private func showAreaFilterViewController(button: UIButton) {
-        let viewController = viewModel.resolver.resolveAreaFilterViewController(selectedAreaTypes: viewModel.selectedAreaTypes.value)
-        viewController.delegate = self
-        showPopover(viewController: viewController,
-                    sourceView: button,
-                    viewSize: viewController.view.frame.size,
-                    direction: .up,
-                    delegate: self)
-    }
-    
-    private func showWeatherViewController(weather: Weather, cityData: CityData) {
-        let viewController = viewModel.resolver.resolveWeatherViewController(weather: weather,
-                                                                             cityData: cityData)
-        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
@@ -139,8 +115,8 @@ extension PrefectureListViewController: UITableViewDelegate {
         viewModel.apiClient.requestWeather(cityId: viewModel.tableDataList.value[indexPath.row].cityId,
                                            success: { [unowned self] weather in
                                             SVProgressHUD.dismiss()
-                                            self.showWeatherViewController(weather: weather,
-                                                                           cityData: self.viewModel.tableDataList.value[indexPath.row])
+                                            self.performSegue(withIdentifier: R.segue.prefectureListViewController.toWeather,
+                                                              sender: (weather: weather, cityData: self.viewModel.tableDataList.value[indexPath.row]))
             },
                                            failure: { [unowned self] message in
                                             SVProgressHUD.dismiss()

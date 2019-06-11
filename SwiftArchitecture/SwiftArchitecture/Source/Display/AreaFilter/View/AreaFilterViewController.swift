@@ -9,31 +9,20 @@
 import UIKit
 import ReactiveSwift
 import ReactiveCocoa
-import DIKit
 
 protocol AreaFilterViewControllerDelegate: AnyObject {
     func areaFilterViewController(_ areaFilterViewController: AreaFilterViewController,
                                   didSelect areaTypes: [Area])
 }
 
-final class AreaFilterViewController: UIViewController, FactoryMethodInjectable {
-    struct Dependency {
-        let viewModel: AreaFilterViewModel
-    }
-    
-    static func makeInstance(dependency: Dependency) -> AreaFilterViewController {
-        let viewConroller = AreaFilterViewController()
-        viewConroller.viewModel = dependency.viewModel
-        return viewConroller
-    }
-    
+final class AreaFilterViewController: UIViewController {
+    static let popoverSize = CGSize(width: 150, height: 396)
     weak var delegate: AreaFilterViewControllerDelegate?
     var viewModel: AreaFilterViewModel!
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
-            tableView.register(R.nib.areaFilterTableViewCell)
         }
     }
     @IBOutlet private weak var allCheckButton: UIButton!

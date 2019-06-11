@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kIZ-VB-hjS">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Weather View Controller-->
+        <scene sceneID="hEg-RL-dj8">
+            <objects>
+                <viewController storyboardIdentifier="WeatherViewController" id="kIZ-VB-hjS" customClass="WeatherViewController" customModule="SwiftArchitecture" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3bB-OM-ESJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ogf-E5-G9Z" userLabel="View - 今日" customClass="WeatherInfoView" customModule="SwiftArchitecture" customModuleProvider="target">
+                                <rect key="frame" x="-17" y="59" width="448" height="448"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ogf-E5-G9Z" secondAttribute="height" multiplier="1:1" id="Qrs-Jx-1VO"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tTL-66-WtF">
+                                <rect key="frame" x="5" y="517" width="404" height="335"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zec-h1-n31" userLabel="View - 明日" customClass="WeatherInfoView" customModule="SwiftArchitecture" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="197" height="335"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jnz-Pb-aDz" userLabel="View - 明後日" customClass="WeatherInfoView" customModule="SwiftArchitecture" customModuleProvider="target">
+                                        <rect key="frame" x="207" y="0.0" width="197" height="335"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tTL-66-WtF" firstAttribute="top" secondItem="Ogf-E5-G9Z" secondAttribute="bottom" constant="10" id="1V2-RP-B4k"/>
+                            <constraint firstItem="Ogf-E5-G9Z" firstAttribute="centerX" secondItem="3bB-OM-ESJ" secondAttribute="centerX" id="Iei-Fl-2a0"/>
+                            <constraint firstItem="tTL-66-WtF" firstAttribute="leading" secondItem="wqB-l1-Wtr" secondAttribute="leading" constant="5" id="PHd-Vq-gVp"/>
+                            <constraint firstAttribute="trailing" secondItem="tTL-66-WtF" secondAttribute="trailing" constant="5" id="X6f-hG-Rs2"/>
+                            <constraint firstItem="Ogf-E5-G9Z" firstAttribute="height" secondItem="3bB-OM-ESJ" secondAttribute="height" multiplier="0.5" id="aLl-Oh-xkI"/>
+                            <constraint firstItem="Ogf-E5-G9Z" firstAttribute="top" secondItem="wqB-l1-Wtr" secondAttribute="top" constant="15" id="nTA-YJ-iQm"/>
+                            <constraint firstItem="wqB-l1-Wtr" firstAttribute="bottom" secondItem="tTL-66-WtF" secondAttribute="bottom" constant="10" id="yoa-4K-EcS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wqB-l1-Wtr"/>
+                    </view>
+                    <connections>
+                        <outlet property="dayAfterTomorrowView" destination="Jnz-Pb-aDz" id="HSC-9M-oxn"/>
+                        <outlet property="todayView" destination="Ogf-E5-G9Z" id="09r-vJ-kCN"/>
+                        <outlet property="tomorrowView" destination="Zec-h1-n31" id="3Kd-xn-hyf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Elj-zM-KZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-116" y="24"/>
+        </scene>
+    </scenes>
+</document>
