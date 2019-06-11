@@ -16,7 +16,8 @@ struct AreaFilterViewModel: Injectable {
     }
     
     init(dependency: Dependency) {
-        self.selectedAreaTypes = MutableProperty(dependency.selectedAreaTypes)
+        let selectedAreaTypes = dependency.selectedAreaTypes.isEmpty ? Area.allCases : dependency.selectedAreaTypes
+        self.selectedAreaTypes = MutableProperty(selectedAreaTypes)
     }
     
     let tableDataList = Area.allCases
