@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Area: Int {
+enum Area: Int, CaseIterable {
     case hokkaido = 0
     case tohoku = 1
     case kanto = 2

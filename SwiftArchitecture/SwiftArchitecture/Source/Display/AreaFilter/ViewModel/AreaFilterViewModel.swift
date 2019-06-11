@@ -19,7 +19,7 @@ struct AreaFilterViewModel: Injectable {
         self.selectedAreaTypes = MutableProperty(dependency.selectedAreaTypes)
     }
     
-    let tableDataList: [Area] = [.hokkaido, .tohoku, .kanto, .chubu, .kinki, .chugoku, .shikoku, .kyushu]
+    let tableDataList = Area.allCases
     var selectedAreaTypes: MutableProperty<[Area]>!
     
     func isAllCheck() -> Bool {
