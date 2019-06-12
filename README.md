@@ -34,6 +34,28 @@ Cocoapodsはバージョンを固定するためbundlerを使用
 bundle exec pod install
 ```
 
+## 環境設定
+ruby設定
+
+```
+brew install rbenv
+rbenv install 2.6.3
+```
+
+bundler設定
+
+```
+gem install bundler
+bundle install --path vendor
+```
+
+## ビルド
+carthage update でとりあえずビルドは通るはず
+
+```
+carthage update --platform iOS
+```
+
 ## アーキテクチャ
 MVVMっぽいやつ
 
