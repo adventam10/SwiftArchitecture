@@ -58,7 +58,7 @@
                                         </state>
                                         <connections>
                                             <segue destination="6Xt-Ri-rOD" kind="popoverPresentation" identifier="toAreaFilter" popoverAnchorView="CjM-ec-VTo" id="arp-Qg-qCW">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
                                             </segue>
                                         </connections>
                                     </button>
