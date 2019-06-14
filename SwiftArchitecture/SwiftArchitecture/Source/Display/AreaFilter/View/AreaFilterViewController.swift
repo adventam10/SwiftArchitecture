@@ -16,7 +16,6 @@ protocol AreaFilterViewControllerDelegate: AnyObject {
 }
 
 final class AreaFilterViewController: UIViewController {
-    static let popoverSize = CGSize(width: 150, height: 396)
     weak var delegate: AreaFilterViewControllerDelegate?
     var viewModel: AreaFilterViewModel!
     @IBOutlet weak var tableView: UITableView! {

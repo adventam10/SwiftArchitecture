@@ -54,7 +54,6 @@ final class PrefectureListViewController: UIViewController {
             let viewController = segueInfo.destination
             viewController.viewModel = viewModel.resolver.resolveAreaFilterViewModel(selectedAreaTypes: viewModel.selectedAreaTypes.value)
             viewController.delegate = self
-            viewController.preferredContentSize = AreaFilterViewController.popoverSize
             let presentationController = viewController.popoverPresentationController
             presentationController?.delegate = self
             presentationController?.sourceView = button

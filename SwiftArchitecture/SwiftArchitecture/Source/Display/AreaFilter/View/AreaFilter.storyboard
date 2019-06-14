@@ -65,7 +65,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北海道" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gd-sI-7ED">
-                                                    <rect key="frame" x="60" y="0.0" width="52" height="44"/>
+                                                    <rect key="frame" x="60" y="0.0" width="52" height="43.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -108,6 +108,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="idm-Bh-fF3"/>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="150" height="396"/>
                     <connections>
                         <outlet property="allCheckButton" destination="y8L-if-q3M" id="eAZ-aP-bkp"/>
                         <outlet property="tableView" destination="2XB-gW-rRD" id="tTE-n0-oC1"/>
