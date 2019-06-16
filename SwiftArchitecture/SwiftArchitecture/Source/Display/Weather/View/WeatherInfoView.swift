@@ -12,40 +12,41 @@ final class WeatherInfoView: BaseView {
     enum ViewType {
         case large
         case small
-        func getFont() -> UIFont {
+        var normalFont: UIFont {
             switch self {
             case .large:
-                return UIFont.systemFont(ofSize: 17)
+                return .systemFont(ofSize: 17)
             case .small:
-                return UIFont.systemFont(ofSize: 14)
+                return .systemFont(ofSize: 14)
             }
         }
-        func getHeight() -> CGFloat {
+        var minFont: UIFont {
             switch self {
             case .large:
-                return 20
+                return .systemFont(ofSize: 14)
             case .small:
-                return 15
+                return .systemFont(ofSize: 10)
             }
         }
-    }
-    let largeFont = UIFont.systemFont(ofSize: 17)
-    let smallFont = UIFont.systemFont(ofSize: 15)
-    var viewType = ViewType.large {
-        didSet {
-            let font = viewType.getFont()
-            dateLabel.font = font
-            subDateLabel.font = font
-            telopLabel.font = font
-            maxCelsiusLabel.font = font
-            minCelsiusLabel.font = font
-            maxCelsiusTitleLabel.font = font
-            minCelsiusTitleLabel.font = font
-            labelHeightConstraint.constant = viewType.getHeight()
+        func getFont(height: CGFloat) -> UIFont {
+            switch self {
+            case .large:
+                if height < 250 {
+                    return minFont
+                } else {
+                    return normalFont
+                }
+            case .small:
+                if height < 150 {
+                    return minFont
+                } else {
+                    return normalFont
+                }
+            }
         }
     }
     
-    @IBOutlet private weak var labelHeightConstraint: NSLayoutConstraint!
+    var viewType = ViewType.large
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var subDateLabel: UILabel!
     @IBOutlet private weak var imageView: UIImageView!
@@ -55,6 +56,19 @@ final class WeatherInfoView: BaseView {
     @IBOutlet private weak var maxCelsiusTitleLabel: UILabel!
     @IBOutlet private weak var minCelsiusTitleLabel: UILabel!
     private let noImage = R.image.icon_no_image()
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let font = viewType.getFont(height: self.frame.size.height)
+        dateLabel.font = font
+        subDateLabel.font = font
+        telopLabel.font = font
+        maxCelsiusLabel.font = font
+        minCelsiusLabel.font = font
+        maxCelsiusTitleLabel.font = font
+        minCelsiusTitleLabel.font = font
+    }
     
     func displayView(viewModel: WeatherInfoViewModel) {
         dateLabel.text = viewModel.dateText
