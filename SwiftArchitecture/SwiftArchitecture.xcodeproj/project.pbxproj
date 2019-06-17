@@ -429,7 +429,6 @@
 				0EDA9FAC21D8FB9B00373792 /* LaunchScreen.storyboard */,
 				0EDA9FD321DC7CC100373792 /* Source */,
 				0EDA9FD121DC7CC100373792 /* Resource */,
-				0E47B2DA22758D6100C5A364 /* Settings.bundle */,
 			);
 			path = SwiftArchitecture;
 			sourceTree = "<group>";
@@ -458,6 +457,7 @@
 		0EDA9FD121DC7CC100373792 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0E47B2DA22758D6100C5A364 /* Settings.bundle */,
 				0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */,
 				0EDA9FAF21D8FB9B00373792 /* Info.plist */,
 				0EAFDEF622AC203100E23041 /* AppResolver.generated.swift */,
@@ -765,7 +765,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\n$PODS_ROOT/LicensePlist/license-plist --output-path $PRODUCT_NAME/Settings.bundle\nfi\n";
+			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\n$PODS_ROOT/LicensePlist/license-plist --output-path $PRODUCT_NAME/Resource/Settings.bundle\nfi\n";
 		};
 		0EAFDEF522AC138A00E23041 /* Swiftlint Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
