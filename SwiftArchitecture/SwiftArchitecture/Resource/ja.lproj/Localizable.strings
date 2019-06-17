@@ -1,0 +1,66 @@
+"area_hokkaido" = "北海道";
+"area_tohoku" = "東北";
+"area_kanto" = "関東";
+"area_chubu" = "中部";
+"area_kinki" = "近畿";
+"area_chugoku" = "中国";
+"area_shikoku" = "四国";
+"area_kyushu" = "九州";
+
+"hokkaido" = "北海道";
+"aomori" = "青森";
+"iwate" = "岩手";
+"akita" = "秋田";
+"miyagi" = "宮城";
+"yamagata" = "山形";
+"fukushima" = "福島";
+"ibaraki" = "茨城";
+"chiba" = "千葉";
+"tochigi" = "栃木";
+"gunma" = "群馬";
+"saitama" = "埼玉";
+"tokyo" = "東京";
+"kanagawa" = "神奈川";
+"niigata" = "新潟";
+"nagano" = "名古屋";
+"yamanashi" = "山梨";
+"shizuoka" = "静岡";
+"aichi" = "愛知";
+"mie" = "三重";
+"gifu" = "岐阜";
+"fukui" = "福井";
+"ishikawa" = "石川";
+"toyama" = "富山";
+"shiga" = "滋賀";
+"kyoto" = "京都";
+"hyogo" = "兵庫";
+"nara" = "奈良";
+"wakayama" = "和歌山";
+"osaka" = "大阪";
+"tottori" = "鳥取";
+"okayama" = "岡山";
+"hiroshima" = "広島";
+"yamaguchi" = "山口";
+"shimane" = "島根";
+"kagawa" = "香川";
+"tokushima" = "徳島";
+"kochi" = "高知";
+"ehime" = "愛媛";
+"fukuoka" = "福岡";
+"oita" = "大分";
+"miyazaki" = "宮崎";
+"kagoshima" = "鹿児島";
+"kumamoto" = "熊本";
+"saga" = "佐賀";
+"nagasaki" = "長崎";
+"okinawa" = "沖縄";
+
+"close" = "閉じる";
+
+"error_json_parse" = "JSONパース失敗";
+
+"yyyy/MM/dd(E)" = "yyyy/MM/dd(E)";
+
+"今日" = "今日";
+"明日" = "明日";
+"明後日" = "明後日";

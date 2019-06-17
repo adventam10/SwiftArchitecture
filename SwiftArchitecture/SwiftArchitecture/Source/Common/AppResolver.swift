@@ -2,7 +2,7 @@
 //  AppResolver.swift
 //  
 //
-//  Created by makoto on 2019/04/28.
+//  Created by am10 on 2019/04/28.
 //
 
 import Foundation

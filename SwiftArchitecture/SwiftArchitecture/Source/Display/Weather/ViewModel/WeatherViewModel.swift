@@ -32,8 +32,9 @@ struct WeatherViewModel: Injectable {
     let cityData: CityData
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ja_JP")
-        formatter.dateFormat = "yyyy/MM/dd(E)"
+        let localeIdentifier = Bundle.main.preferredLocalizations.first!
+        formatter.locale = Locale(identifier: localeIdentifier)
+        formatter.dateFormat = NSLocalizedString("yyyy/MM/dd(E)", comment: "")
         return formatter
     }()
     

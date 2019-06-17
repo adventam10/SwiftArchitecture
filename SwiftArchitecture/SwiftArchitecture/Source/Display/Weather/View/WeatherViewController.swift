@@ -33,7 +33,7 @@ final class WeatherViewController: UIViewController {
     }
 
     private func setupNavigation() {
-        self.navigationItem.title = viewModel.cityData.name
+        self.navigationItem.title = NSLocalizedString(viewModel.cityData.name, comment: "")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh,
                                                                  target: self,
                                                                  action: #selector(tappedRefreshButton(_:)))
@@ -58,8 +58,8 @@ final class WeatherViewController: UIViewController {
                                             SVProgressHUD.dismiss()
                                             UIAlertController.showAlert(viewController: self,
                                                                         title: "",
-                                                                        message: message,
-                                                                        buttonTitle: "閉じる",
+                                                                        message: NSLocalizedString(message, comment: ""),
+                                                                        buttonTitle: NSLocalizedString("close", comment: ""),
                                                                         buttonAction: nil)
         })
     }

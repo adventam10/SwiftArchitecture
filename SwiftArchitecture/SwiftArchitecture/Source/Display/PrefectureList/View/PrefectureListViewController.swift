@@ -122,8 +122,8 @@ extension PrefectureListViewController: UITableViewDelegate {
                                             SVProgressHUD.dismiss()
                                             UIAlertController.showAlert(viewController: self,
                                                                         title: "",
-                                                                        message: message,
-                                                                        buttonTitle: "閉じる",
+                                                                        message: NSLocalizedString(message, comment: ""),
+                                                                        buttonTitle: NSLocalizedString("close", comment: ""),
                                                                         buttonAction: nil)
         })
     }

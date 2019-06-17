@@ -2,238 +2,238 @@
     "cityDataList": [
                      {
                      "cityId": "016010",
-                     "name": "北海道",
+                     "name": "hokkaido",
                      "area": 0
                      },
                      {
                      "cityId": "020010",
-                     "name": "青森",
+                     "name": "aomori",
                      "area": 1
                      },
                      {
                      "cityId": "030010",
-                     "name": "岩手",
+                     "name": "iwate",
                      "area": 1
                      },
                      {
                      "cityId": "050010",
-                     "name": "秋田",
+                     "name": "akita",
                      "area": 1
                      },
                      {
                      "cityId": "040010",
-                     "name": "宮城",
+                     "name": "miyagi",
                      "area": 1
                      },
                      {
                      "cityId": "060010",
-                     "name": "山形",
+                     "name": "yamagata",
                      "area": 1
                      },
                      {
                      "cityId": "070010",
-                     "name": "福島",
+                     "name": "fukushima",
                      "area": 1
                      },
                      {
                      "cityId": "080010",
-                     "name": "茨城",
+                     "name": "ibaraki",
                      "area": 2
                      },
                      {
                      "cityId": "090010",
-                     "name": "栃木",
+                     "name": "tochigi",
                      "area": 2
                      },
                      {
                      "cityId": "100010",
-                     "name": "群馬",
+                     "name": "gunma",
                      "area": 2
                      },
                      {
                      "cityId": "110010",
-                     "name": "埼玉",
+                     "name": "saitama",
                      "area": 2
                      },
                      {
                      "cityId": "120010",
-                     "name": "千葉",
+                     "name": "chiba",
                      "area": 2
                      },
                      {
                      "cityId": "130010",
-                     "name": "東京",
+                     "name": "tokyo",
                      "area": 2
                      },
                      {
                      "cityId": "140010",
-                     "name": "神奈川",
+                     "name": "kanagawa",
                      "area": 2
                      },
                      {
                      "cityId": "150010",
-                     "name": "新潟",
+                     "name": "niigata",
                      "area": 3
                      },
                      {
                      "cityId": "160010",
-                     "name": "富山",
+                     "name": "toyama",
                      "area": 3
                      },
                      {
                      "cityId": "170010",
-                     "name": "石川",
+                     "name": "ishikawa",
                      "area": 3
                      },
                      {
                      "cityId": "180010",
-                     "name": "福井",
+                     "name": "fukui",
                      "area": 3
                      },
                      
                      {
                      "cityId": "190010",
-                     "name": "山梨",
+                     "name": "yamanashi",
                      "area": 3
                      },
                      {
                      "cityId": "200010",
-                     "name": "長野",
+                     "name": "nagano",
                      "area": 3
                      },
                      {
                      "cityId": "210010",
-                     "name": "岐阜",
+                     "name": "gifu",
                      "area": 3
                      },
                      {
                      "cityId": "220010",
-                     "name": "静岡",
+                     "name": "shizuoka",
                      "area": 3
                      },
                      {
                      "cityId": "230010",
-                     "name": "愛知",
+                     "name": "aichi",
                      "area": 3
                      },
                      {
                      "cityId": "240010",
-                     "name": "三重",
+                     "name": "mie",
                      "area": 3
                      },
                      {
                      "cityId": "250010",
-                     "name": "滋賀",
+                     "name": "shiga",
                      "area": 4
                      },
                      {
                      "cityId": "260010",
-                     "name": "京都",
+                     "name": "kyoto",
                      "area": 4
                      },
                      {
                      "cityId": "270000",
-                     "name": "大阪",
+                     "name": "osaka",
                      "area": 4
                      },
                      {
                      "cityId": "280010",
-                     "name": "兵庫",
+                     "name": "hyogo",
                      "area": 4
                      },
                      {
                      "cityId": "290010",
-                     "name": "奈良",
+                     "name": "nara",
                      "area": 4
                      },
                      {
                      "cityId": "300010",
-                     "name": "和歌山",
+                     "name": "wakayama",
                      "area": 4
                      },
                      {
                      "cityId": "310010",
-                     "name": "鳥取",
+                     "name": "tottori",
                      "area": 5
                      },
                      {
                      "cityId": "320010",
-                     "name": "島根",
+                     "name": "shimane",
                      "area": 5
                      },
                      {
                      "cityId": "330010",
-                     "name": "岡山",
+                     "name": "okayama",
                      "area": 5
                      },
                      {
                      "cityId": "340010",
-                     "name": "広島",
+                     "name": "hiroshima",
                      "area": 5
                      },
                      {
                      "cityId": "350020",
-                     "name": "山口",
+                     "name": "yamaguchi",
                      "area": 5
                      },
                      {
                      "cityId": "360010",
-                     "name": "徳島",
+                     "name": "tokushima",
                      "area": 6
                      },
                      {
                      "cityId": "370000",
-                     "name": "香川",
+                     "name": "kagawa",
                      "area": 6
                      },
                      {
                      "cityId": "380010",
-                     "name": "愛媛",
+                     "name": "aichi",
                      "area": 6
                      },
                      {
                      "cityId": "390010",
-                     "name": "高知",
+                     "name": "kochi",
                      "area": 6
                      },
                      {
                      "cityId": "400010",
-                     "name": "福岡",
+                     "name": "fukuoka",
                      "area": 7
                      },
                      {
                      "cityId": "410010",
-                     "name": "佐賀",
+                     "name": "saga",
                      "area": 7
                      },
                      {
                      "cityId": "420010",
-                     "name": "長崎",
+                     "name": "nagasaki",
                      "area": 7
                      },
                      {
                      "cityId": "430010",
-                     "name": "熊本",
+                     "name": "kumamoto",
                      "area": 7
                      },
                      {
                      "cityId": "440010",
-                     "name": "大分",
+                     "name": "oita",
                      "area": 7
                      },
                      {
                      "cityId": "450010",
-                     "name": "宮崎",
+                     "name": "miyazaki",
                      "area": 7
                      },
                      {
                      "cityId": "460010",
-                     "name": "鹿児島",
+                     "name": "kagoshima",
                      "area": 7
                      },
                      {
                      "cityId": "471010",
-                     "name": "沖縄",
+                     "name": "okinawa",
                      "area": 7
                      }
                      ]

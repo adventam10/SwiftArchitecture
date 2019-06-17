@@ -23,7 +23,7 @@ struct WeatherInfoViewModel {
     let minCelsius: String
     init(forecast: Forecast?, dateText: String) {
         self.dateText = dateText
-        subDateLabel = forecast?.dateLabel ?? ""
+        subDateLabel = NSLocalizedString(forecast?.dateLabel ?? "", comment: "")
         telop = forecast?.telop ?? ""
         imagUrl = WeatherInfoViewModel.getImageUrlFrom(forecast: forecast)
         maxCelsius = WeatherInfoViewModel.getMaxCelsiusFrom(forecast: forecast)

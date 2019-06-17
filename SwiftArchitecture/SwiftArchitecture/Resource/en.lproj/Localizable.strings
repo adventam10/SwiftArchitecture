@@ -1,0 +1,66 @@
+"area_hokkaido" = "Hokkaido";
+"area_tohoku" = "Tohoku";
+"area_kanto" = "Kanto";
+"area_chubu" = "Chubu";
+"area_kinki" = "Kinki";
+"area_chugoku" = "Chugoku";
+"area_shikoku" = "Shikoku";
+"area_kyushu" = "Kyushu";
+
+"hokkaido" = "Hokkaido";
+"aomori" = "Aomori";
+"iwate" = "Iwate";
+"akita" = "Akita";
+"miyagi" = "Miyagi";
+"yamagata" = "Yamagata";
+"fukushima" = "Fukushima";
+"ibaraki" = "Ibaraki";
+"chiba" = "Chiba";
+"tochigi" = "Tochigi";
+"gunma" = "Gunma";
+"saitama" = "Saitama";
+"tokyo" = "Tokyo";
+"kanagawa" = "Kanagawa";
+"niigata" = "Niigata";
+"nagano" = "Nagano";
+"yamanashi" = "Yamanashi";
+"shizuoka" = "Shizuoka";
+"aichi" = "Aichi";
+"mie" = "Mie";
+"gifu" = "Gifu";
+"fukui" = "Fukui";
+"ishikawa" = "Ishikawa";
+"toyama" = "Toyama";
+"shiga" = "Shiga";
+"kyoto" = "Kyoto";
+"hyogo" = "Hyogo";
+"nara" = "Nara";
+"wakayama" = "Wakayama";
+"osaka" = "Osaka";
+"tottori" = "Tottori";
+"okayama" = "Okayama";
+"hiroshima" = "Hiroshima";
+"yamaguchi" = "Yamaguchi";
+"shimane" = "Shimane";
+"kagawa" = "Kagawa";
+"tokushima" = "Tokushima";
+"kochi" = "Kochi";
+"ehime" = "Ehime";
+"fukuoka" = "Fukuoka";
+"oita" = "Oita";
+"miyazaki" = "Miyazaki";
+"kagoshima" = "Kagoshima";
+"kumamoto" = "Kumamoto";
+"saga" = "Saga";
+"nagasaki" = "Nagasaki";
+"okinawa" = "Okinawa";
+
+"close" = "Close";
+
+"error_json_parse" = "JSON parse failed";
+
+"yyyy/MM/dd(E)" = "E dd MMM yyyy";
+
+"今日" = "Today";
+"明日" = "Tomorrow";
+"明後日" = "Day after tomorrow";

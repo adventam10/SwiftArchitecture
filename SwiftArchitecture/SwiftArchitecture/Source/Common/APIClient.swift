@@ -2,7 +2,7 @@
 //  APIClient.swift
 //  SwiftArchitecture
 //
-//  Created by makoto on 2019/04/28.
+//  Created by am10 on 2019/04/28.
 //  Copyright © 2019 am10. All rights reserved.
 //
 
@@ -69,7 +69,7 @@ enum APIResult {
 
 // MARK: - ErrorResponse
 struct ErrorResponse: Error, CustomStringConvertible {
-    let description: String = "JSONパース失敗"
+    let description: String = "error_json_parse"
     var dataContents: String?
 }
 

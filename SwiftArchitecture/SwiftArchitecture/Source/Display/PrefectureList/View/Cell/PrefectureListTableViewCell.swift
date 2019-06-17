@@ -24,7 +24,7 @@ final class PrefectureListTableViewCell: UITableViewCell {
     }
     
     func displayCityData(_ viewModel: PrefectureListCellViewModel) {
-        titleLabel.text = viewModel.cityName
+        titleLabel.text = NSLocalizedString(viewModel.cityName, comment: "")
         favoriteButton.isSelected = viewModel.isFavorite
     }
 }

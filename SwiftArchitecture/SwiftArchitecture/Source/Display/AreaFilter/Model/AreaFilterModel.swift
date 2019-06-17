@@ -20,21 +20,21 @@ enum Area: Int, CaseIterable {
     func getName() -> String {
         switch self {
         case .hokkaido:
-            return "北海道"
+            return NSLocalizedString("area_hokkaido", comment: "")
         case .tohoku:
-            return "東北"
+            return NSLocalizedString("area_tohoku", comment: "")
         case .kanto:
-            return "関東"
+            return NSLocalizedString("area_kanto", comment: "")
         case .chubu:
-            return "中部"
+            return NSLocalizedString("area_chubu", comment: "")
         case .kinki:
-            return "近畿"
+            return NSLocalizedString("area_kinki", comment: "")
         case .chugoku:
-            return "中国"
+            return NSLocalizedString("area_chugoku", comment: "")
         case .shikoku:
-            return "四国"
+            return NSLocalizedString("area_shikoku", comment: "")
         case .kyushu:
-            return "九州"
+            return NSLocalizedString("area_kyushu", comment: "")
         }
     }
 }
