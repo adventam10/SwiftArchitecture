@@ -16,21 +16,6 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.color` struct is generated, and contains static references to 1 colors.
-  struct color {
-    /// Color `header`.
-    static let header = Rswift.ColorResource(bundle: R.hostingBundle, name: "header")
-    
-    /// `UIColor(named: "header", bundle: ..., traitCollection: ...)`
-    @available(tvOS 11.0, *)
-    @available(iOS 11.0, *)
-    static func header(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
-      return UIKit.UIColor(resource: R.color.header, compatibleWith: traitCollection)
-    }
-    
-    fileprivate init() {}
-  }
-  
   /// This `R.file` struct is generated, and contains static references to 3 files.
   struct file {
     /// Resource file `CityData.json`.
@@ -61,7 +46,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 9 images.
+  /// This `R.image` struct is generated, and contains static references to 8 images.
   struct image {
     /// Image `btn_check_normal`.
     static let btn_check_normal = Rswift.ImageResource(bundle: R.hostingBundle, name: "btn_check_normal")
@@ -75,8 +60,6 @@ struct R: Rswift.Validatable {
     static let btn_filter = Rswift.ImageResource(bundle: R.hostingBundle, name: "btn_filter")
     /// Image `btn_normal`.
     static let btn_normal = Rswift.ImageResource(bundle: R.hostingBundle, name: "btn_normal")
-    /// Image `icon_next`.
-    static let icon_next = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_next")
     /// Image `icon_no_image`.
     static let icon_no_image = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_no_image")
     /// Image `icon_splash`.
@@ -110,11 +93,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "btn_normal", bundle: ..., traitCollection: ...)`
     static func btn_normal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.btn_normal, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "icon_next", bundle: ..., traitCollection: ...)`
-    static func icon_next(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.icon_next, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "icon_no_image", bundle: ..., traitCollection: ...)`
