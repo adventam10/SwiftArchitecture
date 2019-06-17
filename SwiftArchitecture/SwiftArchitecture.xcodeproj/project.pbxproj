@@ -430,7 +430,6 @@
 				0EDA9FAC21D8FB9B00373792 /* LaunchScreen.storyboard */,
 				0EDA9FD321DC7CC100373792 /* Source */,
 				0EDA9FD121DC7CC100373792 /* Resource */,
-				0EDA9FAF21D8FB9B00373792 /* Info.plist */,
 				0E47B2DA22758D6100C5A364 /* Settings.bundle */,
 			);
 			path = SwiftArchitecture;
@@ -460,6 +459,7 @@
 		0EDA9FD121DC7CC100373792 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0EDA9FAF21D8FB9B00373792 /* Info.plist */,
 				0EAFDEF622AC203100E23041 /* AppResolver.generated.swift */,
 				0E5A82DB22726B6E0035C004 /* R.generated.swift */,
 				0EDA9FD221DC7CC100373792 /* CityData.json */,
@@ -1153,7 +1153,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = SwiftArchitecture/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftArchitecture/Resource/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1176,7 +1176,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = SwiftArchitecture/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftArchitecture/Resource/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
