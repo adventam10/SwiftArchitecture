@@ -143,9 +143,6 @@ extension APIClient {
                         success: @escaping (Weather) -> Void,
                         failure: @escaping (String) -> Void) {
         call(WeatherRequest(parameters: ["city": cityId]),
-             success: success,
-             failure: { error in
-                failure(error.localizedDescription)
-        })
+             success: success) { error in failure(error.localizedDescription) }
     }
 }

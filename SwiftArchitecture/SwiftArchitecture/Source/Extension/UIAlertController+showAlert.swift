@@ -16,10 +16,7 @@ extension UIViewController {
                          buttonAction: (() -> Void)?) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: buttonTitle,
-                                          style: .default,
-                                          handler: { _ in
-                                            buttonAction?()
-        })
+                                          style: .default) { _ in buttonAction?() }
         alertController.addAction(defaultAction)
         viewController.present(alertController, animated: true, completion: nil)
     }

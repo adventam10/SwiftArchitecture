@@ -13,7 +13,7 @@ import ReactiveCocoa
 
 final class PrefectureListViewController: UIViewController {
     var viewModel: PrefectureListViewModel!
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self

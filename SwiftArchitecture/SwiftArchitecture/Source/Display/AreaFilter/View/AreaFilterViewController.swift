@@ -18,7 +18,7 @@ protocol AreaFilterViewControllerDelegate: AnyObject {
 final class AreaFilterViewController: UIViewController {
     weak var delegate: AreaFilterViewControllerDelegate?
     var viewModel: AreaFilterViewModel!
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self

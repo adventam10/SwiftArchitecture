@@ -11,7 +11,6 @@ import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
     let resolver = AppResolverImpl()
     
