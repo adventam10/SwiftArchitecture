@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIColor {
+public extension UIColor {
     convenience init(hexStr: String, alpha: CGFloat) {
         let hexString = hexStr.replacingOccurrences(of: "#", with: "")
         let scanner = Scanner(string: hexString)

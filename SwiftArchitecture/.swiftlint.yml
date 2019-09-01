@@ -3,6 +3,7 @@ excluded:
   - Carthage
   - SwiftArchitectureTests
   - SwiftArchitectureUITests
+  - ExtensionTests
   - vendor
   - SwiftArchitecture/Resource
   - SwiftArchitecture/Source/JSONExport

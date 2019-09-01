@@ -9,6 +9,7 @@
 import UIKit
 import SVProgressHUD
 import ReactiveSwift
+import Extension
 
 final class WeatherViewController: UIViewController {
     var viewModel: WeatherViewModel!

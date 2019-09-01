@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     func showPopover(viewController: UIViewController,
                      sourceView: UIView,
                      direction: UIPopoverArrowDirection,

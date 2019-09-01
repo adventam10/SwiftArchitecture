@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     class func showAlert(viewController: UIViewController,
                          title: String,
                          message: String,
