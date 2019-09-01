@@ -10,6 +10,7 @@ import UIKit
 import SVProgressHUD
 import ReactiveSwift
 import ReactiveCocoa
+import JSONExport
 
 final class PrefectureListViewController: UIViewController {
     var viewModel: PrefectureListViewModel!

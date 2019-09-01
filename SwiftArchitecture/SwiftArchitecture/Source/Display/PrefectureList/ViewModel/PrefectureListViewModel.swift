@@ -9,6 +9,7 @@
 import Foundation
 import ReactiveSwift
 import DIKit
+import JSONExport
 
 struct PrefectureListViewModel: Injectable {
     struct Dependency {

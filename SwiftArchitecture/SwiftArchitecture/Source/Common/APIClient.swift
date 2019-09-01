@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import ReactiveSwift
+import JSONExport
 
 protocol BaseAPIProtocol {
     associatedtype ResponseType

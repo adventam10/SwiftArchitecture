@@ -4,9 +4,10 @@ excluded:
   - SwiftArchitectureTests
   - SwiftArchitectureUITests
   - ExtensionTests
+  - JSONExport
+  - JSONExportTests
   - vendor
   - SwiftArchitecture/Resource
-  - SwiftArchitecture/Source/JSONExport
 
 opt_in_rules:
   - anyobject_protocol  

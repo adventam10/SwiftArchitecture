@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Location : Codable {
+public struct Location : Codable {
 
-	let area : String
-	let city : String
-	let prefecture : String
+	public let area : String
+	public let city : String
+	public let prefecture : String
 
 
 	enum CodingKeys: String, CodingKey {
@@ -19,7 +19,7 @@ struct Location : Codable {
 		case city = "city"
 		case prefecture = "prefecture"
 	}
-	init(from decoder: Decoder) throws {
+	public init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		area = try values.decodeIfPresent(String.self, forKey: .area) ?? ""
 		city = try values.decodeIfPresent(String.self, forKey: .city) ?? ""

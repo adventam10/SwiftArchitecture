@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import ReactiveSwift
 import DIKit
+import JSONExport
 
 struct WeatherViewModel: Injectable {
     struct Dependency {

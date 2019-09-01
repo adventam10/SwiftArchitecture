@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct Provider : Codable {
+public struct Provider : Codable {
 
-	let link : String
-	let name : String
+	public let link : String
+	public let name : String
 
 
 	enum CodingKeys: String, CodingKey {
 		case link = "link"
 		case name = "name"
 	}
-	init(from decoder: Decoder) throws {
+	public init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		link = try values.decodeIfPresent(String.self, forKey: .link) ?? ""
 		name = try values.decodeIfPresent(String.self, forKey: .name) ?? ""

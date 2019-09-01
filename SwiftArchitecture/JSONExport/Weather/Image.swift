@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Image : Codable {
+public struct Image : Codable {
 
-	let height : Int
-	let link : String
-	let title : String
-	let url : String
-	let width : Int
+	public let height : Int
+	public let link : String
+	public let title : String
+	public let url : String
+	public let width : Int
 
 
 	enum CodingKeys: String, CodingKey {
@@ -23,7 +23,7 @@ struct Image : Codable {
 		case url = "url"
 		case width = "width"
 	}
-	init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		height = try values.decodeIfPresent(Int.self, forKey: .height) ?? 0
 		link = try values.decodeIfPresent(String.self, forKey: .link) ?? ""

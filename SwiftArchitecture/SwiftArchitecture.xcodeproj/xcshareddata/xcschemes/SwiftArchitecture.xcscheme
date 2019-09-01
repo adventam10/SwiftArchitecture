@@ -58,6 +58,16 @@
                ReferencedContainer = "container:SwiftArchitecture.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0E014BBF231BF2F1008C4969"
+               BuildableName = "JSONExportTests.xctest"
+               BlueprintName = "JSONExportTests"
+               ReferencedContainer = "container:SwiftArchitecture.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import JSONExport
 
 enum WeatherDate: Int {
     case today = 0

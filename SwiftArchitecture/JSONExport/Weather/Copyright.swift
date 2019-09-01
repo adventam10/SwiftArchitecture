@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Copyright : Codable {
+public struct Copyright : Codable {
 
-	let image : Image?
-	let link : String
-	let provider : [Provider]?
-	let title : String
+	public let image : Image?
+	public let link : String
+	public let provider : [Provider]?
+	public let title : String
 
 
 	enum CodingKeys: String, CodingKey {
@@ -21,7 +21,7 @@ struct Copyright : Codable {
 		case provider = "provider"
 		case title = "title"
 	}
-	init(from decoder: Decoder) throws {
+	public init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		image = try values.decodeIfPresent(Image.self, forKey: .image)
 		link = try values.decodeIfPresent(String.self, forKey: .link) ?? ""

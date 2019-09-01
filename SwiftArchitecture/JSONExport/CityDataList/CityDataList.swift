@@ -4,15 +4,15 @@
 
 import Foundation
 
-struct  CityDataList : Codable {
+public struct CityDataList : Codable {
 
-	let cityDataList : [CityData]?
+	public let cityDataList : [CityData]?
 
 
 	enum CodingKeys: String, CodingKey {
 		case cityDataList = "cityDataList"
 	}
-	init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		cityDataList = try values.decodeIfPresent([CityData].self, forKey: .cityDataList)
 	}

@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct Description : Codable {
+public struct Description : Codable {
 
-	let publicTime : String
-	let text : String
+	public let publicTime : String
+	public let text : String
 
 
 	enum CodingKeys: String, CodingKey {
 		case publicTime = "publicTime"
 		case text = "text"
 	}
-	init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		publicTime = try values.decodeIfPresent(String.self, forKey: .publicTime) ?? ""
 		text = try values.decodeIfPresent(String.self, forKey: .text) ?? ""
