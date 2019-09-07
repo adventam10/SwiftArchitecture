@@ -78,8 +78,8 @@ final class WeatherViewController: UIViewController {
         case .dayAfterTomorrow:
             infoView = dayAfterTomorrowView
         }
-        let model = viewModel.createWeatherInfoViewModel(date: date,
-                                                         forecast: forecast)
+        let model = viewModel.makeWeatherInfoViewModel(date: date,
+                                                       forecast: forecast)
         infoView.displayView(viewModel: model)
     }
     

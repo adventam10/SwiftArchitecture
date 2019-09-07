@@ -66,7 +66,7 @@ extension AreaFilterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.areaFilterTableViewCell,
                                                  for: indexPath)!
-        cell.displayData(viewModel.createCellModel(index: indexPath.row))
+        cell.displayData(viewModel.makeCellViewModel(index: indexPath.row))
         return cell
     }
 }

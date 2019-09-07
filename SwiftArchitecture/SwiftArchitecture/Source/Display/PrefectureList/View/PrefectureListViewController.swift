@@ -140,7 +140,7 @@ extension PrefectureListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.prefectureListTableViewCell,
                                                  for: indexPath)!
         cell.delegate = self
-        cell.displayCityData(viewModel.createCellViewModel(index: indexPath.row))
+        cell.displayCityData(viewModel.makeCellViewModel(index: indexPath.row))
         return cell
     }
 }

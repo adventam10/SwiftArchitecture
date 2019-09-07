@@ -39,8 +39,8 @@ struct WeatherViewModel: Injectable {
         return formatter
     }()
     
-    func createWeatherInfoViewModel(date: WeatherDate,
-                                    forecast: Forecast?) -> WeatherInfoViewModel {
+    func makeWeatherInfoViewModel(date: WeatherDate,
+                                  forecast: Forecast?) -> WeatherInfoViewModel {
         let targetDate: Date
         switch date {
         case .today:

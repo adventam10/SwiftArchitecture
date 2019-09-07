@@ -124,12 +124,12 @@ class AreaFilterViewModelSpec: QuickSpec {
             }
         }
         
-        describe("createCellModelWithIndex method") {
+        describe("makeCellViewModelWithIndex method") {
             context("deselect target") {
                 let viewModel = AreaFilterViewModel(dependency: .init(selectedAreaTypes: []))
                 viewModel.selectedAreaTypes.value = []
                 it ("on target") {
-                    let cell = viewModel.createCellModel(index: Area.kinki.rawValue)
+                    let cell = viewModel.makeCellViewModel(index: Area.kinki.rawValue)
                     expect(cell.title).to(equal(Area.kinki.getName()))
                     expect(cell.isCheck).to(beFalse())
                 }
@@ -139,7 +139,7 @@ class AreaFilterViewModelSpec: QuickSpec {
                 let viewModel = AreaFilterViewModel(dependency: .init(selectedAreaTypes: []))
                 viewModel.selectedAreaTypes.value = [.kinki]
                 it ("on target") {
-                    let cell = viewModel.createCellModel(index: Area.kinki.rawValue)
+                    let cell = viewModel.makeCellViewModel(index: Area.kinki.rawValue)
                     expect(cell.title).to(equal(Area.kinki.getName()))
                     expect(cell.isCheck).to(beTrue())
                 }

@@ -15,12 +15,12 @@ class WeatherViewModelSpec: QuickSpec {
     let resolver = AppResolverImpl()
     
     override func spec() {
-        describe("createWeatherInfoViewModelWithDate:forecast method") {
+        describe("makeWeatherInfoViewModelWithDate:forecast method") {
             context("today") {
                 context("not nil") {
                     let viewModel = makeViewModel()
                     let forecast = makeForecast(date: "", dateLabel: "", image: nil, telop: "", temperature: nil)
-                    let infoViewModel = viewModel.createWeatherInfoViewModel(date: .today, forecast: forecast)
+                    let infoViewModel = viewModel.makeWeatherInfoViewModel(date: .today, forecast: forecast)
                     it ("not nil") {
                         expect(infoViewModel).toNot(beNil())
                     }
@@ -28,7 +28,7 @@ class WeatherViewModelSpec: QuickSpec {
                 
                 context("nil") {
                     let viewModel = makeViewModel()
-                    let infoViewModel = viewModel.createWeatherInfoViewModel(date: .today, forecast: nil)
+                    let infoViewModel = viewModel.makeWeatherInfoViewModel(date: .today, forecast: nil)
                     it ("not nil") {
                         expect(infoViewModel).toNot(beNil())
                     }
@@ -39,7 +39,7 @@ class WeatherViewModelSpec: QuickSpec {
                 context("not nil") {
                     let viewModel = makeViewModel()
                     let forecast = makeForecast(date: "", dateLabel: "", image: nil, telop: "", temperature: nil)
-                    let infoViewModel = viewModel.createWeatherInfoViewModel(date: .tomorrow, forecast: forecast)
+                    let infoViewModel = viewModel.makeWeatherInfoViewModel(date: .tomorrow, forecast: forecast)
                     it ("not nil") {
                         expect(infoViewModel).toNot(beNil())
                     }
@@ -47,7 +47,7 @@ class WeatherViewModelSpec: QuickSpec {
                 
                 context("nil") {
                     let viewModel = makeViewModel()
-                    let infoViewModel = viewModel.createWeatherInfoViewModel(date: .tomorrow, forecast: nil)
+                    let infoViewModel = viewModel.makeWeatherInfoViewModel(date: .tomorrow, forecast: nil)
                     it ("not nil") {
                         expect(infoViewModel).toNot(beNil())
                     }
@@ -58,7 +58,7 @@ class WeatherViewModelSpec: QuickSpec {
                 context("not nil") {
                     let viewModel = makeViewModel()
                     let forecast = makeForecast(date: "", dateLabel: "", image: nil, telop: "", temperature: nil)
-                    let infoViewModel = viewModel.createWeatherInfoViewModel(date: .dayAfterTomorrow, forecast: forecast)
+                    let infoViewModel = viewModel.makeWeatherInfoViewModel(date: .dayAfterTomorrow, forecast: forecast)
                     it ("not nil") {
                         expect(infoViewModel).toNot(beNil())
                     }
@@ -66,7 +66,7 @@ class WeatherViewModelSpec: QuickSpec {
                 
                 context("nil") {
                     let viewModel = makeViewModel()
-                    let infoViewModel = viewModel.createWeatherInfoViewModel(date: .dayAfterTomorrow, forecast: nil)
+                    let infoViewModel = viewModel.makeWeatherInfoViewModel(date: .dayAfterTomorrow, forecast: nil)
                     it ("not nil") {
                         expect(infoViewModel).toNot(beNil())
                     }

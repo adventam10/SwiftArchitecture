@@ -51,7 +51,7 @@ struct AreaFilterViewModel: Injectable {
         selectedAreaTypes.value = selectedTypes
     }
     
-    func createCellModel(index: Int) -> AreaFilterCellViewModel {
+    func makeCellViewModel(index: Int) -> AreaFilterCellViewModel {
         let title = tableDataList[index].getName()
         let isCheck = selectedAreaTypes.value.contains(tableDataList[index])
         return AreaFilterCellViewModel(title: title, isCheck: isCheck)

@@ -66,7 +66,7 @@ struct PrefectureListViewModel: Injectable {
         }
     }
     
-    func createCellViewModel(index: Int) -> PrefectureListCellViewModel {
+    func makeCellViewModel(index: Int) -> PrefectureListCellViewModel {
         let cityData = tableDataList.value[index]
         return PrefectureListCellViewModel(cityName: cityData.name,
                                            isFavorite: favoriteCityIds.value.contains(cityData.cityId))

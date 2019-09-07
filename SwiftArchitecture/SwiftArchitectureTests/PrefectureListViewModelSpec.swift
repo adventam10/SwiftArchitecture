@@ -251,14 +251,14 @@ class PrefectureListViewModelSpec: QuickSpec {
             }
         }
         
-        describe("createCellViewModelWithIndex method") {
+        describe("makeCellViewModelWithIndex method") {
             context("not favorite target") {
                 let viewModel = makePrefectureListViewModel()
                 viewModel.selectedAreaTypes.value = Area.allCases
                 viewModel.isFavoriteFilter.value = false
                 viewModel.setupTableDataList()
                 it ("on target") {
-                    let cell = viewModel.createCellViewModel(index: 5)
+                    let cell = viewModel.makeCellViewModel(index: 5)
                     expect(cell.cityName).to(equal("yamagata"))
                     expect(cell.isFavorite).to(beFalse())
                 }
@@ -270,7 +270,7 @@ class PrefectureListViewModelSpec: QuickSpec {
 //                viewModel.isFavoriteFilter.value = false
 //                viewModel.setupTableDataList()
 //                it ("on target") {
-//                    let cell = viewModel.createCellViewModel(index: 5)
+//                    let cell = viewModel.makeCellViewModel(index: 5)
 //                    expect(cell.cityName).to(equal("yamagata"))
 //                    expect(cell.isFavorite).to(beTrue())
 //                }
