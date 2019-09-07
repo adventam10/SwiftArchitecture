@@ -21,7 +21,7 @@ public struct Weather : Codable {
 
 	enum CodingKeys: String, CodingKey {
 		case copyright
-		case descriptionField
+		case descriptionField = "description"
 		case forecasts = "forecasts"
 		case link = "link"
 		case location

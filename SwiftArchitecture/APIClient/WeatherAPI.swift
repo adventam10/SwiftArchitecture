@@ -33,7 +33,7 @@ extension WeatherAPI {
     }
     
     public var contentType: String {
-        return "application/json"
+        return ""
     }
 }
 
