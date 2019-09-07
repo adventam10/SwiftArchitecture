@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import SwiftArchitecture
+import JSONExport
 
 class WeatherTests: XCTestCase {
 

@@ -7,14 +7,15 @@
 //
 
 import Foundation
-import ReactiveSwift
 import DIKit
+import ReactiveSwift
+import APIClient
 import JSONExport
 
 struct PrefectureListViewModel: Injectable {
     struct Dependency {
         let resolver: AppResolver
-        let apiClient: APIClient
+        let apiClient: WeatherAPIClient
     }
 
     init(dependency: Dependency) {
@@ -26,7 +27,7 @@ struct PrefectureListViewModel: Injectable {
     private static let USER_DEFAULTS_FAVORITES_KEY = "USER_DEFAULTS_FAVORITES_KEY" // swiftlint:disable:this identifier_name
     private let dependency: Dependency
     let resolver: AppResolver
-    let apiClient: APIClient
+    private let apiClient: WeatherAPIClient
     let cityDataList = loadCityDataList()
     var tableDataList = MutableProperty([CityData]())
     var selectedAreaTypes = MutableProperty([Area]())
@@ -70,7 +71,11 @@ struct PrefectureListViewModel: Injectable {
         return PrefectureListCellViewModel(cityName: cityData.name,
                                            isFavorite: favoriteCityIds.value.contains(cityData.cityId))
     }
-        
+    
+    func requestWeather(cityId: String) -> SignalProducer<Weather, APIError> {
+        return apiClient.send(request: WeatherDetailAPI(cityId: cityId)).observe(on: UIScheduler())
+    }
+
     private static func loadCityDataList() -> [CityData] {
         guard let filePath = R.file.cityDataJson.path(),
             let data = FileManager.default.contents(atPath: filePath),

@@ -3,6 +3,7 @@ excluded:
   - Carthage
   - SwiftArchitectureTests
   - SwiftArchitectureUITests
+  - APIClientTests
   - ExtensionTests
   - JSONExport
   - JSONExportTests

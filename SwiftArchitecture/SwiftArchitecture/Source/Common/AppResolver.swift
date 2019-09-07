@@ -7,20 +7,21 @@
 
 import Foundation
 import DIKit
+import APIClient
 
 protocol AppResolver: Resolver {
     func provideResolver() -> AppResolver
-    func provideAPIClient() -> APIClient
+    func provideAPIClient() -> WeatherAPIClient
 }
 
 final class AppResolverImpl: AppResolver {
-    private let apiClient: APIClient = APIClient()
+    private let apiClient: WeatherAPIClient = DefaultAPIClient()
     
     func provideResolver() -> AppResolver {
         return self
     }
     
-    func provideAPIClient() -> APIClient {
+    func provideAPIClient() -> WeatherAPIClient {
         return apiClient
     }
 }

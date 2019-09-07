@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import SVProgressHUD
-import ReactiveSwift
 import ReactiveCocoa
+import ReactiveSwift
+import SVProgressHUD
 import JSONExport
 
 final class PrefectureListViewController: UIViewController {
@@ -113,20 +113,21 @@ extension PrefectureListViewController: UIPopoverPresentationControllerDelegate 
 extension PrefectureListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         SVProgressHUD.show()
-        viewModel.apiClient.requestWeather(cityId: viewModel.tableDataList.value[indexPath.row].cityId,
-                                           success: { [unowned self] weather in
-                                            SVProgressHUD.dismiss()
-                                            self.performSegue(withIdentifier: R.segue.prefectureListViewController.toWeather,
-                                                              sender: (weather: weather, cityData: self.viewModel.tableDataList.value[indexPath.row]))
-            },
-                                           failure: { [unowned self] message in
-                                            SVProgressHUD.dismiss()
-                                            UIAlertController.showAlert(viewController: self,
-                                                                        title: "",
-                                                                        message: NSLocalizedString(message, comment: ""),
-                                                                        buttonTitle: NSLocalizedString("close", comment: ""),
-                                                                        buttonAction: nil)
-        })
+        viewModel.requestWeather(cityId: viewModel.tableDataList.value[indexPath.row].cityId)
+            .startWithResult { [unowned self] result in
+                SVProgressHUD.dismiss()
+                switch result {
+                case .success(let weather):
+                    self.performSegue(withIdentifier: R.segue.prefectureListViewController.toWeather,
+                                      sender: (weather: weather, cityData: self.viewModel.tableDataList.value[indexPath.row]))
+                case .failure(let error):
+                    UIAlertController.showAlert(viewController: self,
+                                                title: "",
+                                                message: error.localizedDescription,
+                                                buttonTitle: NSLocalizedString("close", comment: ""),
+                                                buttonAction: nil)
+                }
+        }
     }
 }
 

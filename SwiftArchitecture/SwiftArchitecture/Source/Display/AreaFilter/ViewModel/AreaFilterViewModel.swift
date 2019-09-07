@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import ReactiveSwift
 import DIKit
+import ReactiveSwift
 
 struct AreaFilterViewModel: Injectable {
     struct Dependency {

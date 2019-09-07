@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import ReactiveSwift
 import ReactiveCocoa
+import ReactiveSwift
 
 protocol AreaFilterViewControllerDelegate: AnyObject {
     func areaFilterViewController(_ areaFilterViewController: AreaFilterViewController,

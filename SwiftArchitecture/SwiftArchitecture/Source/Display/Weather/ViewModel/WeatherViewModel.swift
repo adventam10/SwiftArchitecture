@@ -7,15 +7,15 @@
 //
 
 import Foundation
-import Alamofire
-import ReactiveSwift
 import DIKit
+import ReactiveSwift
+import APIClient
 import JSONExport
 
 struct WeatherViewModel: Injectable {
     struct Dependency {
         let resolver: AppResolver
-        let apiClient: APIClient
+        let apiClient: WeatherAPIClient
         let weather: Weather
         let cityData: CityData
     }
@@ -29,7 +29,7 @@ struct WeatherViewModel: Injectable {
     
     private let dependency: Dependency
     var weather: MutableProperty<Weather>
-    let apiClient: APIClient
+    private let apiClient: WeatherAPIClient
     let cityData: CityData
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -52,5 +52,9 @@ struct WeatherViewModel: Injectable {
         }
         return WeatherInfoViewModel(forecast: forecast,
                                     dateText: dateFormatter.string(from: targetDate))
+    }
+    
+    func requestWeather(cityId: String) -> SignalProducer<Weather, APIError> {
+        return apiClient.send(request: WeatherDetailAPI(cityId: cityId)).observe(on: UIScheduler())
     }
 }

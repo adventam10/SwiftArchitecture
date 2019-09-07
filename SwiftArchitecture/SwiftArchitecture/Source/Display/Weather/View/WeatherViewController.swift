@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import SVProgressHUD
 import ReactiveSwift
+import SVProgressHUD
 import Extension
 import JSONExport
 
@@ -51,19 +51,20 @@ final class WeatherViewController: UIViewController {
     @objc
     private func tappedRefreshButton(_ button: UIBarButtonItem) {
         SVProgressHUD.show()
-        viewModel.apiClient.requestWeather(cityId: viewModel.cityData.cityId,
-                                           success: { [unowned self] weather in
-                                            SVProgressHUD.dismiss()
-                                            self.viewModel.weather.value = weather
-            } ,
-                                           failure: { [unowned self] message in
-                                            SVProgressHUD.dismiss()
-                                            UIAlertController.showAlert(viewController: self,
-                                                                        title: "",
-                                                                        message: NSLocalizedString(message, comment: ""),
-                                                                        buttonTitle: NSLocalizedString("close", comment: ""),
-                                                                        buttonAction: nil)
-        })
+        viewModel.requestWeather(cityId: viewModel.cityData.cityId)
+            .startWithResult { [unowned self] result in
+                SVProgressHUD.dismiss()
+                switch result {
+                case .success(let weather):
+                    self.viewModel.weather.value = weather
+                case .failure(let error):
+                    UIAlertController.showAlert(viewController: self,
+                                                title: "",
+                                                message: error.localizedDescription,
+                                                buttonTitle: NSLocalizedString("close", comment: ""),
+                                                buttonAction: nil)
+                }
+        }
     }
     
     // MARK: - Display

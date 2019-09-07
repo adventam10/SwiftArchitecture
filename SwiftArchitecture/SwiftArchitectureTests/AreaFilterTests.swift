@@ -21,8 +21,8 @@ class AreaFilterTests: XCTestCase {
 
     func testIsAllCheck() {
         let viewModel = AreaFilterViewModel(dependency: AreaFilterViewModel.Dependency(selectedAreaTypes: []))
-        XCTAssertFalse(viewModel.isAllCheck())
-        viewModel.selectedAreaTypes.value.append(.hokkaido)
+        XCTAssertTrue(viewModel.isAllCheck())
+        viewModel.selectedAreaTypes.value.removeLast()
         XCTAssertFalse(viewModel.isAllCheck())
         viewModel.selectedAreaTypes.value = [.hokkaido, .tohoku, .kanto, .chubu, .kinki, .chugoku, .shikoku, .kyushu]
         XCTAssertTrue(viewModel.isAllCheck())
