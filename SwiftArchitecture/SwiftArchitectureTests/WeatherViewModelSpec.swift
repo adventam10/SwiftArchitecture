@@ -12,7 +12,7 @@ import JSONExport
 @testable import SwiftArchitecture
 
 class WeatherViewModelSpec: QuickSpec {
-    let resolver = AppResolverImpl()
+    let resolver = TestResolver()
     
     override func spec() {
         describe("makeWeatherInfoViewModelWithDate:forecast method") {

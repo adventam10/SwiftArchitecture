@@ -19,10 +19,20 @@ extension AppResolver {
         return AreaFilterViewModel(dependency: .init(selectedAreaTypes: selectedAreaTypes))
     }
 
+    func resolveFavoriteState() -> FavoriteState {
+        let userDefaults = resolveUserDefaults()
+        return FavoriteState(dependency: .init(defaults: userDefaults))
+    }
+
     func resolvePrefectureListViewModel() -> PrefectureListViewModel {
         let appResolver = resolveAppResolver()
         let weatherAPIClient = resolveWeatherAPIClient()
-        return PrefectureListViewModel(dependency: .init(resolver: appResolver, apiClient: weatherAPIClient))
+        let favoriteState = resolveFavoriteState()
+        return PrefectureListViewModel(dependency: .init(resolver: appResolver, apiClient: weatherAPIClient, favoriteState: favoriteState))
+    }
+
+    func resolveUserDefaults() -> UserDefaults {
+        return provideUserDefaults()
     }
 
     func resolveWeatherAPIClient() -> WeatherAPIClient {

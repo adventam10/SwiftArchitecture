@@ -11,10 +11,11 @@ import Nimble
 @testable import SwiftArchitecture
 
 class AreaFilterViewModelSpec: QuickSpec {
+    let resolver = TestResolver()
     override func spec() {
         describe("isAllCheck method") {
             context("empty") {
-                let viewModel = AreaFilterViewModel(dependency: .init(selectedAreaTypes: []))
+                let viewModel = makeAreaFilterViewModel()
                 viewModel.selectedAreaTypes.value = []
                 it ("true") {
                     expect(viewModel.isAllCheck()).to(beFalse())
@@ -22,7 +23,7 @@ class AreaFilterViewModelSpec: QuickSpec {
             }
             
             context("selected one") {
-                let viewModel = AreaFilterViewModel(dependency: .init(selectedAreaTypes: []))
+                let viewModel = makeAreaFilterViewModel()
                 viewModel.selectedAreaTypes.value = [.hokkaido]
                 it ("false") {
                     expect(viewModel.isAllCheck()).to(beFalse())
@@ -30,7 +31,7 @@ class AreaFilterViewModelSpec: QuickSpec {
             }
             
             context("selected all") {
-                let viewModel = AreaFilterViewModel(dependency: .init(selectedAreaTypes: []))
+                let viewModel = makeAreaFilterViewModel()
                 viewModel.selectedAreaTypes.value = Area.allCases
                 it ("true") {
                     expect(viewModel.isAllCheck()).to(beTrue())
@@ -40,7 +41,7 @@ class AreaFilterViewModelSpec: QuickSpec {
         
         describe("setupSelectedAreaTypesWithAreaType method") {
             context("deselect hokkaido") {
-                let viewModel = AreaFilterViewModel(dependency: .init(selectedAreaTypes: []))
+                let viewModel = makeAreaFilterViewModel()
                 viewModel.selectedAreaTypes.value = Area.allCases
                 viewModel.setupSelectedAreaTypes(areaType: .hokkaido)
                 it ("not contain hokkaido") {
@@ -50,7 +51,7 @@ class AreaFilterViewModelSpec: QuickSpec {
             }
             
             context("select hokkaido") {
-                let viewModel = AreaFilterViewModel(dependency: .init(selectedAreaTypes: []))
+                let viewModel = makeAreaFilterViewModel()
                 let selectedAreaTypes: [Area] = [.kinki, .kanto, .kyushu]
                 viewModel.selectedAreaTypes.value = selectedAreaTypes
                 viewModel.setupSelectedAreaTypes(areaType: .hokkaido)
@@ -64,7 +65,7 @@ class AreaFilterViewModelSpec: QuickSpec {
         describe("setupSelectedAreaTypesWithIsAllCheck method") {
             context("isAllCheck is true") {
                 context("when selected all") {
-                    let viewModel = AreaFilterViewModel(dependency: .init(selectedAreaTypes: []))
+                    let viewModel = makeAreaFilterViewModel()
                     viewModel.selectedAreaTypes.value = Area.allCases
                     it ("selected all") {
                         viewModel.setupSelectedAreaTypes(isAllCheck: true)
@@ -74,7 +75,7 @@ class AreaFilterViewModelSpec: QuickSpec {
                 }
                 
                 context("when selected none") {
-                    let viewModel = AreaFilterViewModel(dependency: .init(selectedAreaTypes: []))
+                    let viewModel = makeAreaFilterViewModel()
                     viewModel.selectedAreaTypes.value = []
                     it ("selected all") {
                         viewModel.setupSelectedAreaTypes(isAllCheck: true)
@@ -84,7 +85,7 @@ class AreaFilterViewModelSpec: QuickSpec {
                 }
                 
                 context("when selected something") {
-                    let viewModel = AreaFilterViewModel(dependency: .init(selectedAreaTypes: []))
+                    let viewModel = makeAreaFilterViewModel()
                     viewModel.selectedAreaTypes.value = [.hokkaido, .tohoku, .kanto]
                     it ("selected all") {
                         viewModel.setupSelectedAreaTypes(isAllCheck: true)
@@ -96,7 +97,7 @@ class AreaFilterViewModelSpec: QuickSpec {
             
             context("isAllCheck is false") {
                 context("when selected all") {
-                    let viewModel = AreaFilterViewModel(dependency: .init(selectedAreaTypes: []))
+                    let viewModel = makeAreaFilterViewModel()
                     viewModel.selectedAreaTypes.value = Area.allCases
                     it ("selected none") {
                         viewModel.setupSelectedAreaTypes(isAllCheck: false)
@@ -105,7 +106,7 @@ class AreaFilterViewModelSpec: QuickSpec {
                 }
                 
                 context("when selected none") {
-                    let viewModel = AreaFilterViewModel(dependency: .init(selectedAreaTypes: []))
+                    let viewModel = makeAreaFilterViewModel()
                     viewModel.selectedAreaTypes.value = []
                     it ("selected none") {
                         viewModel.setupSelectedAreaTypes(isAllCheck: false)
@@ -114,7 +115,7 @@ class AreaFilterViewModelSpec: QuickSpec {
                 }
                 
                 context("when selected something") {
-                    let viewModel = AreaFilterViewModel(dependency: .init(selectedAreaTypes: []))
+                    let viewModel = makeAreaFilterViewModel()
                     viewModel.selectedAreaTypes.value = [.hokkaido, .tohoku, .kanto]
                     it ("selected none") {
                         viewModel.setupSelectedAreaTypes(isAllCheck: false)
@@ -126,7 +127,7 @@ class AreaFilterViewModelSpec: QuickSpec {
         
         describe("makeCellViewModelWithIndex method") {
             context("deselect target") {
-                let viewModel = AreaFilterViewModel(dependency: .init(selectedAreaTypes: []))
+                let viewModel = makeAreaFilterViewModel()
                 viewModel.selectedAreaTypes.value = []
                 it ("on target") {
                     let cell = viewModel.makeCellViewModel(index: Area.kinki.rawValue)
@@ -136,7 +137,7 @@ class AreaFilterViewModelSpec: QuickSpec {
             }
             
             context("select target") {
-                let viewModel = AreaFilterViewModel(dependency: .init(selectedAreaTypes: []))
+                let viewModel = makeAreaFilterViewModel()
                 viewModel.selectedAreaTypes.value = [.kinki]
                 it ("on target") {
                     let cell = viewModel.makeCellViewModel(index: Area.kinki.rawValue)
@@ -145,6 +146,10 @@ class AreaFilterViewModelSpec: QuickSpec {
                 }
             }
         }
+    }
+    
+    private func makeAreaFilterViewModel() -> AreaFilterViewModel {
+        return resolver.resolveAreaFilterViewModel(selectedAreaTypes: [])
     }
 }
 

@@ -37,14 +37,7 @@
 		0E083AA2232376E700AD0C13 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E083A9E232376E700AD0C13 /* WeatherAPI.swift */; };
 		0E083AA3232376E700AD0C13 /* WeatherAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E083A9F232376E700AD0C13 /* WeatherAPIClient.swift */; };
 		0E083AA4232376E700AD0C13 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E083AA0232376E700AD0C13 /* Error.swift */; };
-		0E083AA82323904F00AD0C13 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E083AA62323904F00AD0C13 /* Nimble.framework */; };
-		0E083AA92323904F00AD0C13 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E083AA72323904F00AD0C13 /* Quick.framework */; };
 		0E083AAB2323930500AD0C13 /* ErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E083AAA2323930500AD0C13 /* ErrorSpec.swift */; };
-		0E083AB22323972C00AD0C13 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82E02274A4610035C004 /* Alamofire.framework */; };
-		0E083AB32323972C00AD0C13 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E083AA62323904F00AD0C13 /* Nimble.framework */; };
-		0E083AB42323972C00AD0C13 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E083AA72323904F00AD0C13 /* Quick.framework */; };
-		0E083AB52323972C00AD0C13 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82E12274A4610035C004 /* ReactiveCocoa.framework */; };
-		0E083AB62323972C00AD0C13 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5A82E22274A4610035C004 /* ReactiveSwift.framework */; };
 		0E083AB923239A2200AD0C13 /* WeatherAPISpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E083AB823239A2200AD0C13 /* WeatherAPISpec.swift */; };
 		0E083ABF2323A11200AD0C13 /* CityDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E083ABE2323A11200AD0C13 /* CityDataSpec.swift */; };
 		0E083AC32323A51C00AD0C13 /* WeatherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E083AC22323A51C00AD0C13 /* WeatherSpec.swift */; };
@@ -104,6 +97,14 @@
 		0EDA9FC421D8FB9B00373792 /* SwiftArchitectureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA9FC321D8FB9B00373792 /* SwiftArchitectureUITests.swift */; };
 		0EDA9FD821DC7CC100373792 /* CityData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FD221DC7CC100373792 /* CityData.json */; };
 		0EDAA05121DE496100373792 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDAA05021DE496100373792 /* BaseView.swift */; };
+		0EDC20672324AB1800087660 /* JSONExport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E014BB8231BF2F1008C4969 /* JSONExport.framework */; };
+		0EDC20692324AF5900087660 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0E083AA62323904F00AD0C13 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EDC206A2324AF5900087660 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0E083AA72323904F00AD0C13 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EDC206C2324AF6B00087660 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0E083AA62323904F00AD0C13 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EDC206D2324AF6B00087660 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0E083AA72323904F00AD0C13 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EDC206F2324AF7E00087660 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0E083AA62323904F00AD0C13 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EDC20702324AF7E00087660 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0E083AA72323904F00AD0C13 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EDC20722324BFD600087660 /* CityId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDC20712324BFD600087660 /* CityId.swift */; };
 		2DD02B7E4A77879162FA880B /* Pods_SwiftArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C28516824482485EC8B0802 /* Pods_SwiftArchitecture.framework */; };
 		2EBAFF72EE5C1EBF3824D9EC /* Pods_SwiftArchitectureTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF5B7003D04B98CDD6FD83E /* Pods_SwiftArchitectureTests.framework */; };
 		42C576D5EC9BA5F9DBC55C80 /* Pods_SwiftArchitectureUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 296DC4DDD6A61C6590612364 /* Pods_SwiftArchitectureUITests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -201,6 +202,39 @@
 				0E083A962323769E00AD0C13 /* APIClient.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EDC20682324AF4A00087660 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0EDC20692324AF5900087660 /* Nimble.framework in CopyFiles */,
+				0EDC206A2324AF5900087660 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EDC206B2324AF6000087660 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0EDC206C2324AF6B00087660 /* Nimble.framework in CopyFiles */,
+				0EDC206D2324AF6B00087660 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EDC206E2324AF7100087660 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0EDC206F2324AF7E00087660 /* Nimble.framework in CopyFiles */,
+				0EDC20702324AF7E00087660 /* Quick.framework in CopyFiles */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -305,6 +339,7 @@
 		0EDA9FC521D8FB9B00373792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EDA9FD221DC7CC100373792 /* CityData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CityData.json; sourceTree = "<group>"; };
 		0EDAA05021DE496100373792 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		0EDC20712324BFD600087660 /* CityId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityId.swift; sourceTree = "<group>"; };
 		296DC4DDD6A61C6590612364 /* Pods_SwiftArchitectureUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftArchitectureUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DF5B7003D04B98CDD6FD83E /* Pods_SwiftArchitectureTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftArchitectureTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40937C61C162CF54163C702C /* Pods-SwiftArchitecture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftArchitecture.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftArchitecture/Pods-SwiftArchitecture.debug.xcconfig"; sourceTree = "<group>"; };
@@ -342,6 +377,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EDC20672324AB1800087660 /* JSONExport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,11 +392,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E083AB22323972C00AD0C13 /* Alamofire.framework in Frameworks */,
-				0E083AB32323972C00AD0C13 /* Nimble.framework in Frameworks */,
-				0E083AB42323972C00AD0C13 /* Quick.framework in Frameworks */,
-				0E083AB52323972C00AD0C13 /* ReactiveCocoa.framework in Frameworks */,
-				0E083AB62323972C00AD0C13 /* ReactiveSwift.framework in Frameworks */,
 				0E083A892323769E00AD0C13 /* APIClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,8 +418,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E083AA82323904F00AD0C13 /* Nimble.framework in Frameworks */,
-				0E083AA92323904F00AD0C13 /* Quick.framework in Frameworks */,
 				0E47B2E02275F6D000C5A364 /* Alamofire.framework in Frameworks */,
 				0E47B2E12275F6D000C5A364 /* DIKit.framework in Frameworks */,
 				0E47B2E22275F6D000C5A364 /* ReactiveCocoa.framework in Frameworks */,
@@ -512,6 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				0E1B745A2323EDB70082CD46 /* WeatherFactory.swift */,
+				0EDC20712324BFD600087660 /* CityId.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -861,7 +891,7 @@
 				0E014BBC231BF2F1008C4969 /* Sources */,
 				0E014BBD231BF2F1008C4969 /* Frameworks */,
 				0E014BBE231BF2F1008C4969 /* Resources */,
-				0E083ABB23239D3300AD0C13 /* ShellScript */,
+				0EDC206B2324AF6000087660 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -899,7 +929,7 @@
 				0E083A842323769E00AD0C13 /* Sources */,
 				0E083A852323769E00AD0C13 /* Frameworks */,
 				0E083A862323769E00AD0C13 /* Resources */,
-				0E083AB72323989700AD0C13 /* ShellScript */,
+				0EDC206E2324AF7100087660 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -949,7 +979,7 @@
 				0EDA9FB021D8FB9B00373792 /* Sources */,
 				0EDA9FB121D8FB9B00373792 /* Frameworks */,
 				0EDA9FB221D8FB9B00373792 /* Resources */,
-				0E083ABA23239C9900AD0C13 /* ShellScript */,
+				0EDC20682324AF4A00087660 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1135,62 +1165,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0E083AB72323989700AD0C13 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		0E083ABA23239C9900AD0C13 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		0E083ABB23239D3300AD0C13 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 		0E47B2DC2275B4E200C5A364 /* Version Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1502,6 +1476,7 @@
 				0E1B74582323E4C10082CD46 /* WeatherInfoViewModelSpec.swift in Sources */,
 				0E1B74542323E4970082CD46 /* WeatherViewModelSpec.swift in Sources */,
 				0E083AC72323D41700AD0C13 /* PrefectureListViewModelSpec.swift in Sources */,
+				0EDC20722324BFD600087660 /* CityId.swift in Sources */,
 				0E1B745B2323EDB70082CD46 /* WeatherFactory.swift in Sources */,
 				0E083AC52323C7D900AD0C13 /* AreaFilterViewModelSpec.swift in Sources */,
 			);

@@ -12,26 +12,60 @@ import ReactiveSwift
 import APIClient
 import JSONExport
 
+struct FavoriteState: Injectable {
+    enum Key: String {
+        case favorites = "USER_DEFAULTS_FAVORITES_KEY"
+    }
+    struct Dependency {
+        let defaults: UserDefaults
+    }
+    
+    init(dependency: Dependency) {
+        self.defaults = dependency.defaults
+    }
+    
+    private let defaults: UserDefaults
+    var favoriteCityIds: [String] {
+        if let cityIds = defaults.object(forKey: Key.favorites.rawValue) as? [String] {
+            return cityIds
+        }
+        return [String]()
+    }
+    
+    func updateFavoriteCityIds(_ cityIds: [String]) {
+        defaults.set(cityIds, forKey: Key.favorites.rawValue)
+        defaults.synchronize()
+    }
+    
+    func clear() {
+        defaults.removeObject(forKey: Key.favorites.rawValue)
+        defaults.synchronize()
+    }
+}
+
 struct PrefectureListViewModel: Injectable {
     struct Dependency {
         let resolver: AppResolver
         let apiClient: WeatherAPIClient
+        let favoriteState: FavoriteState
     }
 
     init(dependency: Dependency) {
         self.dependency = dependency
         self.apiClient = dependency.apiClient
         self.resolver = dependency.resolver
+        self.favoriteState = dependency.favoriteState
+        self.favoriteCityIds.value = favoriteState.favoriteCityIds
     }
     
-    private static let USER_DEFAULTS_FAVORITES_KEY = "USER_DEFAULTS_FAVORITES_KEY" // swiftlint:disable:this identifier_name
     private let dependency: Dependency
     let resolver: AppResolver
     private let apiClient: WeatherAPIClient
+    let favoriteState: FavoriteState
     let cityDataList = loadCityDataList()
     var tableDataList = MutableProperty([CityData]())
     var selectedAreaTypes = MutableProperty([Area]())
-    var favoriteCityIds = MutableProperty(loadFavoriteList())
+    var favoriteCityIds = MutableProperty([String]())
     var isFavoriteFilter = MutableProperty(false)
     
     func setupFavoriteList(cityId: String) {
@@ -40,7 +74,6 @@ struct PrefectureListViewModel: Injectable {
         } else {
             favoriteCityIds.value.append(cityId)
         }
-        PrefectureListViewModel.saveFavoriteList(cityIds: favoriteCityIds.value)
     }
     
     func setupTableDataList() {
@@ -50,9 +83,7 @@ struct PrefectureListViewModel: Injectable {
         }
         if !selectedAreaTypes.value.isEmpty {
             let areaTypes = selectedAreaTypes.value.map { $0.rawValue }
-            dataList = dataList.filter {
-                areaTypes.contains($0.area)
-            }
+            dataList = dataList.filter { areaTypes.contains($0.area) }
         }
         if !isFavoriteFilter.value {
             return
@@ -61,9 +92,7 @@ struct PrefectureListViewModel: Injectable {
             dataList.removeAll()
             return
         }
-        dataList = dataList.filter {
-            favoriteCityIds.value.contains($0.cityId)
-        }
+        dataList = dataList.filter { favoriteCityIds.value.contains($0.cityId) }
     }
     
     func makeCellViewModel(index: Int) -> PrefectureListCellViewModel {
@@ -77,24 +106,11 @@ struct PrefectureListViewModel: Injectable {
     }
 
     private static func loadCityDataList() -> [CityData] {
-        guard let filePath = R.file.cityDataJson.path(),
-            let data = FileManager.default.contents(atPath: filePath),
+        guard let data = try? Data(contentsOf: R.file.cityDataJson()!),
             let result = try? JSONDecoder().decode(CityDataList.self, from: data) else {
-            return [CityData]()
+            return []
         }
         
         return result.cityDataList!
-    }
-    
-    private static func loadFavoriteList() -> [String] {
-        if let cityIds = UserDefaults.standard.object(forKey: USER_DEFAULTS_FAVORITES_KEY) as? [String] {
-            return cityIds
-        }
-        return [String]()
-    }
-    
-    private static func saveFavoriteList(cityIds: [String]) {
-        UserDefaults.standard.set(cityIds, forKey: USER_DEFAULTS_FAVORITES_KEY)
-        UserDefaults.standard.synchronize()
     }
 }

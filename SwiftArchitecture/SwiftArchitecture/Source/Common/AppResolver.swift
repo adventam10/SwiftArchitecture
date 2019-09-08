@@ -12,6 +12,7 @@ import APIClient
 protocol AppResolver: Resolver {
     func provideResolver() -> AppResolver
     func provideAPIClient() -> WeatherAPIClient
+    func provideUserDefaults() -> UserDefaults
 }
 
 final class AppResolverImpl: AppResolver {
@@ -23,5 +24,25 @@ final class AppResolverImpl: AppResolver {
     
     func provideAPIClient() -> WeatherAPIClient {
         return apiClient
+    }
+    
+    func provideUserDefaults() -> UserDefaults {
+        return UserDefaults.standard
+    }
+}
+
+final class TestResolver: AppResolver {
+    private let apiClient: WeatherAPIClient = DefaultAPIClient()
+    
+    func provideResolver() -> AppResolver {
+        return self
+    }
+    
+    func provideAPIClient() -> WeatherAPIClient {
+        return apiClient
+    }
+    
+    func provideUserDefaults() -> UserDefaults {
+        return UserDefaults(suiteName: "WEATHER_TEST")!
     }
 }

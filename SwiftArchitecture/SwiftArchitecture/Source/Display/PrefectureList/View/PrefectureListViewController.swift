@@ -74,8 +74,9 @@ final class PrefectureListViewController: UIViewController {
         viewModel.selectedAreaTypes.producer.startWithValues { [unowned self] _ in
             self.viewModel.setupTableDataList()
         }
-        viewModel.favoriteCityIds.producer.startWithValues { [unowned self] _ in
+        viewModel.favoriteCityIds.producer.startWithValues { [unowned self] cityIds in
             self.viewModel.setupTableDataList()
+            self.viewModel.favoriteState.updateFavoriteCityIds(cityIds)
         }
     }
     
@@ -93,6 +94,7 @@ extension PrefectureListViewController: PrefectureListTableViewCellDelegate {
         }
         let cityData = viewModel.tableDataList.value[indexPath.row]
         viewModel.setupFavoriteList(cityId: cityData.cityId)
+        viewModel.setupTableDataList()
     }
 }
 
