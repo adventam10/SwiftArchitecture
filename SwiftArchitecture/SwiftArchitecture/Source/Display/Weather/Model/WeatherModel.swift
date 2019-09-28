@@ -10,9 +10,15 @@ import UIKit
 import Alamofire
 
 final class WeatherModel {
+    
     var weather: Weather!
     var cityData: CityData!
-    let dateFormatter = DateFormatter()
+    let dateFormatter: DateFormatter = {
+        var df = DateFormatter()
+        df.locale = Locale(identifier: "ja_JP")
+        df.dateFormat = "yyyy/MM/dd(E)"
+        return df
+    }()
     
     class func requestWeather(cityId: String,
                               success: @escaping (Weather)->Void,
@@ -42,10 +48,5 @@ final class WeatherModel {
                 failure("JSONパース失敗")
             }
         }
-    }
-    
-    init() {
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.dateFormat = "yyyy/MM/dd(E)"
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 import SVProgressHUD
 
 final class PrefectureListViewController: UIViewController {
+    
     private let cellIdentifier = "PrefectureListTableViewCell"
     private let model = PrefectureListModel()
     private let prefectureListView = PrefectureListView()
@@ -82,6 +83,7 @@ final class PrefectureListViewController: UIViewController {
 }
 
 extension PrefectureListViewController: PrefectureListViewDelegate {
+    
     func prefectureListView(_ prefectureListView: PrefectureListView,
                             didTapFavorite button: UIButton) {
         model.isFavoriteFilter = !model.isFavoriteFilter
@@ -95,6 +97,7 @@ extension PrefectureListViewController: PrefectureListViewDelegate {
 }
 
 extension PrefectureListViewController: PrefectureListTableViewCellDelegate {
+    
     func prefectureListTableViewCell(_ cell: PrefectureListTableViewCell,
                                      didTapFavorite button: UIButton) {
         guard let indexPath = prefectureListView.tableView.indexPath(for: cell) else {
@@ -107,6 +110,7 @@ extension PrefectureListViewController: PrefectureListTableViewCellDelegate {
 }
 
 extension PrefectureListViewController: AreaFilterViewControllerDelegate {
+    
     func areaFilterViewController(_ areaFilterViewController: AreaFilterViewController,
                                   didSelect areaTypes: [AreaFilterModel.Area]) {
         model.selectedAreaTypes = areaTypes
@@ -115,12 +119,14 @@ extension PrefectureListViewController: AreaFilterViewControllerDelegate {
 }
 
 extension PrefectureListViewController: UIPopoverPresentationControllerDelegate {
+    
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
 }
 
 extension PrefectureListViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         SVProgressHUD.show()
         WeatherModel.requestWeather(cityId: model.tableDataList[indexPath.row].cityId,
@@ -145,6 +151,7 @@ extension PrefectureListViewController: UITableViewDelegate {
 }
 
 extension PrefectureListViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.tableDataList.count
     }

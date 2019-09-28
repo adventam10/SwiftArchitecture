@@ -8,12 +8,14 @@
 
 import UIKit
 
-protocol AreaFilterViewDelegate: class {
+protocol AreaFilterViewDelegate: AnyObject {
+    
     func areaFilterView(_ areaFilterView: AreaFilterView,
                             didTapAllCheck button: UIButton)
 }
 
 final class AreaFilterView: BaseView {
+    
     weak var delegate: AreaFilterViewDelegate?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var allCheckButton: UIButton!

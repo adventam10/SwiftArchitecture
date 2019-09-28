@@ -10,6 +10,7 @@ import UIKit
 import SVProgressHUD
 
 final class WeatherViewController: UIViewController {
+    
     let model = WeatherModel()
     private let weatherView = WeatherView()
     
@@ -38,8 +39,7 @@ final class WeatherViewController: UIViewController {
                                                                       action: #selector(tappedRefreshButton(_:)))
     }
     
-    @objc
-    private func tappedRefreshButton(_ button: UIBarButtonItem) {
+    @objc private func tappedRefreshButton(_ button: UIBarButtonItem) {
         SVProgressHUD.show()
         WeatherModel.requestWeather(cityId: model.cityData.cityId,
                                              success:

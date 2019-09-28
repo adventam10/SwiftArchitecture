@@ -9,6 +9,7 @@
 import UIKit
 
 final class WeatherView: BaseView {
+    
     @IBOutlet private weak var todayView: WeatherInfoView!
     @IBOutlet private weak var tomorrowView: WeatherInfoView!
     @IBOutlet private weak var dayAfterTomorrowView: WeatherInfoView!

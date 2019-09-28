@@ -9,6 +9,7 @@
 import UIKit
 
 final class PrefectureListModel {
+    
     let USER_DEFAULTS_FAVORITES_KEY = "USER_DEFAULTS_FAVORITES_KEY"
     var tableDataList = [CityData]()
     var cityDataList = [CityData]()

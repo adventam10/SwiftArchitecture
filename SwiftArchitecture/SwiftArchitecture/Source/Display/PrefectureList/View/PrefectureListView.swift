@@ -8,7 +8,8 @@
 
 import UIKit
 
-protocol PrefectureListViewDelegate: class {
+protocol PrefectureListViewDelegate: AnyObject {
+    
     func prefectureListView(_ prefectureListView: PrefectureListView,
                             didTapFavorite button: UIButton)
     
@@ -17,6 +18,7 @@ protocol PrefectureListViewDelegate: class {
 }
 
 final class PrefectureListView: BaseView {
+    
     weak var delegate: PrefectureListViewDelegate?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var areaFilterButton: UIButton!

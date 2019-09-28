@@ -9,6 +9,7 @@
 import UIKit
 
 class BaseView: UIView {
+    
     private var className: String {
         get {
             return String(describing: type(of: self)) // ClassName

@@ -9,9 +9,12 @@
 import UIKit
 
 final class AreaFilterModel {
+    
     let tableDataList: [Area] = [.hokkaido, .tohoku, .kanto, .chubu, .kinki, .chugoku, .shikoku, .kyushu]
     var selectedAreaTypes: [Area]!
+    
     enum Area: Int {
+        
         case hokkaido = 0
         case tohoku = 1
         case kanto = 2
@@ -20,6 +23,7 @@ final class AreaFilterModel {
         case chugoku = 5
         case shikoku = 6
         case kyushu = 7
+        
         func getName() -> String {
             switch self {
             case .hokkaido:

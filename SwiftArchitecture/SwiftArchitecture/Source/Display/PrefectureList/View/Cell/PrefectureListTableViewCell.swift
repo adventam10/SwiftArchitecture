@@ -8,7 +8,8 @@
 
 import UIKit
 
-protocol PrefectureListTableViewCellDelegate: class {
+protocol PrefectureListTableViewCellDelegate: AnyObject {
+    
     func prefectureListTableViewCell(_ cell: PrefectureListTableViewCell,
                                      didTapFavorite button: UIButton)
 }

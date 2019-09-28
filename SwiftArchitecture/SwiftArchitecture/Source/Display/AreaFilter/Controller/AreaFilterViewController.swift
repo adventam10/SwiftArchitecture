@@ -8,12 +8,14 @@
 
 import UIKit
 
-protocol AreaFilterViewControllerDelegate: class {
+protocol AreaFilterViewControllerDelegate: AnyObject {
+    
     func areaFilterViewController(_ areaFilterViewController: AreaFilterViewController,
                                   didSelect areaTypes: [AreaFilterModel.Area])
 }
 
 final class AreaFilterViewController: UIViewController {
+    
     weak var delegate: AreaFilterViewControllerDelegate?
     private let cellIdentifier = "AreaFilterTableViewCell"
     let model = AreaFilterModel()
@@ -46,6 +48,7 @@ final class AreaFilterViewController: UIViewController {
 }
 
 extension AreaFilterViewController: AreaFilterViewDelegate {
+    
     func areaFilterView(_ areaFilterView: AreaFilterView,
                         didTapAllCheck button: UIButton) {
         model.setupSelectedAreaTypes(isAllCheck: !model.isAllCheck())
@@ -56,6 +59,7 @@ extension AreaFilterViewController: AreaFilterViewDelegate {
 }
 
 extension AreaFilterViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let areaType = model.tableDataList[indexPath.row]
         model.setupSelectedAreaTypes(areaType: areaType)
@@ -66,6 +70,7 @@ extension AreaFilterViewController: UITableViewDelegate {
 }
 
 extension AreaFilterViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.tableDataList.count
     }

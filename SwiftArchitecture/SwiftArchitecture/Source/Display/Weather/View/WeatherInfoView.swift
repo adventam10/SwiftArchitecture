@@ -9,7 +9,9 @@
 import UIKit
 
 final class WeatherInfoView: BaseView {
+    
     enum ViewType {
+        
         case large
         case small
         func getFont() -> UIFont {
@@ -29,6 +31,7 @@ final class WeatherInfoView: BaseView {
             }
         }
     }
+    
     let largeFont = UIFont.systemFont(ofSize: 17)
     let smallFont = UIFont.systemFont(ofSize: 15)
     var viewType = ViewType.large {
@@ -65,51 +68,32 @@ final class WeatherInfoView: BaseView {
     }
     
     private func getImageFrom(forecast: Forecast?) -> UIImage? {
-        guard let forecast = forecast else {
-            return nil
-        }
-        guard let image = forecast.image else {
-            return nil
-        }
-        if image.url.isEmpty {
-            return nil
-        }
-        guard let imageData = try? Data(contentsOf: URL(string: image.url)!) else {
-            return nil
+        guard let forecast = forecast,
+            let image = forecast.image,
+            !image.url.isEmpty,
+            let imageData = try? Data(contentsOf: URL(string: image.url)!) else {
+                return nil
         }
         return UIImage(data: imageData)
     }
     
     private func getMaxCelsiusFrom(forecast: Forecast?) -> String {
-        guard let forecast = forecast else {
-            return "-"
-        }
-        guard let temperature = forecast.temperature else {
-            return "-"
-        }
-        guard let max = temperature.max else {
-            return "-"
-        }
-        if max.celsius.isEmpty {
-            return "-"
+        guard let forecast = forecast,
+            let temperature = forecast.temperature,
+            let max = temperature.max,
+            !max.celsius.isEmpty else {
+                return "-"
         }
         return "\(max.celsius)℃"
     }
     
     private func getMinCelsiusFrom(forecast: Forecast?) -> String {
-        guard let forecast = forecast else {
-            return "-"
-        }
-        guard let temperature = forecast.temperature else {
-            return "-"
-        }
-        guard let min = temperature.min else {
-            return "-"
-        }
-        if min.celsius.isEmpty {
-            return "-"
+        guard let forecast = forecast,
+            let temperature = forecast.temperature,
+            let min = temperature.min,
+            !min.celsius.isEmpty else {
+                return "-"
         }
         return "\(min.celsius)℃"
     }
-
 }
