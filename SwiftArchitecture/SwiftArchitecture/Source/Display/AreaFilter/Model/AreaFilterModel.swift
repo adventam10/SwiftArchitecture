@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AreaFilterModel {
+final class AreaFilterModel {
     let tableDataList: [Area] = [.hokkaido, .tohoku, .kanto, .chubu, .kinki, .chugoku, .shikoku, .kyushu]
     var selectedAreaTypes: [Area]!
     enum Area: Int {

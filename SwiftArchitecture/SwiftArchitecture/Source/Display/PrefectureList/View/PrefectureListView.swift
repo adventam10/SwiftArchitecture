@@ -16,7 +16,7 @@ protocol PrefectureListViewDelegate: class {
                             didTapAreaFilter button: UIButton)
 }
 
-class PrefectureListView: BaseView {
+final class PrefectureListView: BaseView {
     weak var delegate: PrefectureListViewDelegate?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var areaFilterButton: UIButton!

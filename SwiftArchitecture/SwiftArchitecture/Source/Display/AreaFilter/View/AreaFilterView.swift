@@ -13,7 +13,7 @@ protocol AreaFilterViewDelegate: class {
                             didTapAllCheck button: UIButton)
 }
 
-class AreaFilterView: BaseView {
+final class AreaFilterView: BaseView {
     weak var delegate: AreaFilterViewDelegate?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var allCheckButton: UIButton!

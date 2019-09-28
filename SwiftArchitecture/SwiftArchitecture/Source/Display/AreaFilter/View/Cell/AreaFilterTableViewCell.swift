@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AreaFilterTableViewCell: UITableViewCell {
+final class AreaFilterTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var areaLabel: UILabel!
     @IBOutlet private weak var checkImageView: UIImageView!

@@ -13,7 +13,7 @@ protocol AreaFilterViewControllerDelegate: class {
                                   didSelect areaTypes: [AreaFilterModel.Area])
 }
 
-class AreaFilterViewController: UIViewController {
+final class AreaFilterViewController: UIViewController {
     weak var delegate: AreaFilterViewControllerDelegate?
     private let cellIdentifier = "AreaFilterTableViewCell"
     let model = AreaFilterModel()

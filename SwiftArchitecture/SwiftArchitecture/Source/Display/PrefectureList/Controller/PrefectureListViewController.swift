@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-class PrefectureListViewController: UIViewController {
+final class PrefectureListViewController: UIViewController {
     private let cellIdentifier = "PrefectureListTableViewCell"
     private let model = PrefectureListModel()
     private let prefectureListView = PrefectureListView()

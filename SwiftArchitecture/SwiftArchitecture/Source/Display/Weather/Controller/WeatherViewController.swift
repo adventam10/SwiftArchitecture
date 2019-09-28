@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-class WeatherViewController: UIViewController {
+final class WeatherViewController: UIViewController {
     let model = WeatherModel()
     private let weatherView = WeatherView()
     

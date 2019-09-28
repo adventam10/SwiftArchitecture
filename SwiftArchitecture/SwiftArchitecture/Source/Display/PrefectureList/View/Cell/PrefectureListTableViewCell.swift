@@ -13,7 +13,7 @@ protocol PrefectureListTableViewCellDelegate: class {
                                      didTapFavorite button: UIButton)
 }
 
-class PrefectureListTableViewCell: UITableViewCell {
+final class PrefectureListTableViewCell: UITableViewCell {
 
     weak var delegate: PrefectureListTableViewCellDelegate?
     @IBOutlet private weak var favoriteButton: UIButton!

@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class WeatherModel {
+final class WeatherModel {
     var weather: Weather!
     var cityData: CityData!
     let dateFormatter = DateFormatter()
