@@ -166,6 +166,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		0EC3C6A9234022F300ED089B /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				0EDAA01221DE3A8000373792 /* Copyright.swift */,
+				0EDAA01321DE3A8000373792 /* Description.swift */,
+				0EDAA01421DE3A8000373792 /* Forecast.swift */,
+				0EDAA01521DE3A8000373792 /* Image.swift */,
+				0EDAA01621DE3A8000373792 /* Location.swift */,
+				0EDAA01721DE3A8000373792 /* Max.swift */,
+				0EDAA01821DE3A8000373792 /* Provider.swift */,
+				0EDAA01921DE3A8000373792 /* Temperature.swift */,
+				0EDAA01A21DE3A8000373792 /* Weather.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
 		0EDA9F9721D8FB9900373792 = {
 			isa = PBXGroup;
 			children = (
@@ -309,26 +325,18 @@
 		0EDAA01021DE3A8000373792 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0EDAA01121DE3A8000373792 /* Response */,
 				0EDAA05621DE4C2800373792 /* WeatherModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		0EDAA01121DE3A8000373792 /* Response */ = {
+		0EDAA01121DE3A8000373792 /* JSONExport */ = {
 			isa = PBXGroup;
 			children = (
-				0EDAA01221DE3A8000373792 /* Copyright.swift */,
-				0EDAA01321DE3A8000373792 /* Description.swift */,
-				0EDAA01421DE3A8000373792 /* Forecast.swift */,
-				0EDAA01521DE3A8000373792 /* Image.swift */,
-				0EDAA01621DE3A8000373792 /* Location.swift */,
-				0EDAA01721DE3A8000373792 /* Max.swift */,
-				0EDAA01821DE3A8000373792 /* Provider.swift */,
-				0EDAA01921DE3A8000373792 /* Temperature.swift */,
-				0EDAA01A21DE3A8000373792 /* Weather.swift */,
+				0EC3C6A9234022F300ED089B /* Weather */,
+				0EDAA03321DE3A9300373792 /* CityData */,
 			);
-			path = Response;
+			path = JSONExport;
 			sourceTree = "<group>";
 		};
 		0EDAA02621DE3A8900373792 /* Model */ = {
@@ -369,19 +377,18 @@
 		0EDAA03221DE3A9300373792 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0EDAA03321DE3A9300373792 /* Data */,
 				0EDAA04721DE3B5B00373792 /* PrefectureListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		0EDAA03321DE3A9300373792 /* Data */ = {
+		0EDAA03321DE3A9300373792 /* CityData */ = {
 			isa = PBXGroup;
 			children = (
 				0EDAA03421DE3A9300373792 /* CityData.swift */,
 				0EDAA03521DE3A9300373792 /* CityDataList.swift */,
 			);
-			path = Data;
+			path = CityData;
 			sourceTree = "<group>";
 		};
 		0EDAA03621DE3A9300373792 /* Controller */ = {
@@ -415,6 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				0EDAA05021DE496100373792 /* BaseView.swift */,
+				0EDAA01121DE3A8000373792 /* JSONExport */,
 			);
 			path = Common;
 			sourceTree = "<group>";
