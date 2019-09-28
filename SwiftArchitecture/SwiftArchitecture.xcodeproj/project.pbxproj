@@ -501,13 +501,16 @@
 				TargetAttributes = {
 					0EDA9F9F21D8FB9900373792 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1030;
 					};
 					0EDA9FB321D8FB9B00373792 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1030;
 						TestTargetID = 0EDA9F9F21D8FB9900373792;
 					};
 					0EDA9FBE21D8FB9B00373792 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1030;
 						TestTargetID = 0EDA9F9F21D8FB9900373792;
 					};
 				};
@@ -857,7 +860,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = am10.SwiftArchitecture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -876,7 +879,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = am10.SwiftArchitecture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -897,7 +900,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = am10.SwiftArchitectureTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftArchitecture.app/SwiftArchitecture";
 			};
@@ -919,7 +922,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = am10.SwiftArchitectureTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftArchitecture.app/SwiftArchitecture";
 			};
@@ -940,7 +943,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = am10.SwiftArchitectureUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = SwiftArchitecture;
 			};
@@ -961,7 +964,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = am10.SwiftArchitectureUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = SwiftArchitecture;
 			};

@@ -55,7 +55,7 @@ class AreaFilterModel {
     }
     
     func setupSelectedAreaTypes(areaType: Area) {
-        if let index = selectedAreaTypes.index(of: areaType) {
+        if let index = selectedAreaTypes.firstIndex(of: areaType) {
             selectedAreaTypes.remove(at: index)
         } else {
             selectedAreaTypes.append(areaType)
