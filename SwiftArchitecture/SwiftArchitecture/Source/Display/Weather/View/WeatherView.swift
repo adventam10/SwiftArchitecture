@@ -13,8 +13,7 @@ final class WeatherView: BaseView {
     @IBOutlet private weak var todayView: WeatherInfoView!
     @IBOutlet private weak var tomorrowView: WeatherInfoView!
     @IBOutlet private weak var dayAfterTomorrowView: WeatherInfoView!
-    private let noImage = UIImage(named: "icon_no_image")
-
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         todayView.viewType = .large
@@ -22,33 +21,21 @@ final class WeatherView: BaseView {
         dayAfterTomorrowView.viewType = .small
     }
     
-    func displayView(forecasts: [Forecast]?, dateFormatter: DateFormatter) {
-        todayView.displayView(forecast: nil,
-                              dateText: dateFormatter.string(from: Date()),
-                              noImage: noImage)
-        tomorrowView.displayView(forecast: nil,
-                                 dateText: dateFormatter.string(from: Date(timeIntervalSinceNow: 60*60*24)),
-                                 noImage: noImage)
-        dayAfterTomorrowView.displayView(forecast: nil,
-                                         dateText: dateFormatter.string(from: Date(timeIntervalSinceNow: 60*60*24*2)),
-                                         noImage: noImage)
-        guard let forecasts = forecasts else {
-            return
-        }
-        for (index, forecast) in forecasts.enumerated() {
-            if index == 0 {
-                todayView.displayView(forecast: forecast,
-                                      dateText: dateFormatter.string(from: Date()),
-                                      noImage: noImage)
-            } else if index == 1 {
-                tomorrowView.displayView(forecast: forecast,
-                                         dateText: dateFormatter.string(from: Date(timeIntervalSinceNow: 60*60*24)),
-                                         noImage: noImage)
-            } else if index == 2 {
-                dayAfterTomorrowView.displayView(forecast: forecast,
-                                                 dateText: dateFormatter.string(from: Date(timeIntervalSinceNow: 60*60*24*2)),
-                                                 noImage: noImage)
-            }
-        }
+    func displayTodayView(date: String, subDate: String, telop: String,
+                          maxCelsius: String, minCelsius: String, image: UIImage?) {
+        todayView.displayView(date: date, subDate: subDate, telop: telop,
+                              maxCelsius: maxCelsius, minCelsius: minCelsius, image: image)
+    }
+    
+    func displayTomorrowView(date: String, subDate: String, telop: String,
+                             maxCelsius: String, minCelsius: String, image: UIImage?) {
+        tomorrowView.displayView(date: date, subDate: subDate, telop: telop,
+                                 maxCelsius: maxCelsius, minCelsius: minCelsius, image: image)
+    }
+    
+    func displayDayAfterTomorrowView(date: String, subDate: String, telop: String,
+                                     maxCelsius: String, minCelsius: String, image: UIImage?) {
+        dayAfterTomorrowView.displayView(date: date, subDate: subDate, telop: telop,
+                                         maxCelsius: maxCelsius, minCelsius: minCelsius, image: image)
     }
 }

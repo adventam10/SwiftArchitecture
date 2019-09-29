@@ -10,10 +10,7 @@ import UIKit
 
 final class AreaFilterModel {
     
-    let tableDataList: [Area] = [.hokkaido, .tohoku, .kanto, .chubu, .kinki, .chugoku, .shikoku, .kyushu]
-    var selectedAreaTypes: [Area]!
-    
-    enum Area: Int {
+    enum Area: Int, CaseIterable {
         
         case hokkaido = 0
         case tohoku = 1
@@ -24,7 +21,7 @@ final class AreaFilterModel {
         case shikoku = 6
         case kyushu = 7
         
-        func getName() -> String {
+        var name: String {
             switch self {
             case .hokkaido:
                 return "北海道"
@@ -46,30 +43,21 @@ final class AreaFilterModel {
         }
     }
     
-    func isAllCheck() -> Bool {
+    let tableDataList = Area.allCases
+    var selectedAreaTypes: [Area]!
+    
+    var isAllCheck: Bool {
         if selectedAreaTypes.isEmpty {
             return false
         }
-        for areaType in tableDataList {
-            if !selectedAreaTypes.contains(areaType) {
-                return false
-            }
-        }
-        return true
+        return tableDataList.allSatisfy { selectedAreaTypes.contains($0) }
     }
     
-    func setupSelectedAreaTypes(areaType: Area) {
-        if let index = selectedAreaTypes.firstIndex(of: areaType) {
-            selectedAreaTypes.remove(at: index)
-        } else {
-            selectedAreaTypes.append(areaType)
-        }
+    func selectAll() {
+        selectedAreaTypes = tableDataList
     }
     
-    func setupSelectedAreaTypes(isAllCheck: Bool) {
+    func deselectAll() {
         selectedAreaTypes.removeAll()
-        if isAllCheck {
-            selectedAreaTypes.append(contentsOf: tableDataList)
-        }
     }
 }

@@ -18,66 +18,50 @@ final class PrefectureListModel {
     var isFavoriteFilter = false
     
     init() {
-        loadCityDataList()
-        favoriteCityIds = loadFavoriteList()
-        setupTableDataList()
+        self.cityDataList = loadCityDataList()
+        self.favoriteCityIds = loadFavoriteList()
+        self.tableDataList = filteringCityDataList(isFavoriteFilter: isFavoriteFilter)
     }
     
-    func setupFavoriteList(cityId: String) {
-        if let index = favoriteCityIds.firstIndex(of: cityId) {
-            favoriteCityIds.remove(at: index)
-        } else {
-            favoriteCityIds.append(cityId)
+    private func filteringCityDataList(_ cityDataList: [CityData],
+                                       byAreaTypes areaTypes: [AreaFilterModel.Area]) -> [CityData] {
+        if areaTypes.isEmpty {
+            return cityDataList
         }
-        saveFavoriteList(cityIds: favoriteCityIds)
+        let areas = areaTypes.map { $0.rawValue }
+        return cityDataList.filter { areas.contains($0.area) }
     }
     
-    func setupTableDataList() {
-        tableDataList = cityDataList
-        if !selectedAreaTypes.isEmpty {
-            let areaTypes = selectedAreaTypes.map { $0.rawValue }
-            tableDataList = tableDataList.filter
-                {
-                    areaTypes.contains($0.area)
-            }
-        }
-        if !isFavoriteFilter {
-            return
-        }
+    private func filteringCityDataList(_ cityDataList: [CityData],
+                                       byFavoriteCityIds favoriteCityIds: [String]) -> [CityData] {
         if favoriteCityIds.isEmpty {
-            tableDataList.removeAll()
-            return
+            return []
         }
-        tableDataList = tableDataList.filter
-            {
-                favoriteCityIds.contains($0.cityId)
-        }
+        return cityDataList.filter { favoriteCityIds.contains($0.cityId) }
     }
     
-    private func loadCityDataList() {
-        guard let filePath = Bundle.main.path(forResource: "CityData", ofType: "json") else {
-            return
-        }
-        guard let data = FileManager.default.contents(atPath: filePath) else {
-            return
-        }
-        
-        guard let result = try? JSONDecoder().decode(CityDataList.self, from: data) else {
-            return
-        }
-        if let cityDataList = result.cityDataList {
-            self.cityDataList = cityDataList
-        }
+    func filteringCityDataList(isFavoriteFilter: Bool) -> [CityData] {
+        let filteredDataList = filteringCityDataList(cityDataList, byAreaTypes: selectedAreaTypes)
+        return isFavoriteFilter ? filteringCityDataList(filteredDataList, byFavoriteCityIds: favoriteCityIds) : filteredDataList
     }
     
-    private func loadFavoriteList() -> [String] {
+    func loadCityDataList() -> [CityData] {
+        guard let url = Bundle.main.url(forResource: "CityData", withExtension: "json"),
+            let data = try? Data(contentsOf: url),
+            let result = try? JSONDecoder().decode(CityDataList.self, from: data) else {
+                return []
+        }
+        return result.cityDataList ?? []
+    }
+    
+    func loadFavoriteList() -> [String] {
         if let cityIds = UserDefaults.standard.object(forKey: USER_DEFAULTS_FAVORITES_KEY) as? [String] {
             return cityIds
         }
-        return [String]()
+        return []
     }
     
-    private func saveFavoriteList(cityIds: [String]) {
+    func saveFavoriteList(_ cityIds: [String]) {
         UserDefaults.standard.set(cityIds, forKey: USER_DEFAULTS_FAVORITES_KEY)
         UserDefaults.standard.synchronize()
     }

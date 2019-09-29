@@ -28,17 +28,10 @@ final class PrefectureListViewController: UIViewController {
         setupTableView()
         reloadView()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let indexPath = prefectureListView.tableView.indexPathForSelectedRow {
-            prefectureListView.tableView.deselectRow(at: indexPath, animated: false)
-        }
+        prefectureListView.deselectRow(animated: false)
     }
     
     private func setupTableView() {
@@ -58,7 +51,7 @@ final class PrefectureListViewController: UIViewController {
     }
     
     private func reloadView() {
-        model.setupTableDataList()
+        model.tableDataList = model.filteringCityDataList(isFavoriteFilter: model.isFavoriteFilter)
         prefectureListView.displayView(isFavoriteFilter: model.isFavoriteFilter,
                                        isTableDataNone: model.tableDataList.isEmpty)
     }
@@ -104,7 +97,12 @@ extension PrefectureListViewController: PrefectureListTableViewCellDelegate {
             return
         }
         let cityData = model.tableDataList[indexPath.row]
-        model.setupFavoriteList(cityId: cityData.cityId)
+        if let index = model.favoriteCityIds.firstIndex(of: cityData.cityId) {
+            model.favoriteCityIds.remove(at: index)
+        } else {
+            model.favoriteCityIds.append(cityData.cityId)
+        }
+        model.saveFavoriteList(model.favoriteCityIds)
         reloadView()
     }
 }
@@ -130,22 +128,18 @@ extension PrefectureListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         SVProgressHUD.show()
         WeatherModel.requestWeather(cityId: model.tableDataList[indexPath.row].cityId,
-                                             success:
-            {[weak self] (weather) in
+                                    success:
+            { [unowned self] weather in
                 SVProgressHUD.dismiss()
-                guard let weakSelf = self else { return }
-                weakSelf.showWeatherViewController(weather: weather,
-                                                   cityData: weakSelf.model.tableDataList[indexPath.row])
-        },
-                                             failure:
-            {[weak self] (message) in
+                self.showWeatherViewController(weather: weather,
+                                               cityData: self.model.tableDataList[indexPath.row])
+            },
+                                    failure:
+            { [unowned self] message in
                 SVProgressHUD.dismiss()
-                guard let weakSelf = self else { return }
-                UIAlertController.showAlert(viewController: weakSelf,
-                                            title: "",
+                UIAlertController.showAlert(viewController: self,
                                             message: message,
-                                            buttonTitle: "閉じる",
-                                            buttonAction: nil)
+                                            buttonTitle: "閉じる")
         })
     }
 }

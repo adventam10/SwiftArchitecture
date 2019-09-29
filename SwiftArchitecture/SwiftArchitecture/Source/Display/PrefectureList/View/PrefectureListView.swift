@@ -23,12 +23,18 @@ final class PrefectureListView: BaseView {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var areaFilterButton: UIButton!
     @IBOutlet private weak var favoriteButton: UIButton!
-    @IBOutlet private var noDataView: UIView!
+    @IBOutlet private weak var noDataView: UIView!
     
     func displayView(isFavoriteFilter: Bool, isTableDataNone: Bool) {
         favoriteButton.isSelected = isFavoriteFilter
         noDataView.isHidden = !isTableDataNone
         tableView.reloadData()
+    }
+    
+    func deselectRow(animated: Bool) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: animated)
+        }
     }
     
     // MARK:- Button Action

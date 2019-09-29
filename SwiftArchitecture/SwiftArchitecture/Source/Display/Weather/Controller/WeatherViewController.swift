@@ -13,6 +13,7 @@ final class WeatherViewController: UIViewController {
     
     let model = WeatherModel()
     private let weatherView = WeatherView()
+    private let noImage = UIImage(named: "icon_no_image")
     
     override func loadView() {
         self.view = weatherView
@@ -26,11 +27,6 @@ final class WeatherViewController: UIViewController {
         displayWeather()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     private func setupNavigation() {
         self.navigationItem.title = model.cityData.name
         self.navigationController?.navigationBar.tintColor = UIColor.white
@@ -42,26 +38,44 @@ final class WeatherViewController: UIViewController {
     @objc private func tappedRefreshButton(_ button: UIBarButtonItem) {
         SVProgressHUD.show()
         WeatherModel.requestWeather(cityId: model.cityData.cityId,
-                                             success:
-            {[weak self] (weather) in
+                                    success:
+            { [unowned self] weather in
                 SVProgressHUD.dismiss()
-                guard let weakSelf = self else { return }
-                weakSelf.model.weather = weather
-                weakSelf.displayWeather()
+                self.model.weather = weather
+                self.displayWeather()
             },
-                                             failure:
-            {[weak self] (message) in
+                                    failure:
+            { [unowned self] message in
                 SVProgressHUD.dismiss()
-                guard let weakSelf = self else { return }
-                UIAlertController.showAlert(viewController: weakSelf,
-                                            title: "",
+                UIAlertController.showAlert(viewController: self,
                                             message: message,
-                                            buttonTitle: "閉じる",
-                                            buttonAction: nil)
+                                            buttonTitle: "閉じる")
         })
     }
     
     private func displayWeather() {
-        weatherView.displayView(forecasts: model.weather.forecasts, dateFormatter: model.dateFormatter)
+        let todayImage = model.getImageData(from: model.todayForecast).flatMap { UIImage(data: $0) } ?? noImage
+        weatherView.displayTodayView(date: model.today,
+                                     subDate: model.todayDateLabel,
+                                     telop: model.todayTelop,
+                                     maxCelsius: model.getMaxCelsius(from: model.todayForecast),
+                                     minCelsius: model.getMinCelsius(from: model.todayForecast),
+                                     image: todayImage)
+        
+        let tomorrowImage = model.getImageData(from: model.tomorrowForecast).flatMap { UIImage(data: $0) } ?? noImage
+        weatherView.displayTomorrowView(date: model.tomorrow,
+                                        subDate: model.tomorrowDateLabel,
+                                        telop: model.tomorrowTelop,
+                                        maxCelsius: model.getMaxCelsius(from: model.tomorrowForecast),
+                                        minCelsius: model.getMinCelsius(from: model.tomorrowForecast),
+                                        image: tomorrowImage)
+        
+        let dayAfterTomorrowImage = model.getImageData(from: model.dayAfterTomorrowForecast).flatMap { UIImage(data: $0) } ?? noImage
+        weatherView.displayDayAfterTomorrowView(date: model.dayAfterTomorrow,
+                                                subDate: model.dayAfterTomorrowDateLabel,
+                                                telop: model.dayAfterTomorrowTelop,
+                                                maxCelsius: model.getMaxCelsius(from: model.dayAfterTomorrowForecast),
+                                                minCelsius: model.getMinCelsius(from: model.dayAfterTomorrowForecast),
+                                                image: dayAfterTomorrowImage)
     }
 }

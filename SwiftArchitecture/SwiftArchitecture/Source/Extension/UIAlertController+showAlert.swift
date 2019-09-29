@@ -10,17 +10,17 @@ import UIKit
 
 extension UIViewController {
     class func showAlert(viewController: UIViewController,
-                         title: String,
+                         title: String = "",
                          message: String,
                          buttonTitle: String,
-                         buttonAction: (() -> Void)?) {
+                         buttonAction: @escaping (() -> Void) = {}) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: buttonTitle,
                                    style: .default,
                                    handler:
             {
                 (action: UIAlertAction!) -> Void in
-                buttonAction?()
+                buttonAction()
         })
         alertController.addAction(defaultAction)
         viewController.present(alertController, animated: true, completion: nil)

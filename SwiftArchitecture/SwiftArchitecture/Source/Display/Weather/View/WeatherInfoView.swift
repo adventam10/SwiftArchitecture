@@ -14,15 +14,15 @@ final class WeatherInfoView: BaseView {
         
         case large
         case small
-        func getFont() -> UIFont {
+        var font: UIFont {
             switch self {
             case .large:
-                return UIFont.systemFont(ofSize: 17)
+                return .systemFont(ofSize: 17)
             case .small:
-                return UIFont.systemFont(ofSize: 14)
+                return .systemFont(ofSize: 14)
             }
         }
-        func getHeight() -> CGFloat {
+        var height: CGFloat {
             switch self {
             case .large:
                 return 20
@@ -31,12 +31,10 @@ final class WeatherInfoView: BaseView {
             }
         }
     }
-    
-    let largeFont = UIFont.systemFont(ofSize: 17)
-    let smallFont = UIFont.systemFont(ofSize: 15)
+
     var viewType = ViewType.large {
         didSet {
-            let font = viewType.getFont()
+            let font = viewType.font
             dateLabel.font = font
             subDateLabel.font = font
             telopLabel.font = font
@@ -44,11 +42,11 @@ final class WeatherInfoView: BaseView {
             minCelsiusLabel.font = font
             maxCelsiusTitleLabel.font = font
             minCelsiusTitleLabel.font = font
-            labelHeightConstraint.constant = viewType.getHeight()
+            labelHeightConstraint.constant = viewType.height
         }
     }
     
-    @IBOutlet weak var labelHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var labelHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var subDateLabel: UILabel!
     @IBOutlet private weak var imageView: UIImageView!
@@ -58,42 +56,13 @@ final class WeatherInfoView: BaseView {
     @IBOutlet private weak var maxCelsiusTitleLabel: UILabel!
     @IBOutlet private weak var minCelsiusTitleLabel: UILabel!
    
-    func displayView(forecast: Forecast?, dateText: String, noImage: UIImage?) {
-        dateLabel.text = dateText
-        subDateLabel.text = forecast?.dateLabel ?? ""
-        telopLabel.text = forecast?.telop ?? ""
-        imageView.image = getImageFrom(forecast: forecast) ?? noImage
-        maxCelsiusLabel.text = getMaxCelsiusFrom(forecast: forecast)
-        minCelsiusLabel.text = getMinCelsiusFrom(forecast: forecast)
-    }
-    
-    private func getImageFrom(forecast: Forecast?) -> UIImage? {
-        guard let forecast = forecast,
-            let image = forecast.image,
-            !image.url.isEmpty,
-            let imageData = try? Data(contentsOf: URL(string: image.url)!) else {
-                return nil
-        }
-        return UIImage(data: imageData)
-    }
-    
-    private func getMaxCelsiusFrom(forecast: Forecast?) -> String {
-        guard let forecast = forecast,
-            let temperature = forecast.temperature,
-            let max = temperature.max,
-            !max.celsius.isEmpty else {
-                return "-"
-        }
-        return "\(max.celsius)℃"
-    }
-    
-    private func getMinCelsiusFrom(forecast: Forecast?) -> String {
-        guard let forecast = forecast,
-            let temperature = forecast.temperature,
-            let min = temperature.min,
-            !min.celsius.isEmpty else {
-                return "-"
-        }
-        return "\(min.celsius)℃"
+    func displayView(date: String, subDate: String, telop: String,
+                     maxCelsius: String, minCelsius: String, image: UIImage?) {
+        dateLabel.text = date
+        subDateLabel.text = subDate
+        telopLabel.text = telop
+        imageView.image = image
+        maxCelsiusLabel.text = maxCelsius
+        minCelsiusLabel.text = minCelsius
     }
 }
