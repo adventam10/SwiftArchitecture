@@ -17,6 +17,8 @@ target 'SwiftArchitecture' do
   target 'SwiftArchitectureUITests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'SVProgressHUD'
+    pod 'Alamofire'
   end
 
 end

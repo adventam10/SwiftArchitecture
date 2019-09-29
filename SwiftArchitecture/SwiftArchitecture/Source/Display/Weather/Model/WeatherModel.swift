@@ -73,11 +73,11 @@ final class WeatherModel {
     }
     
     var tomorrowTelop: String {
-        return todayForecast?.telop ?? ""
+        return tomorrowForecast?.telop ?? ""
     }
     
     var dayAfterTomorrowTelop: String {
-        return todayForecast?.telop ?? ""
+        return dayAfterTomorrowForecast?.telop ?? ""
     }
     
     func getImageData(from forecast: Forecast?) -> Data? {

@@ -9,10 +9,15 @@
 /* Begin PBXBuildFile section */
 		0EC3C6AB2340569400ED089B /* UIColor+hexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC3C6AA2340569400ED089B /* UIColor+hexColor.swift */; };
 		0EC3C6AF23407F0600ED089B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC3C6AE23407F0600ED089B /* APIClient.swift */; };
+		0EC3C6B72340A4ED00ED089B /* PrefectureListModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC3C6B62340A4ED00ED089B /* PrefectureListModelTests.swift */; };
+		0EC3C6B92340A50600ED089B /* AreaFilterModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC3C6B82340A50600ED089B /* AreaFilterModelTests.swift */; };
+		0EC3C6BB2340A51E00ED089B /* WeatherModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC3C6BA2340A51E00ED089B /* WeatherModelTests.swift */; };
+		0EC3C6BD2340A9B400ED089B /* TestWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = 0EC3C6BC2340A9B400ED089B /* TestWeather.json */; };
+		0EC3C6BF2340BA2900ED089B /* WeateherFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC3C6BE2340BA2900ED089B /* WeateherFactory.swift */; };
+		0EC3C6C12340C15300ED089B /* test_weather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0EC3C6C02340C15300ED089B /* test_weather.gif */; };
 		0EDA9FA421D8FB9900373792 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA9FA321D8FB9900373792 /* AppDelegate.swift */; };
 		0EDA9FAB21D8FB9B00373792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */; };
 		0EDA9FAE21D8FB9B00373792 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FAC21D8FB9B00373792 /* LaunchScreen.storyboard */; };
-		0EDA9FB921D8FB9B00373792 /* SwiftArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA9FB821D8FB9B00373792 /* SwiftArchitectureTests.swift */; };
 		0EDA9FC421D8FB9B00373792 /* SwiftArchitectureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA9FC321D8FB9B00373792 /* SwiftArchitectureUITests.swift */; };
 		0EDA9FD821DC7CC100373792 /* CityData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FD221DC7CC100373792 /* CityData.json */; };
 		0EDA9FF121DD1A3A00373792 /* UIViewController+showPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA9FF021DD1A3A00373792 /* UIViewController+showPopover.swift */; };
@@ -73,13 +78,18 @@
 		0C28516824482485EC8B0802 /* Pods_SwiftArchitecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftArchitecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EC3C6AA2340569400ED089B /* UIColor+hexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hexColor.swift"; sourceTree = "<group>"; };
 		0EC3C6AE23407F0600ED089B /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		0EC3C6B62340A4ED00ED089B /* PrefectureListModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefectureListModelTests.swift; sourceTree = "<group>"; };
+		0EC3C6B82340A50600ED089B /* AreaFilterModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaFilterModelTests.swift; sourceTree = "<group>"; };
+		0EC3C6BA2340A51E00ED089B /* WeatherModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModelTests.swift; sourceTree = "<group>"; };
+		0EC3C6BC2340A9B400ED089B /* TestWeather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TestWeather.json; sourceTree = "<group>"; };
+		0EC3C6BE2340BA2900ED089B /* WeateherFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeateherFactory.swift; sourceTree = "<group>"; };
+		0EC3C6C02340C15300ED089B /* test_weather.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = test_weather.gif; sourceTree = "<group>"; };
 		0EDA9FA021D8FB9900373792 /* SwiftArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDA9FA321D8FB9900373792 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EDA9FAD21D8FB9B00373792 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EDA9FAF21D8FB9B00373792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EDA9FB421D8FB9B00373792 /* SwiftArchitectureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftArchitectureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0EDA9FB821D8FB9B00373792 /* SwiftArchitectureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftArchitectureTests.swift; sourceTree = "<group>"; };
 		0EDA9FBA21D8FB9B00373792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EDA9FBF21D8FB9B00373792 /* SwiftArchitectureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftArchitectureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDA9FC321D8FB9B00373792 /* SwiftArchitectureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftArchitectureUITests.swift; sourceTree = "<group>"; };
@@ -222,8 +232,13 @@
 		0EDA9FB721D8FB9B00373792 /* SwiftArchitectureTests */ = {
 			isa = PBXGroup;
 			children = (
-				0EDA9FB821D8FB9B00373792 /* SwiftArchitectureTests.swift */,
+				0EC3C6B62340A4ED00ED089B /* PrefectureListModelTests.swift */,
+				0EC3C6B82340A50600ED089B /* AreaFilterModelTests.swift */,
+				0EC3C6BA2340A51E00ED089B /* WeatherModelTests.swift */,
+				0EC3C6BE2340BA2900ED089B /* WeateherFactory.swift */,
 				0EDA9FBA21D8FB9B00373792 /* Info.plist */,
+				0EC3C6BC2340A9B400ED089B /* TestWeather.json */,
+				0EC3C6C02340C15300ED089B /* test_weather.gif */,
 			);
 			path = SwiftArchitectureTests;
 			sourceTree = "<group>";
@@ -489,6 +504,7 @@
 				0EDA9FBB21D8FB9B00373792 /* Sources */,
 				0EDA9FBC21D8FB9B00373792 /* Frameworks */,
 				0EDA9FBD21D8FB9B00373792 /* Resources */,
+				DC14C3EA0257E279B159CD18 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -567,6 +583,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EC3C6BD2340A9B400ED089B /* TestWeather.json in Resources */,
+				0EC3C6C12340C15300ED089B /* test_weather.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,6 +672,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DC14C3EA0257E279B159CD18 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftArchitectureUITests/Pods-SwiftArchitectureUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftArchitectureUITests/Pods-SwiftArchitectureUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -697,7 +739,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EDA9FB921D8FB9B00373792 /* SwiftArchitectureTests.swift in Sources */,
+				0EC3C6B72340A4ED00ED089B /* PrefectureListModelTests.swift in Sources */,
+				0EC3C6B92340A50600ED089B /* AreaFilterModelTests.swift in Sources */,
+				0EC3C6BB2340A51E00ED089B /* WeatherModelTests.swift in Sources */,
+				0EC3C6BF2340BA2900ED089B /* WeateherFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
