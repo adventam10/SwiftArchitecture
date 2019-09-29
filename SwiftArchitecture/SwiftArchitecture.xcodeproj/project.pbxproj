@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0EC3C6AB2340569400ED089B /* UIColor+hexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC3C6AA2340569400ED089B /* UIColor+hexColor.swift */; };
+		0EC3C6AF23407F0600ED089B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC3C6AE23407F0600ED089B /* APIClient.swift */; };
 		0EDA9FA421D8FB9900373792 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA9FA321D8FB9900373792 /* AppDelegate.swift */; };
 		0EDA9FAB21D8FB9B00373792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */; };
 		0EDA9FAE21D8FB9B00373792 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FAC21D8FB9B00373792 /* LaunchScreen.storyboard */; };
@@ -71,6 +72,7 @@
 /* Begin PBXFileReference section */
 		0C28516824482485EC8B0802 /* Pods_SwiftArchitecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftArchitecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EC3C6AA2340569400ED089B /* UIColor+hexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hexColor.swift"; sourceTree = "<group>"; };
+		0EC3C6AE23407F0600ED089B /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		0EDA9FA021D8FB9900373792 /* SwiftArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDA9FA321D8FB9900373792 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				0EDAA05021DE496100373792 /* BaseView.swift */,
+				0EC3C6AE23407F0600ED089B /* APIClient.swift */,
 				0EDAA01121DE3A8000373792 /* JSONExport */,
 			);
 			path = Common;
@@ -663,6 +666,7 @@
 				0EDAA02E21DE3A8A00373792 /* AreaFilterTableViewCell.swift in Sources */,
 				0EDAA02421DE3A8000373792 /* Temperature.swift in Sources */,
 				0EDAA02021DE3A8000373792 /* Image.swift in Sources */,
+				0EC3C6AF23407F0600ED089B /* APIClient.swift in Sources */,
 				0EDA9FF121DD1A3A00373792 /* UIViewController+showPopover.swift in Sources */,
 				0EDAA01F21DE3A8000373792 /* Forecast.swift in Sources */,
 				0EDAA04A21DE43E200373792 /* AreaFilterView.swift in Sources */,

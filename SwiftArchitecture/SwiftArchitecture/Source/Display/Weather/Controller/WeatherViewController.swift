@@ -37,19 +37,18 @@ final class WeatherViewController: UIViewController {
     
     @objc private func tappedRefreshButton(_ button: UIBarButtonItem) {
         SVProgressHUD.show()
-        WeatherModel.requestWeather(cityId: model.cityData.cityId,
-                                    success:
-            { [unowned self] weather in
+        model.requestWeather(cityId: model.cityData.cityId, completion:
+            { [unowned self] result in
                 SVProgressHUD.dismiss()
-                self.model.weather = weather
-                self.displayWeather()
-            },
-                                    failure:
-            { [unowned self] message in
-                SVProgressHUD.dismiss()
-                UIAlertController.showAlert(viewController: self,
-                                            message: message,
-                                            buttonTitle: "閉じる")
+                switch result {
+                case .success(let weather):
+                    self.model.weather = weather
+                    self.displayWeather()
+                case .failure(let error):
+                    UIAlertController.showAlert(viewController: self,
+                                                message: error.localizedDescription,
+                                                buttonTitle: "閉じる")
+                }
         })
     }
     

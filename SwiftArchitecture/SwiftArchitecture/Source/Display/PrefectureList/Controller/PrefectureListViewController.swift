@@ -127,19 +127,18 @@ extension PrefectureListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         SVProgressHUD.show()
-        WeatherModel.requestWeather(cityId: model.tableDataList[indexPath.row].cityId,
-                                    success:
-            { [unowned self] weather in
+        model.requestWeather(cityId: model.tableDataList[indexPath.row].cityId, completion:
+            { [unowned self] result in
                 SVProgressHUD.dismiss()
-                self.showWeatherViewController(weather: weather,
-                                               cityData: self.model.tableDataList[indexPath.row])
-            },
-                                    failure:
-            { [unowned self] message in
-                SVProgressHUD.dismiss()
-                UIAlertController.showAlert(viewController: self,
-                                            message: message,
-                                            buttonTitle: "閉じる")
+                switch result {
+                case .success(let weather):
+                    self.showWeatherViewController(weather: weather,
+                                                   cityData: self.model.tableDataList[indexPath.row])
+                case .failure(let error):
+                    UIAlertController.showAlert(viewController: self,
+                                                message: error.localizedDescription,
+                                                buttonTitle: "閉じる")
+                }
         })
     }
 }

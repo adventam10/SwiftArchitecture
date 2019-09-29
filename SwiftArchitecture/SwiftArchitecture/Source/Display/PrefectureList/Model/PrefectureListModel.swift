@@ -65,4 +65,9 @@ final class PrefectureListModel {
         UserDefaults.standard.set(cityIds, forKey: USER_DEFAULTS_FAVORITES_KEY)
         UserDefaults.standard.synchronize()
     }
+    
+    func requestWeather(cityId: String,
+                        completion: @escaping (Result<Weather, APIError>) -> Void) {
+        APIClient.shared.requestWeather(cityId: cityId, completion: completion)
+    }
 }
