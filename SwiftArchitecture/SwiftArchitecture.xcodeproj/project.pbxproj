@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EC3C6AB2340569400ED089B /* UIColor+hexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC3C6AA2340569400ED089B /* UIColor+hexColor.swift */; };
 		0EDA9FA421D8FB9900373792 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA9FA321D8FB9900373792 /* AppDelegate.swift */; };
-		0EDA9FA921D8FB9900373792 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FA721D8FB9900373792 /* Main.storyboard */; };
 		0EDA9FAB21D8FB9B00373792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */; };
 		0EDA9FAE21D8FB9B00373792 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA9FAC21D8FB9B00373792 /* LaunchScreen.storyboard */; };
 		0EDA9FB921D8FB9B00373792 /* SwiftArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA9FB821D8FB9B00373792 /* SwiftArchitectureTests.swift */; };
@@ -70,9 +70,9 @@
 
 /* Begin PBXFileReference section */
 		0C28516824482485EC8B0802 /* Pods_SwiftArchitecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftArchitecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EC3C6AA2340569400ED089B /* UIColor+hexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hexColor.swift"; sourceTree = "<group>"; };
 		0EDA9FA021D8FB9900373792 /* SwiftArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDA9FA321D8FB9900373792 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0EDA9FA821D8FB9900373792 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EDA9FAD21D8FB9B00373792 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EDA9FAF21D8FB9B00373792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -208,7 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				0EDA9FA321D8FB9900373792 /* AppDelegate.swift */,
-				0EDA9FA721D8FB9900373792 /* Main.storyboard */,
 				0EDA9FAA21D8FB9B00373792 /* Assets.xcassets */,
 				0EDA9FAC21D8FB9B00373792 /* LaunchScreen.storyboard */,
 				0EDA9FD321DC7CC100373792 /* Source */,
@@ -299,6 +298,7 @@
 			children = (
 				0EDA9FF021DD1A3A00373792 /* UIViewController+showPopover.swift */,
 				0EDAA00A21DE12EB00373792 /* UIAlertController+showAlert.swift */,
+				0EC3C6AA2340569400ED089B /* UIColor+hexColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -557,7 +557,6 @@
 				0EDAA04621DE3AC200373792 /* PrefectureListView.xib in Resources */,
 				0EDAA04C21DE43EA00373792 /* AreaFilterView.xib in Resources */,
 				0EDA9FAB21D8FB9B00373792 /* Assets.xcassets in Resources */,
-				0EDA9FA921D8FB9900373792 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,6 +675,7 @@
 				0EDAA05921DE4CC700373792 /* WeatherInfoView.swift in Sources */,
 				0EDAA04E21DE444000373792 /* AreaFilterModel.swift in Sources */,
 				0EDAA02321DE3A8000373792 /* Provider.swift in Sources */,
+				0EC3C6AB2340569400ED089B /* UIColor+hexColor.swift in Sources */,
 				0EDAA05121DE496100373792 /* BaseView.swift in Sources */,
 				0EDAA01D21DE3A8000373792 /* Copyright.swift in Sources */,
 				0EDAA05721DE4C2800373792 /* WeatherModel.swift in Sources */,
@@ -721,14 +721,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0EDA9FA721D8FB9900373792 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0EDA9FA821D8FB9900373792 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0EDA9FAC21D8FB9B00373792 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

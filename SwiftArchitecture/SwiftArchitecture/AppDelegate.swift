@@ -14,10 +14,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         SVProgressHUD.setDefaultMaskType(.black)
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let navigationController = UINavigationController(rootViewController: PrefectureListViewController())
+        navigationController.navigationBar.barTintColor = UIColor(hexStr: "2851CC", alpha: 1.0)
+        navigationController.navigationBar.tintColor = .white
+        navigationController.navigationBar.titleTextAttributes = [
+            .foregroundColor: UIColor.white
+        ]
+        if #available(iOS 11.0, *) {
+            navigationController.navigationBar.largeTitleTextAttributes = [
+                .foregroundColor: UIColor.white
+            ]
+        }
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
         return true
     }
 
@@ -42,7 +55,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-
