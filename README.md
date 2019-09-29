@@ -3,7 +3,7 @@
 このブランチはiOSアプリのプロジェクト構成模索用
 
 ## 開発環境
-* Xcode 10.2.1
+* Xcode 10.3
 * Swift 5.0
 * cocoapods 1.6.1
 * ruby 2.6.3
