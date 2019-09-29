@@ -32,6 +32,7 @@ final class AreaFilterViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupTableView()
+        model.delegate = self
         areaFilterView.displayAllCheckButton(isSelected: model.isAllCheck)
     }
     
@@ -52,9 +53,16 @@ extension AreaFilterViewController: AreaFilterViewDelegate {
         } else {
             model.deselectAll()
         }
+        delegate?.areaFilterViewController(self, didSelect: model.selectedAreaTypes)
+    }
+}
+
+extension AreaFilterViewController: AreaFilterModelDelegate {
+    
+    func areaFilterModel(_ areaFilterModel: AreaFilterModel,
+                         didChangeSelectedAreaTypes selectedAreaTypes: [AreaFilterModel.Area]) {
         areaFilterView.displayAllCheckButton(isSelected: model.isAllCheck)
         areaFilterView.tableView.reloadData()
-        delegate?.areaFilterViewController(self, didSelect: model.selectedAreaTypes)
     }
 }
 
@@ -67,8 +75,6 @@ extension AreaFilterViewController: UITableViewDelegate {
         } else {
             model.selectedAreaTypes.append(areaType)
         }
-        areaFilterView.displayAllCheckButton(isSelected: model.isAllCheck)
-        tableView.reloadRows(at: [indexPath], with: .none)
         delegate?.areaFilterViewController(self, didSelect: model.selectedAreaTypes)
     }
 }

@@ -8,10 +8,23 @@
 
 import UIKit
 
+protocol WeatherModelDelegate: AnyObject {
+    
+    func weatherModel(_ weatherModel: WeatherModel,
+                        didChangeWeather weather: Weather)
+}
+
 final class WeatherModel {
     
-    var weather: Weather!
+    weak var delegate: WeatherModelDelegate?
     var cityData: CityData!
+    
+    var weather: Weather! {
+        didSet {
+            delegate?.weatherModel(self, didChangeWeather: weather)
+        }
+    }
+    
     let dateFormatter: DateFormatter = {
         var df = DateFormatter()
         df.locale = Locale(identifier: "ja_JP")

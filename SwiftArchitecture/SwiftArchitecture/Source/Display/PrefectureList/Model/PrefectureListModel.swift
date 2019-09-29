@@ -8,14 +8,49 @@
 
 import UIKit
 
+protocol PrefectureListModelDelegate: AnyObject {
+    
+    func prefectureListModel(_ prefectureListModel: PrefectureListModel,
+                             didChangeTableDataList tableDataList: [CityData])
+    
+    func prefectureListModel(_ prefectureListModel: PrefectureListModel,
+                             didChangeSelectedAreaTypes selectedAreaTypes: [AreaFilterModel.Area])
+    
+    func prefectureListModel(_ prefectureListModel: PrefectureListModel,
+                             didChangeFavoriteCityIds favoriteCityIds: [String])
+    
+    func prefectureListModel(_ prefectureListModel: PrefectureListModel,
+                             didChangeIsFavoriteFilter isFavoriteFilter: Bool)
+}
+
 final class PrefectureListModel {
     
+    weak var delegate: PrefectureListModelDelegate?
     let USER_DEFAULTS_FAVORITES_KEY = "USER_DEFAULTS_FAVORITES_KEY"
-    var tableDataList = [CityData]()
     var cityDataList = [CityData]()
-    var selectedAreaTypes = [AreaFilterModel.Area]()
-    var favoriteCityIds = [String]()
-    var isFavoriteFilter = false
+    var tableDataList = [CityData]() {
+        didSet {
+            delegate?.prefectureListModel(self, didChangeTableDataList: tableDataList)
+        }
+    }
+    
+    var selectedAreaTypes = [AreaFilterModel.Area]() {
+        didSet {
+            delegate?.prefectureListModel(self, didChangeSelectedAreaTypes: selectedAreaTypes)
+        }
+    }
+    
+    var favoriteCityIds = [String]() {
+        didSet {
+            delegate?.prefectureListModel(self, didChangeFavoriteCityIds: favoriteCityIds)
+        }
+    }
+    
+    var isFavoriteFilter = false {
+        didSet {
+            delegate?.prefectureListModel(self, didChangeIsFavoriteFilter: isFavoriteFilter)
+        }
+    }
     
     init() {
         self.cityDataList = loadCityDataList()

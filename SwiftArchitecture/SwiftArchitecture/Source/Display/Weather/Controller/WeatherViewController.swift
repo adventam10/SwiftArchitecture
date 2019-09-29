@@ -24,15 +24,16 @@ final class WeatherViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupNavigation()
+        model.delegate = self
         displayWeather()
     }
 
     private func setupNavigation() {
         self.navigationItem.title = model.cityData.name
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .refresh,
-                                                                      target: self,
-                                                                      action: #selector(tappedRefreshButton(_:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh,
+                                                                 target: self,
+                                                                 action: #selector(tappedRefreshButton(_:)))
     }
     
     @objc private func tappedRefreshButton(_ button: UIBarButtonItem) {
@@ -43,7 +44,6 @@ final class WeatherViewController: UIViewController {
                 switch result {
                 case .success(let weather):
                     self.model.weather = weather
-                    self.displayWeather()
                 case .failure(let error):
                     UIAlertController.showAlert(viewController: self,
                                                 message: error.localizedDescription,
@@ -76,5 +76,12 @@ final class WeatherViewController: UIViewController {
                                                 maxCelsius: model.getMaxCelsius(from: model.dayAfterTomorrowForecast),
                                                 minCelsius: model.getMinCelsius(from: model.dayAfterTomorrowForecast),
                                                 image: dayAfterTomorrowImage)
+    }
+}
+
+extension WeatherViewController: WeatherModelDelegate {
+    
+    func weatherModel(_ weatherModel: WeatherModel, didChangeWeather weather: Weather) {
+        displayWeather()
     }
 }

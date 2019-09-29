@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol AreaFilterModelDelegate: AnyObject {
+    
+    func areaFilterModel(_ areaFilterModel: AreaFilterModel,
+                        didChangeSelectedAreaTypes selectedAreaTypes: [AreaFilterModel.Area])
+}
+
 final class AreaFilterModel {
     
     enum Area: Int, CaseIterable {
@@ -43,8 +49,14 @@ final class AreaFilterModel {
         }
     }
     
+    weak var delegate: AreaFilterModelDelegate?
     let tableDataList = Area.allCases
-    var selectedAreaTypes: [Area]!
+    
+    var selectedAreaTypes: [Area]! {
+        didSet {
+            delegate?.areaFilterModel(self, didChangeSelectedAreaTypes: selectedAreaTypes)
+        }
+    }
     
     var isAllCheck: Bool {
         if selectedAreaTypes.isEmpty {

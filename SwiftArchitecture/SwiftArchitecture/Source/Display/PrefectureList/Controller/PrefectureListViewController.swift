@@ -26,7 +26,8 @@ final class PrefectureListViewController: UIViewController {
         // Do any additional setup after loading the view.
         setupNavigation()
         setupTableView()
-        reloadView()
+        model.delegate = self
+        model.tableDataList = model.filteringCityDataList(isFavoriteFilter: model.isFavoriteFilter)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,16 +45,10 @@ final class PrefectureListViewController: UIViewController {
     
     private func setupNavigation() {
         self.navigationItem.title = "お天気"
-        self.navigationItem.backBarButtonItem = UIBarButtonItem.init(title: "戻る",
-                                                                     style: .plain,
-                                                                     target: nil,
-                                                                     action: nil)
-    }
-    
-    private func reloadView() {
-        model.tableDataList = model.filteringCityDataList(isFavoriteFilter: model.isFavoriteFilter)
-        prefectureListView.displayView(isFavoriteFilter: model.isFavoriteFilter,
-                                       isTableDataNone: model.tableDataList.isEmpty)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る",
+                                                                style: .plain,
+                                                                target: nil,
+                                                                action: nil)
     }
     
     private func showAreaFilterViewController(button: UIButton) {
@@ -80,7 +75,6 @@ extension PrefectureListViewController: PrefectureListViewDelegate {
     func prefectureListView(_ prefectureListView: PrefectureListView,
                             didTapFavorite button: UIButton) {
         model.isFavoriteFilter = !model.isFavoriteFilter
-        reloadView()
     }
     
     func prefectureListView(_ prefectureListView: PrefectureListView,
@@ -102,17 +96,38 @@ extension PrefectureListViewController: PrefectureListTableViewCellDelegate {
         } else {
             model.favoriteCityIds.append(cityData.cityId)
         }
-        model.saveFavoriteList(model.favoriteCityIds)
-        reloadView()
     }
 }
 
+extension PrefectureListViewController: PrefectureListModelDelegate {
+    
+    func prefectureListModel(_ prefectureListModel: PrefectureListModel,
+                             didChangeTableDataList tableDataList: [CityData]) {
+        prefectureListView.displayView(isFavoriteFilter: model.isFavoriteFilter,
+                                       isTableDataNone: model.tableDataList.isEmpty)
+    }
+    
+    func prefectureListModel(_ prefectureListModel: PrefectureListModel,
+                             didChangeSelectedAreaTypes selectedAreaTypes: [AreaFilterModel.Area]) {
+        model.tableDataList = model.filteringCityDataList(isFavoriteFilter: model.isFavoriteFilter)
+    }
+    
+    func prefectureListModel(_ prefectureListModel: PrefectureListModel,
+                             didChangeFavoriteCityIds favoriteCityIds: [String]) {
+        model.saveFavoriteList(favoriteCityIds)
+        model.tableDataList = model.filteringCityDataList(isFavoriteFilter: model.isFavoriteFilter)
+    }
+    
+    func prefectureListModel(_ prefectureListModel: PrefectureListModel,
+                             didChangeIsFavoriteFilter isFavoriteFilter: Bool) {
+        model.tableDataList = model.filteringCityDataList(isFavoriteFilter: isFavoriteFilter)
+    }
+}
 extension PrefectureListViewController: AreaFilterViewControllerDelegate {
     
     func areaFilterViewController(_ areaFilterViewController: AreaFilterViewController,
                                   didSelect areaTypes: [AreaFilterModel.Area]) {
         model.selectedAreaTypes = areaTypes
-        reloadView()
     }
 }
 
