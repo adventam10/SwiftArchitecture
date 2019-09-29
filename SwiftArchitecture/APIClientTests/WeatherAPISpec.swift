@@ -14,7 +14,7 @@ class WeatherAPISpec: QuickSpec {
     override func spec() {
         describe("WeatherDetailAPI makeRequest method") {
             let request = WeatherDetailAPI(cityId: "AAA").makeRequest()
-            it("set http parameter") {
+            it("sets http parameter") {
                 expect(request?.url?.absoluteString).to(equal("http://weather.livedoor.com/forecast/webservice/json/v1?city=AAA"))
                 let emptyHeaderFields: [String: String] = [:]
                 expect(request?.allHTTPHeaderFields).to(equal(emptyHeaderFields))

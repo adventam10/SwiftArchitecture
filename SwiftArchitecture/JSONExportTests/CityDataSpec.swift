@@ -20,7 +20,7 @@ class CityDataSpec: QuickSpec {
  ]}
  """
             let cityDataList = try? JSONDecoder().decode(CityDataList.self, from: text.data(using: .utf8)!)
-            it ("decodable") {
+            it ("is decodable") {
                 expect(cityDataList).notTo(beNil())
                 expect(cityDataList?.cityDataList).to(haveCount(2))
                 let cityData = cityDataList?.cityDataList?.first
@@ -36,7 +36,7 @@ class CityDataSpec: QuickSpec {
  { "cityId": "270000", "name": "大阪", "area": 4 }
  """
             let cityData = try? JSONDecoder().decode(CityData.self, from: text.data(using: .utf8)!)
-            it ("decodable") {
+            it ("is decodable") {
                 expect(cityData).notTo(beNil())
                 expect(cityData?.cityId).to(equal("270000"))
                 expect(cityData?.name).to(equal("大阪"))

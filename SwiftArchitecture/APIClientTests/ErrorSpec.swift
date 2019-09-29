@@ -13,20 +13,20 @@ import Nimble
 class ErrorSpec: QuickSpec {
     override func spec() {
         describe("localizedDescription") {
-            context("network") {
-                it("not nil") {
+            context("when error is network") {
+                it("is not nil") {
                     expect(APIError.network.localizedDescription).notTo(beNil())
                 }
             }
             
-            context("notFound") {
-                it("not nil") {
+            context("when error is notFound") {
+                it("is not nil") {
                     expect(APIError.notFound.localizedDescription).notTo(beNil())
                 }
             }
             
-            context("invalidJSON") {
-                it("not nil") {
+            context("when error is invalidJSON") {
+                it("is not nil") {
                     expect(APIError.invalidJSON("invalid").localizedDescription).notTo(beNil())
                 }
             }

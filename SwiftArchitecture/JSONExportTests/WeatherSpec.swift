@@ -17,7 +17,7 @@ class WeatherSpec: QuickSpec {
  { "celsius": "26", "fahrenheit": "78.8" }
  """
             let max = try? JSONDecoder().decode(Max.self, from: text.data(using: .utf8)!)
-            it ("decodable") {
+            it ("is decodable") {
                 expect(max).notTo(beNil())
                 expect(max?.celsius).to(equal("26"))
                 expect(max?.fahrenheit).to(equal("78.8"))
@@ -29,7 +29,7 @@ class WeatherSpec: QuickSpec {
  {"city":"大阪","area":"近畿","prefecture":"大阪府"}
  """
             let location = try? JSONDecoder().decode(Location.self, from: text.data(using: .utf8)!)
-            it ("decodable") {
+            it ("is decodable") {
                 expect(location).notTo(beNil())
                 expect(location?.city).to(equal("大阪"))
                 expect(location?.area).to(equal("近畿"))
@@ -42,7 +42,7 @@ class WeatherSpec: QuickSpec {
  { "publicTime": "2019-09-07T16:32:00+0900", "text": "近畿地方は、高気圧に覆われておおむね晴れています。" }
  """
             let description = try? JSONDecoder().decode(Description.self, from: text.data(using: .utf8)!)
-            it ("decodable") {
+            it ("is decodable") {
                 expect(description).notTo(beNil())
                 expect(description?.publicTime).to(equal("2019-09-07T16:32:00+0900"))
                 expect(description?.text).to(equal("近畿地方は、高気圧に覆われておおむね晴れています。"))
@@ -54,7 +54,7 @@ class WeatherSpec: QuickSpec {
  { "link": "http://tenki.jp/", "name": "日本気象協会" }
  """
             let provider = try? JSONDecoder().decode(Provider.self, from: text.data(using: .utf8)!)
-            it ("decodable") {
+            it ("is decodable") {
                 expect(provider).notTo(beNil())
                 expect(provider?.link).to(equal("http://tenki.jp/"))
                 expect(provider?.name).to(equal("日本気象協会"))
@@ -67,7 +67,7 @@ class WeatherSpec: QuickSpec {
             "title":"晴時々曇", "height":31}
  """
             let image = try? JSONDecoder().decode(Image.self, from: text.data(using: .utf8)!)
-            it ("decodable") {
+            it ("is decodable") {
                 expect(image).notTo(beNil())
                 expect(image?.height).to(equal(31))
                 expect(image?.width).to(equal(50))
@@ -77,25 +77,25 @@ class WeatherSpec: QuickSpec {
         }
         
         describe("Temperature") {
-            context("null") {
+            context("when nullable properties are null") {
                 let text = """
  { "min" : null, "max" : null }
  """
                 let temperature = try? JSONDecoder().decode(Temperature.self, from: text.data(using: .utf8)!)
-                it ("decodable") {
+                it ("is decodable") {
                     expect(temperature).notTo(beNil())
                     expect(temperature?.min).to(beNil())
                     expect(temperature?.max).to(beNil())
                 }
             }
             
-            context("exist data") {
+            context("when nullable properties have data") {
                 let text = """
  { "min" : {"celsius" : "3", "fahrenheit" : "37.4"},
    "max" : {"celsius" : "13", "fahrenheit" : "55.4"} }
  """
                 let temperature = try? JSONDecoder().decode(Temperature.self, from: text.data(using: .utf8)!)
-                it ("decodable") {
+                it ("is decodable") {
                     expect(temperature).notTo(beNil())
                     expect(temperature?.min).notTo(beNil())
                     expect(temperature?.min?.celsius).to(equal("3"))
@@ -108,7 +108,7 @@ class WeatherSpec: QuickSpec {
         }
         
         describe("Copyright") {
-            context("null") {
+            context("when nullable properties are null") {
                 let text = """
  { "provider" : null,
  "link" : "http://weather.livedoor.com/", "title" : "(C) LINE Corporation",
@@ -116,7 +116,7 @@ class WeatherSpec: QuickSpec {
  }
  """
                 let copyright = try? JSONDecoder().decode(Copyright.self, from: text.data(using: .utf8)!)
-                it ("decodable") {
+                it ("is decodable") {
                     expect(copyright).notTo(beNil())
                     expect(copyright?.provider).to(beNil())
                     expect(copyright?.link).to(equal("http://weather.livedoor.com/"))
@@ -125,7 +125,7 @@ class WeatherSpec: QuickSpec {
                 }
             }
             
-            context("empty") {
+            context("when nullable properties are empty") {
                 let text = """
  { "provider" : [],
  "link" : "http://weather.livedoor.com/", "title" : "(C) LINE Corporation",
@@ -133,7 +133,7 @@ class WeatherSpec: QuickSpec {
  }
  """
                 let copyright = try? JSONDecoder().decode(Copyright.self, from: text.data(using: .utf8)!)
-                it ("decodable") {
+                it ("is decodable") {
                     expect(copyright).notTo(beNil())
                     expect(copyright?.provider).notTo(beNil())
                     expect(copyright?.link).to(equal("http://weather.livedoor.com/"))
@@ -142,7 +142,7 @@ class WeatherSpec: QuickSpec {
                 }
             }
             
-            context("exist data") {
+            context("when nullable properties have data") {
                 let text = """
  { "provider" : [{"link" : "http://tenki.jp/", "name" : "日本気象協会"}],
  "link" : "http://weather.livedoor.com/", "title" : "(C) LINE Corporation",
@@ -151,7 +151,7 @@ class WeatherSpec: QuickSpec {
  }
  """
                 let copyright = try? JSONDecoder().decode(Copyright.self, from: text.data(using: .utf8)!)
-                it ("decodable") {
+                it ("is decodable") {
                     expect(copyright).notTo(beNil())
                     expect(copyright?.provider).notTo(beNil())
                     expect(copyright?.provider).to(haveCount(1))
@@ -171,7 +171,7 @@ class WeatherSpec: QuickSpec {
         }
         
         describe("Forecast") {
-            context("null") {
+            context("when nullable properties are null") {
                 let text = """
  {
     "dateLabel" : "今日",
@@ -182,7 +182,7 @@ class WeatherSpec: QuickSpec {
  }
  """
                 let forecast = try? JSONDecoder().decode(Forecast.self, from: text.data(using: .utf8)!)
-                it ("decodable") {
+                it ("is decodable") {
                     expect(forecast).notTo(beNil())
                     expect(forecast?.temperature).to(beNil())
                     expect(forecast?.image).to(beNil())
@@ -192,7 +192,7 @@ class WeatherSpec: QuickSpec {
                 }
             }
             
-            context("empty") {
+            context("when nullable properties are empty") {
                 let text = """
  {
     "dateLabel" : "今日",
@@ -203,7 +203,7 @@ class WeatherSpec: QuickSpec {
  }
  """
                 let forecast = try? JSONDecoder().decode(Forecast.self, from: text.data(using: .utf8)!)
-                it ("decodable") {
+                it ("is decodable") {
                     expect(forecast).notTo(beNil())
                     expect(forecast?.temperature).notTo(beNil())
                     expect(forecast?.image).notTo(beNil())
@@ -213,7 +213,7 @@ class WeatherSpec: QuickSpec {
                 }
             }
             
-            context("exist data") {
+            context("when nullable properties have data") {
                 let text = """
  {
     "dateLabel" : "今日",
@@ -235,7 +235,7 @@ class WeatherSpec: QuickSpec {
  }
  """
                 let forecast = try? JSONDecoder().decode(Forecast.self, from: text.data(using: .utf8)!)
-                it ("decodable") {
+                it ("is decodable") {
                     expect(forecast).notTo(beNil())
                     expect(forecast?.temperature).notTo(beNil())
                     expect(forecast?.temperature?.min).to(beNil())
@@ -255,7 +255,7 @@ class WeatherSpec: QuickSpec {
         }
         
         describe("Weather") {
-            context("null") {
+            context("when nullable properties are null") {
                 let text = """
  {
    "publicTime" : "2013-01-29T11:00:00+0900",
@@ -269,7 +269,7 @@ class WeatherSpec: QuickSpec {
  }
  """
                 let weather = try? JSONDecoder().decode(Weather.self, from: text.data(using: .utf8)!)
-                it ("decodable") {
+                it ("is decodable") {
                     expect(weather).notTo(beNil())
                     expect(weather?.forecasts).to(beNil())
                     expect(weather?.copyright).to(beNil())
@@ -282,7 +282,7 @@ class WeatherSpec: QuickSpec {
                 }
             }
             
-            context("empty") {
+            context("when nullable properties are empty") {
                 let text = """
  {
    "publicTime" : "2013-01-29T11:00:00+0900",
@@ -296,7 +296,7 @@ class WeatherSpec: QuickSpec {
  }
  """
                 let weather = try? JSONDecoder().decode(Weather.self, from: text.data(using: .utf8)!)
-                it ("decodable") {
+                it ("is decodable") {
                     expect(weather).notTo(beNil())
                     expect(weather?.forecasts).notTo(beNil())
                     expect(weather?.copyright).notTo(beNil())
@@ -309,7 +309,7 @@ class WeatherSpec: QuickSpec {
                 }
             }
             
-            context("exist data") {
+            context("when nullable properties have data") {
                 let text = """
  {
    "publicTime" : "2013-01-29T11:00:00+0900",
@@ -370,7 +370,7 @@ class WeatherSpec: QuickSpec {
  }
  """
                 let weather = try? JSONDecoder().decode(Weather.self, from: text.data(using: .utf8)!)
-                it ("decodable") {
+                it ("is decodable") {
                     expect(weather).notTo(beNil())
                     expect(weather?.forecasts).notTo(beNil())
                     expect(weather?.forecasts).to(haveCount(1))
